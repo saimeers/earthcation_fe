@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription }
                        from '../../components/ui/dialog'
 import { useCreateSession } from '../../hooks/useSession'
 
-export function CreateSessionModal({ open, onClose }) {
+export default function CreateSessionModal({ open, onClose }) {
   const { register, handleSubmit, reset } = useForm()
   const createSession = useCreateSession()
 

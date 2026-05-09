@@ -8,7 +8,7 @@ import { Skeleton }  from '../../components/ui/skeleton'
 import { Separator } from '../../components/ui/separator'
 import { playerService } from '../../services/player.service'
 
-export function PlayersPage() {
+export default function PlayersPage() {
   const [search, setSearch] = useState('')
 
   const { data: players, isLoading } = useQuery({

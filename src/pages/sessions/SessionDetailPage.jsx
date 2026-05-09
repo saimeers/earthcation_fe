@@ -8,7 +8,7 @@ import { useSessionProgress } from '../../hooks/useSession'
 
 const styleVariant = { Visual: 'default', Auditivo: 'secondary', 'Lector/Escritor': 'outline' }
 
-export function SessionDetailPage() {
+export default function SessionDetailPage() {
   const { id } = useParams()
   const { data, isLoading } = useSessionProgress(id)
 

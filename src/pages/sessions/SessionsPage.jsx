@@ -11,7 +11,7 @@ import { useMySessions, useStartSession, useEndSession } from '../../hooks/useSe
 const statusLabel = { waiting: 'En espera', active: 'Activa', finished: 'Finalizada' }
 const statusVariant = { waiting: 'secondary', active: 'default', finished: 'outline' }
 
-export function SessionsPage() {
+export default function SessionsPage() {
   const [open, setOpen]  = useState(false)
   const { data: sessions, isLoading } = useMySessions()
   const startSession = useStartSession()
