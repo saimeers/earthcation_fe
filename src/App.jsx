@@ -13,6 +13,10 @@ import UsersAdminPage from './pages/admin/UsersAdminPage'
 import LocationsAdminPage from './pages/admin/LocationsAdminPage'
 import OrganizationsAdminPage from './pages/admin/OrganizationsAdminPage'
 
+import AnalyticsAdminPage from './pages/admin/AnalyticsAdminPage'
+import SessionsAdminPage from './pages/admin/SessionsAdminPage'
+import SessionDetailAdminPage from './pages/admin/SessionDetailAdminPage'
+
 import { ProtectedRoute } from './components/shared/ProtectedRoute'
 
 const queryClient = new QueryClient({
@@ -37,8 +41,10 @@ function App() {
                 <AdminPage />
               </ProtectedRoute>
             }>
-              <Route index element={<UsersAdminPage />} />
+              <Route index element={<AnalyticsAdminPage />} />
               <Route path="users" element={<UsersAdminPage />} />
+              <Route path="sessions" element={<SessionsAdminPage />} />
+              <Route path="sessions/:id" element={<SessionDetailAdminPage />} />
               <Route path="locations" element={<LocationsAdminPage />} />
               <Route path="organizations" element={<OrganizationsAdminPage />} />
             </Route>

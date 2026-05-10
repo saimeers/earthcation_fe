@@ -1,5 +1,5 @@
 import {
-  Users, MapPin, Building2, Shield, LayoutDashboard,
+  Users, MapPin, Building2, Shield, LayoutDashboard, CalendarDays, BarChart3
 } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import {
@@ -15,8 +15,9 @@ const adminNav = [
   {
     label: 'Principal',
     items: [
-      { title: 'Resumen',        url: '/admin',               icon: LayoutDashboard },
+      { title: 'Analíticas',     url: '/admin',               icon: BarChart3       },
       { title: 'Usuarios',       url: '/admin/users',          icon: Users           },
+      { title: 'Sesiones',       url: '/admin/sessions',       icon: CalendarDays    },
     ],
   },
   {
@@ -72,7 +73,7 @@ export function AppSidebar({ ...props }) {
                         isActive={active}
                         tooltip={item.title}
                         className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors duration-200"
-                        onClick={() => setOpen(true)}>
+                        onClick={() => setOpen(false)}>
                         <Link to={item.url}>
                           <item.icon className="size-4 shrink-0" />
                           <span>{item.title}</span>

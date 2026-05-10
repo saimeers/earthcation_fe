@@ -12,6 +12,7 @@ import {
 const breadcrumbMap = {
   '/admin':               'Resumen',
   '/admin/users':         'Usuarios',
+  '/admin/sessions':      'Sesiones', 
   '/admin/locations':     'Localidades',
   '/admin/organizations': 'Organizaciones',
 }
