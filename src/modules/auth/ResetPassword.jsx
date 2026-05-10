@@ -124,9 +124,6 @@ export default function ResetPassword() {
         <Card>
           <CardHeader>
             <CardTitle className="text-xl">Nueva contraseña</CardTitle>
-            <CardDescription>
-              Elige una contraseña segura para tu cuenta
-            </CardDescription>
           </CardHeader>
 
           <CardContent>

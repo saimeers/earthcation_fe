@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react'
-import { Link }                from 'react-router-dom'
-import { toast }               from 'sonner'
-import { Loader2, ArrowLeft }  from 'lucide-react'
-import { Button }              from '@/components/ui/button'
-import { Input }               from '@/components/ui/input'
-import { Label }               from '@/components/ui/label'
+import { Link } from 'react-router-dom'
+import { toast } from 'sonner'
+import { Loader2, ArrowLeft } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle }
-                               from '@/components/ui/card'
-import Aurora                  from '@/components/Aurora'
-import { authService }         from '@/services/auth.service'
+  from '@/components/ui/card'
+import Aurora from '@/components/Aurora'
+import { authService } from '@/services/auth.service'
 
-const AURORA_DARK  = ['#0f3460', '#16213e', '#533483']
+const AURORA_DARK = ['#0f3460', '#16213e', '#533483']
 const AURORA_LIGHT = ['#c9d6ff', '#e2e2e2', '#a8c0ff']
 
 export default function ForgotPassword() {
-  const [email,   setEmail]   = useState('')
+  const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
-  const [sent,    setSent]    = useState(false)
-  const [isDark,  setIsDark]  = useState(
+  const [sent, setSent] = useState(false)
+  const [isDark, setIsDark] = useState(
     () => document.documentElement.classList.contains('dark')
   )
 
@@ -29,15 +29,23 @@ export default function ForgotPassword() {
     return () => observer.disconnect()
   }, [])
 
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!email.trim()) {
       toast.error('Ingresa tu correo electrónico')
       return
     }
+    if (!isValidEmail(email.trim())) {
+      toast.error('Correo inválido', {
+        description: 'Ingresa un correo electrónico con formato válido.',
+      })
+      return
+    }
     setLoading(true)
     try {
-      await authService.forgotPassword({ email })
+      await authService.forgotPassword({ email: email.trim() })
       setSent(true)
     } catch {
       setSent(true)
@@ -56,9 +64,8 @@ export default function ForgotPassword() {
           amplitude={isDark ? 1.0 : 0.6}
           speed={0.5}
         />
-        <div className={`absolute inset-0 transition-colors duration-500 ${
-          isDark ? 'bg-background/60' : 'bg-background/70'
-        }`} />
+        <div className={`absolute inset-0 transition-colors duration-500 ${isDark ? 'bg-background/60' : 'bg-background/70'
+          }`} />
       </div>
 
       <div className="relative z-10 w-full max-w-sm">

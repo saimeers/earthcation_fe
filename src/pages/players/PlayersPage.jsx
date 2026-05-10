@@ -6,7 +6,7 @@ import { Badge }     from '../../components/ui/badge'
 import { Button }    from '../../components/ui/button'
 import { Skeleton }  from '../../components/ui/skeleton'
 import { Separator } from '../../components/ui/separator'
-import { playerService } from '../../services/player.service'
+import { userService }  from '../../services/user.service'
 
 export default function PlayersPage() {
   const [search, setSearch] = useState('')

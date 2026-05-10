@@ -57,7 +57,7 @@ export function LoginForm() {
 
       toast.success(`Bienvenido, ${user.first_name}`)
 
-      navigate('/dashboard')
+      navigate('/admin')
     } catch (err) {
       toast.error('Error al iniciar sesión', {
         description:
@@ -139,7 +139,7 @@ export function LoginForm() {
           </div>
 
           <Button
-            type="submit"
+            type="button"
             className="w-full"
             disabled={loading}
           >

@@ -1,26 +1,16 @@
-import { Navigate } from 'react-router-dom'
+import { Navigate, useLocation } from 'react-router-dom'
+import { useAuthStore }          from '@/store/authStore'
 
-import { useAuthStore } from '@/store/authStore'
+export function ProtectedRoute({ children, allowedRoles }) {
+  const token    = useAuthStore(s => s.token)
+  const user     = useAuthStore(s => s.user)
+  const location = useLocation()
 
-export function ProtectedRoute({
-  children,
-  allowedRoles,
-}) {
-  const token = useAuthStore((s) => s.token)
+  if (!token)
+    return <Navigate to="/login" state={{ from: location }} replace />
 
-  const user = useAuthStore((s) => s.user)
-
-  if (!token) {
-    return <Navigate to="/login" replace />
-  }
-
-  if (
-    allowedRoles &&
-    user?.role &&
-    !allowedRoles.includes(user.role)
-  ) {
+  if (allowedRoles && user?.role && !allowedRoles.includes(user.role))
     return <Navigate to="/" replace />
-  }
 
   return <>{children}</>
 }

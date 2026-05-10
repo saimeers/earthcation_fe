@@ -1,27 +1,28 @@
-import { useState, useEffect }   from 'react'
-import { useNavigate, Link }     from 'react-router-dom'
-import { useForm }               from 'react-hook-form'
-import { toast }                 from 'sonner'
+import { useState, useEffect } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import { Loader2, Eye, EyeOff, ArrowLeft } from 'lucide-react'
-import { Button }                from '@/components/ui/button'
-import { Input }                 from '@/components/ui/input'
-import { Label }                 from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle }
-                                 from '@/components/ui/card'
-import Aurora                    from '@/components/Aurora'
-import { authService }           from '@/services/auth.service'
-import { useAuthStore }          from '@/store/authStore'
+  from '@/components/ui/card'
+import Aurora from '@/components/Aurora'
+import { authService } from '@/services/auth.service'
+import { useAuthStore } from '@/store/authStore'
 
-const AURORA_DARK  = ['#0f3460', '#16213e', '#533483']
+// Colors Background Aurora
+const AURORA_DARK = ['#0f3460', '#16213e', '#533483']
 const AURORA_LIGHT = ['#c9d6ff', '#e2e2e2', '#a8c0ff']
 
 export default function Login() {
   const navigate = useNavigate()
-  const setAuth  = useAuthStore(s => s.setAuth)
+  const setAuth = useAuthStore(s => s.setAuth)
 
-  const [loading,      setLoading]      = useState(false)
+  const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
-  const [isDark,       setIsDark]       = useState(
+  const [isDark, setIsDark] = useState(
     () => document.documentElement.classList.contains('dark')
   )
 
@@ -38,19 +39,23 @@ export default function Login() {
   const onSubmit = async (data) => {
     setLoading(true)
     try {
-      const res  = await authService.login(data)
+      const res = await authService.login(data)
       const { token, user } = res.data
 
       if (user.role !== 'instructor' && user.role !== 'admin') {
         toast.error('Acceso restringido', {
           description: 'Esta plataforma es solo para instructores y administradores.',
         })
+        setLoading(false)
         return
       }
 
       setAuth(token, user)
       toast.success(`Bienvenido, ${user.first_name}`)
-      navigate('/dashboard')
+
+      if (user.role === 'admin') navigate('/admin')
+      else if (user.role === 'instructor') navigate('/instructor')
+
     } catch (err) {
       toast.error('Error al iniciar sesión', {
         description: err.response?.data?.error ?? 'Cédula o contraseña incorrectos.',
@@ -70,9 +75,8 @@ export default function Login() {
           amplitude={isDark ? 1.0 : 0.6}
           speed={0.5}
         />
-        <div className={`absolute inset-0 transition-colors duration-500 ${
-          isDark ? 'bg-background/60' : 'bg-background/70'
-        }`} />
+        <div className={`absolute inset-0 transition-colors duration-500 ${isDark ? 'bg-background/60' : 'bg-background/70'
+          }`} />
       </div>
 
       <div className="relative z-10 w-full max-w-sm">
@@ -140,7 +144,7 @@ export default function Login() {
                     aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}>
                     {showPassword
                       ? <EyeOff className="h-4 w-4" />
-                      : <Eye    className="h-4 w-4" />}
+                      : <Eye className="h-4 w-4" />}
                   </button>
                 </div>
                 {errors.password &&

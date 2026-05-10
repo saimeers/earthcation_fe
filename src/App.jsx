@@ -1,47 +1,52 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { QueryClient, QueryClientProvider }        from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { TooltipProvider } from '@/components/ui/tooltip'
 
-import HomePage           from './pages/home/HomePage'
-import LoginPage          from './pages/auth/LoginPage'
-import RegisterPage       from './pages/auth/RegisterPage'
+import HomePage from './pages/home/HomePage'
+import LoginPage from './pages/auth/LoginPage'
 import ForgotPasswordPage from './pages/auth/ForgotPasswordPage'
-import ResetPasswordPage  from './pages/auth/ResetPasswordPage'
-import SessionDetailPage  from './pages/sessions/SessionDetailPage'
-import PlayersPage        from './pages/players/PlayersPage'
+import ResetPasswordPage from './pages/auth/ResetPasswordPage'
+
+
+import AdminPage from './pages/admin/AdminPage'
+import UsersAdminPage from './pages/admin/UsersAdminPage'
+import LocationsAdminPage from './pages/admin/LocationsAdminPage'
+import OrganizationsAdminPage from './pages/admin/OrganizationsAdminPage'
 
 import { ProtectedRoute } from './components/shared/ProtectedRoute'
 
 const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: { retry: 1, staleTime: 30_000 },
-  },
+  defaultOptions: { queries: { retry: 1, staleTime: 30_000 } },
 })
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <Routes>
-          <Route path="/"                element={<HomePage />} />
-          <Route path="/login"           element={<LoginPage />} />
-          <Route path="/register"        element={<RegisterPage />} />
-          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-          <Route path="/reset-password" element={<ResetPasswordPage />} />
-          <Route path="/sessions/:id" element={
-            <ProtectedRoute allowedRoles={['instructor', 'admin']}>
-              <SessionDetailPage />
-            </ProtectedRoute>
-          }/>
+    <TooltipProvider>
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <Routes>
+            {/* Public */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/reset-password" element={<ResetPasswordPage />} />
 
-          <Route path="/players" element={
-            <ProtectedRoute allowedRoles={['instructor', 'admin']}>
-              <PlayersPage />
-            </ProtectedRoute>
-          }/>
+            {/* Admin */}
+            <Route path="/admin" element={
+              <ProtectedRoute allowedRoles={['admin']}>
+                <AdminPage />
+              </ProtectedRoute>
+            }>
+              <Route index element={<UsersAdminPage />} />
+              <Route path="users" element={<UsersAdminPage />} />
+              <Route path="locations" element={<LocationsAdminPage />} />
+              <Route path="organizations" element={<OrganizationsAdminPage />} />
+            </Route>
 
-        </Routes>
-      </Router>
-    </QueryClientProvider>
+          </Routes>
+        </Router>
+      </QueryClientProvider>
+    </TooltipProvider>
   )
 }
 
