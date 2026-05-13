@@ -68,16 +68,6 @@ export function AnalyticsPage() {
 
   return (
     <div className="space-y-6">
-
-      <div>
-        <h1 className="text-xl font-semibold tracking-tight">Analíticas</h1>
-        <p className="text-sm text-muted-foreground mt-0.5">
-          Resumen general del juego serio
-        </p>
-      </div>
-
-      <Separator />
-
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Usuarios totales"

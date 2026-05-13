@@ -78,7 +78,7 @@ export function NavUser() {
           </DropdownMenuTrigger>
 
           <DropdownMenuContent
-            className="w-64 rounded-xl z-[100] bg-popover text-popover-foreground shadow-xl"
+            className="w-64 rounded-xl z-101 bg-popover text-popover-foreground shadow-xl"
             side="top"        
             align="start"     
             sideOffset={8}
@@ -113,7 +113,7 @@ export function NavUser() {
               </DropdownMenuSubTrigger>
               <DropdownMenuPortal>
                 <DropdownMenuSubContent
-                  className="min-w-40 rounded-xl bg-popover shadow-xl z-[101]"
+                  className="min-w-40 rounded-xl bg-popover shadow-xl z-101"
                   sideOffset={8}>
                   {[
                     { value: 'light',  label: 'Claro',   Icon: Sun     },

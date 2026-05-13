@@ -83,7 +83,7 @@ export function UserFormModal({ open, onClose, user }) {
           border border-border
           shadow-2xl rounded-xl
           max-h-[90vh] overflow-y-auto
-          z-[300]
+          z-300
         ">
         <DialogHeader className="space-y-1">
           <DialogTitle className="text-base font-semibold">
@@ -98,7 +98,6 @@ export function UserFormModal({ open, onClose, user }) {
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 pt-2">
 
-          {/* Nombre y apellido */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="space-y-1.5">
               <Label htmlFor="first_name" className="text-sm font-medium">
@@ -130,7 +129,6 @@ export function UserFormModal({ open, onClose, user }) {
             </div>
           </div>
 
-          {/* Cédula */}
           <div className="space-y-1.5">
             <Label htmlFor="cedula" className="text-sm font-medium">
               Cédula <span className="text-destructive">*</span>
@@ -147,7 +145,6 @@ export function UserFormModal({ open, onClose, user }) {
               <p className="text-xs text-destructive">{errors.cedula.message}</p>}
           </div>
 
-          {/* Correo */}
           <div className="space-y-1.5">
             <Label htmlFor="email" className="text-sm font-medium">
               Correo electrónico <span className="text-destructive">*</span>
@@ -167,7 +164,6 @@ export function UserFormModal({ open, onClose, user }) {
               <p className="text-xs text-destructive">{errors.email.message}</p>}
           </div>
 
-          {/* Usuario y edad */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="space-y-1.5">
               <Label htmlFor="username" className="text-sm font-medium">
@@ -203,7 +199,6 @@ export function UserFormModal({ open, onClose, user }) {
             </div>
           </div>
 
-          {/* Rol */}
           <div className="space-y-1.5">
             <Label className="text-sm font-medium">Rol</Label>
             <Select
@@ -213,7 +208,7 @@ export function UserFormModal({ open, onClose, user }) {
               <SelectTrigger className="bg-background border-border">
                 <SelectValue placeholder="Selecciona un rol" />
               </SelectTrigger>
-              <SelectContent className="z-[400] bg-popover border border-border shadow-xl">
+              <SelectContent className="z-400 bg-popover border border-border shadow-xl">
                 {ROLES.map(r => (
                   <SelectItem key={r.value} value={r.value} className="text-sm cursor-pointer">
                     {r.label}
@@ -223,7 +218,6 @@ export function UserFormModal({ open, onClose, user }) {
             </Select>
           </div>
 
-          {/* Nota para creación */}
           {!isEdit && (
             <div className="rounded-lg bg-muted border border-border px-3 py-2.5">
               <p className="text-xs text-muted-foreground leading-relaxed">
@@ -233,7 +227,6 @@ export function UserFormModal({ open, onClose, user }) {
             </div>
           )}
 
-          {/* Botones */}
           <div className="flex flex-col-reverse sm:flex-row gap-2 sm:justify-end pt-1">
             <Button
               type="button"

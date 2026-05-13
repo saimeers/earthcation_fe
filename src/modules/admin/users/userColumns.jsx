@@ -37,14 +37,14 @@ function RoleCell({ row, onRoleChange }) {
       onValueChange={(newRole) => {
         if (newRole !== role) onRoleChange(row.original, newRole)
       }}>
-      <SelectTrigger className="h-7 w-fit min-w-[7rem] border border-border/60 bg-background text-xs shadow-none focus:ring-1 focus:ring-ring">
+      <SelectTrigger className="h-7 w-fit min-w-28 border border-border/60 bg-background text-xs shadow-none focus:ring-1 focus:ring-ring">
         <SelectValue>
           <Badge variant={roleVariant[role] ?? 'secondary'} className="text-xs font-normal">
             {roleLabel[role] ?? role}
           </Badge>
         </SelectValue>
       </SelectTrigger>
-      <SelectContent className="z-[200] bg-popover border border-border shadow-lg">
+      <SelectContent className="z-200 bg-popover border border-border shadow-lg">
         {ROLES.map(r => (
           <SelectItem key={r.value} value={r.value} className="text-sm cursor-pointer">
             <div className="flex items-center gap-2">
@@ -80,7 +80,7 @@ export function useUserColumns({ onEdit, onConfirmAction }) {
     {
       accessorKey: 'email',
       header: ({ column }) => <SortableHeader column={column}>Correo</SortableHeader>,
-      cell: ({ getValue }) => <span className="text-sm text-muted-foreground truncate max-w-[180px] block">{getValue() ?? '—'}</span>,
+      cell: ({ getValue }) => <span className="text-sm text-muted-foreground truncate max-w-45 block">{getValue() ?? '—'}</span>,
     },
     {
       accessorKey: 'role',

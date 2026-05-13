@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { sessionService } from '@/services/session.service'
+import { locationService } from '@/services/location.service'
 import { toast } from 'sonner'
 
 export function useSessions() {
@@ -9,12 +10,27 @@ export function useSessions() {
   })
 }
 
-export function useSessionProgress(id) {
+export function useSessionsByLocation(params) {
   return useQuery({
-    queryKey:        ['sessions', id, 'progress'],
-    queryFn:         () => sessionService.getProgress(id).then(r => r.data),
+    queryKey: ['sessions', 'by-location', params],
+    queryFn:  () => sessionService.byLocation(params).then(r => r.data),
+    enabled:  !!(params?.department || params?.municipality),
+  })
+}
+
+export function useSessionProgressAdmin(id) {
+  return useQuery({
+    queryKey:        ['sessions', id, 'progress', 'admin'],
+    queryFn:         () => sessionService.getProgressAdmin(id).then(r => r.data),
     enabled:         !!id,
     refetchInterval: 15_000,
+  })
+}
+
+export function useLocationsForFilter() {
+  return useQuery({
+    queryKey: ['locations'],
+    queryFn:  () => locationService.getAll().then(r => r.data),
   })
 }
 

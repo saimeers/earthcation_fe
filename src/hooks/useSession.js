@@ -14,7 +14,7 @@ export function useSessionProgress(id) {
     queryKey: ['sessions', id, 'progress'],
     queryFn:  () => sessionService.getProgress(id).then(r => r.data),
     enabled:  !!id,
-    refetchInterval: 10000, // refresca cada 10s para monitoreo en tiempo real
+    refetchInterval: 10000,
   })
 }
 

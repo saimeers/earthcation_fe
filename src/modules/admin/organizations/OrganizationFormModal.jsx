@@ -62,7 +62,7 @@ export function OrganizationFormModal({ open, onClose, organization }) {
           border border-border
           shadow-2xl rounded-xl
           max-h-[90vh] overflow-y-auto
-          z-[300]
+          z-300
         ">
         <DialogHeader className="space-y-1">
           <DialogTitle className="text-base font-semibold">
@@ -102,7 +102,7 @@ export function OrganizationFormModal({ open, onClose, organization }) {
               <SelectTrigger className="bg-background border-border capitalize">
                 <SelectValue placeholder="Selecciona un tipo" />
               </SelectTrigger>
-              <SelectContent className="z-[400] bg-popover border border-border shadow-xl">
+              <SelectContent className="z-400 bg-popover border border-border shadow-xl">
                 {ORG_TYPES.map(t => (
                   <SelectItem key={t} value={t} className="text-sm cursor-pointer capitalize">
                     {t}

@@ -95,7 +95,7 @@ export function UsersPage() {
           <SelectTrigger className="h-9 w-full sm:w-44 bg-background">
             <SelectValue placeholder="Filtrar por rol" />
           </SelectTrigger>
-          <SelectContent className="z-[200] bg-popover border border-border shadow-lg">
+          <SelectContent className="z-200 bg-popover border border-border shadow-lg">
             <SelectItem value="all">Todos los roles</SelectItem>
             {ROLES.map(r => <SelectItem key={r.value} value={r.value}>{r.label}</SelectItem>)}
           </SelectContent>
@@ -160,7 +160,7 @@ export function UsersPage() {
               <SelectTrigger className="h-7 w-16 text-xs bg-background border">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="z-[200] bg-popover border border-border shadow-lg">
+              <SelectContent className="z-200 bg-popover border border-border shadow-lg">
                 {[10, 20, 50].map(s => (
                   <SelectItem key={s} value={String(s)} className="text-xs">{s}</SelectItem>
                 ))}
@@ -185,9 +185,8 @@ export function UsersPage() {
         </div>
       </div>
 
-      {/* AlertDialog de Confirmaciones */}
       <AlertDialog open={!!confirm} onOpenChange={v => !v && setConfirm(null)}>
-        <AlertDialogContent className="bg-background border border-border shadow-2xl z-[300] max-w-sm">
+        <AlertDialogContent className="bg-background border border-border shadow-2xl z-300 max-w-sm">
           <AlertDialogHeader>
             <AlertDialogTitle>
               {confirm?.type === 'disable' && 'Deshabilitar usuario'}

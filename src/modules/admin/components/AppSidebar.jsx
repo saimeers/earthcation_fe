@@ -43,7 +43,7 @@ export function AppSidebar({ ...props }) {
             <SidebarMenuButton size="lg" asChild>
               <Link to="/admin">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground shrink-0">
-                  <Shield className="size-4" />
+                  <img src="/logo_earthcation.svg" alt="Logo" width={32} height={32} />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight min-w-0">
                   <span className="truncate font-semibold">Earthcation</span>
@@ -73,7 +73,7 @@ export function AppSidebar({ ...props }) {
                         isActive={active}
                         tooltip={item.title}
                         className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors duration-200"
-                        onClick={() => setOpen(false)}>
+                        onClick={() => setOpen(true)}>
                         <Link to={item.url}>
                           <item.icon className="size-4 shrink-0" />
                           <span>{item.title}</span>

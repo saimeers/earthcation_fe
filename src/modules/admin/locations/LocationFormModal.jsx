@@ -47,7 +47,7 @@ export function LocationFormModal({ open, onClose, location }) {
           border border-border
           shadow-2xl rounded-xl
           max-h-[90vh] overflow-y-auto
-          z-[300]
+          z-300
         ">
         <DialogHeader className="space-y-1">
           <DialogTitle className="text-base font-semibold">

@@ -83,7 +83,7 @@ export function LocationsPage() {
         />
         
         <Select value={statusFilter} onValueChange={setStatusFilter}>
-          <SelectTrigger className="w-full sm:w-[180px] h-9">
+          <SelectTrigger className="w-full sm:w-45 h-9">
             <SelectValue placeholder="Estado" />
           </SelectTrigger>
           <SelectContent>
@@ -164,7 +164,7 @@ export function LocationsPage() {
 
       {/* Alert Dialog de Confirmación */}
       <AlertDialog open={!!locToToggle} onOpenChange={(isOpen) => !isOpen && setLocToToggle(null)}>
-        <AlertDialogContent>
+        <AlertDialogContent className="bg-background border border-border shadow-2xl z-300 max-w-sm">
           <AlertDialogHeader>
             <AlertDialogTitle>
               ¿Estás seguro de {locToToggle?.is_active ? 'deshabilitar' : 'habilitar'} esta localidad?
