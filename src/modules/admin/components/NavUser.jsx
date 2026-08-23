@@ -1,4 +1,4 @@
-import { ChevronsUpDown, LogOut, Sun, Moon, Monitor } from 'lucide-react'
+import { ChevronsUpDown, LogOut, Sun, Moon, Monitor, HelpCircle } from 'lucide-react'
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem,
   DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger,
@@ -40,6 +40,7 @@ export function NavUser() {
   const { isMobile } = useSidebar()
   const user         = useAuthStore(s => s.user)
   const logout       = useAuthStore(s => s.logout)
+  const resetAllTours = useAuthStore(s => s.resetAllTours)
   const navigate     = useNavigate()
   const { theme, change } = useTheme()
 
@@ -134,6 +135,13 @@ export function NavUser() {
                 </DropdownMenuSubContent>
               </DropdownMenuPortal>
             </DropdownMenuSub>
+
+            <DropdownMenuItem
+              onClick={resetAllTours}
+              className="flex items-center gap-2 px-3 py-2 text-sm cursor-pointer">
+              <HelpCircle className="size-4 text-muted-foreground shrink-0" />
+              <span>Ver guías de nuevo</span>
+            </DropdownMenuItem>
 
             <DropdownMenuSeparator className="bg-border" />
 

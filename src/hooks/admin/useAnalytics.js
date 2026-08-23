@@ -15,3 +15,19 @@ export function useVarkAll() {
     queryFn:  () => analyticsService.varkAll().then(r => r.data),
   })
 }
+
+export function useMinesMap() {
+  return useQuery({
+    queryKey: ['analytics', 'map'],
+    queryFn:  () => analyticsService.minesMap().then(r => r.data),
+    staleTime: 60_000,
+  })
+}
+
+export function useAnalyticsByOrganization(orgId) {
+  return useQuery({
+    queryKey: ['analytics', 'organization', orgId],
+    queryFn:  () => analyticsService.byOrganization(orgId).then(r => r.data),
+    enabled:  !!orgId,
+  })
+}

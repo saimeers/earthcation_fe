@@ -17,6 +17,7 @@ import {
 
 import { OrganizationFormModal } from './OrganizationFormModal'
 import { useOrganizations } from '../../../hooks/admin/useOrganizations'
+import { OnboardingCard } from '@/modules/admin/components/OnboardingCard'
 
 export function OrganizationsPage() {
   const [search, setSearch] = useState('')
@@ -53,7 +54,16 @@ export function OrganizationsPage() {
 
   return (
     <div className="space-y-6">
-      
+      <OnboardingCard
+        storageKey="organizations"
+        title="Organizaciones"
+        description="Las empresas/instituciones a las que pertenecen los jugadores — se usan para comparar desempeño entre sedes en Analíticas."
+        tips={[
+          'Búscala antes de crear una nueva — casi siempre ya existe o se crea sola al importar el Excel.',
+          'Créala manualmente aquí solo si necesitas asignarla a un usuario antes de tener el Excel listo.',
+        ]}
+      />
+
       {/* Encabezado */}
       <div className="flex items-center justify-between gap-4">
         <div>

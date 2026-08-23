@@ -33,7 +33,7 @@ export default function About() {
             // Sobre el juego
           </p>
           <h2 className="text-3xl font-bold tracking-tight">
-            Seguridad minera a través del aprendizaje experiencial
+            Capacitación en seguridad minera a través de un videojuego
           </h2>
           <p className="text-muted-foreground leading-relaxed">
             Earthcation combina tecnología educativa con simulación de entornos mineros

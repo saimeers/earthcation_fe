@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
@@ -14,6 +14,8 @@ import {
   SelectTrigger, SelectValue,
 } from '@/components/ui/select'
 import { userService } from '@/services/user.service'
+import { useOrganizations } from '@/hooks/admin/useOrganizations'
+import { useLocations } from '@/hooks/admin/useLocations'
 
 const ROLES = [
   { value: 'player',     label: 'Jugador'        },
@@ -33,12 +35,27 @@ export function UserFormPage() {
     enabled: isEdit,
   })
 
+  const { orgs } = useOrganizations()
+  const { locations } = useLocations()
+
   const {
     register, handleSubmit, reset, setValue, watch,
     formState: { errors, isSubmitting },
   } = useForm()
 
   const role = watch('role', 'player')
+  const organizationId = watch('organization_id', '')
+  const locationId = watch('location_id', '')
+  const [department, setDepartment] = useState('')
+
+  const departments = useMemo(
+    () => [...new Set((locations ?? []).map(l => l.department))].sort(),
+    [locations]
+  )
+  const municipalitiesInDept = useMemo(
+    () => (locations ?? []).filter(l => l.department === department),
+    [locations, department]
+  )
 
   useEffect(() => {
     if (isEdit && user) {
@@ -50,9 +67,13 @@ export function UserFormPage() {
         username:   user.username   ?? '',
         role:       user.role       ?? 'player',
         age:        user.age        ?? '',
+        organization_id: user.profile?.organization_id ?? '',
+        location_id:     user.profile?.location_id     ?? '',
       })
+      setDepartment(user.profile?.location?.department ?? '')
     } else if (!isEdit) {
-      reset({ first_name: '', last_name: '', cedula: '', email: '', username: '', role: 'player', age: '' })
+      reset({ first_name: '', last_name: '', cedula: '', email: '', username: '', role: 'player', age: '', organization_id: '', location_id: '' })
+      setDepartment('')
     }
   }, [isEdit, user, reset])
 
@@ -228,10 +249,64 @@ export function UserFormPage() {
                 </div>
               </div>
 
+              <div className="space-y-1.5">
+                <Label className="text-sm font-medium">Organización</Label>
+                <Select
+                  value={organizationId || undefined}
+                  onValueChange={val => setValue('organization_id', val)}
+                  disabled={loading}>
+                  <SelectTrigger className="bg-background border-border">
+                    <SelectValue placeholder="Sin asignar" />
+                  </SelectTrigger>
+                  <SelectContent className="z-200 bg-popover border border-border shadow-lg">
+                    {(orgs ?? []).map(o => (
+                      <SelectItem key={o.id} value={o.id} className="text-sm cursor-pointer">{o.name}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <Label className="text-sm font-medium">Departamento</Label>
+                  <Select
+                    value={department || undefined}
+                    onValueChange={val => { setDepartment(val); setValue('location_id', '') }}
+                    disabled={loading}>
+                    <SelectTrigger className="bg-background border-border">
+                      <SelectValue placeholder="Selecciona un departamento" />
+                    </SelectTrigger>
+                    <SelectContent className="z-200 bg-popover border border-border shadow-lg max-h-72">
+                      {departments.map(d => (
+                        <SelectItem key={d} value={d} className="text-sm cursor-pointer">{d}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-1.5">
+                  <Label className="text-sm font-medium">Municipio</Label>
+                  <Select
+                    value={locationId || undefined}
+                    onValueChange={val => setValue('location_id', val)}
+                    disabled={loading || !department}>
+                    <SelectTrigger className="bg-background border-border">
+                      <SelectValue placeholder={department ? 'Selecciona un municipio' : 'Elige un departamento primero'} />
+                    </SelectTrigger>
+                    <SelectContent className="z-200 bg-popover border border-border shadow-lg max-h-72">
+                      {municipalitiesInDept.map(l => (
+                        <SelectItem key={l.id} value={l.id} className="text-sm cursor-pointer">{l.municipality}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
               {!isEdit && (
                 <div className="rounded-lg bg-muted border border-border px-3 py-2.5">
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                    No se pide contraseña — el usuario entra al juego con su cédula únicamente.
+                    {role === 'player'
+                      ? 'No se pide contraseña — el jugador entra al juego con su cédula únicamente.'
+                      : 'Se genera una contraseña temporal y se envía por correo — la necesita para entrar al panel web. La cédula y el usuario deben ser únicos.'}
                   </p>
                 </div>
               )}

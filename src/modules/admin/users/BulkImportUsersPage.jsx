@@ -110,7 +110,7 @@ export function BulkImportUsersPage() {
           onDragLeave={() => setDragActive(false)}
           onDrop={handleDrop}
           className={`
-            rounded-xl border-2 border-dashed p-16 flex flex-col items-center justify-center gap-4
+            rounded-xl border-2 border-dashed p-8 sm:p-16 flex flex-col items-center justify-center gap-4
             text-center transition-colors
             ${dragActive ? 'border-primary bg-primary/5' : 'border-border bg-card'}
           `}
@@ -187,7 +187,65 @@ export function BulkImportUsersPage() {
             </Button>
           </div>
 
-          <div className="rounded-lg border bg-card overflow-x-auto">
+          {/* Vista de tarjetas — mobile */}
+          <div className="md:hidden space-y-3">
+            {rows.map((row, i) => {
+              const statusInfo = STATUS_LABEL[row.status] ?? { text: row.status, className: '' }
+              return (
+                <Card key={i} className={selected.has(i) ? '' : 'opacity-50'}>
+                  <CardContent className="p-4 space-y-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <label className="flex items-center gap-2 text-sm">
+                        <input
+                          type="checkbox"
+                          checked={selected.has(i)}
+                          onChange={() => toggleRow(i)}
+                          disabled={isConfirming}
+                        />
+                        <span className="font-mono text-xs text-muted-foreground">Fila {i + 1}</span>
+                      </label>
+                      <span className={`text-xs whitespace-nowrap ${statusInfo.className}`}>{statusInfo.text}</span>
+                    </div>
+                    {row.message && <p className="text-xs text-muted-foreground -mt-2">{row.message}</p>}
+
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="space-y-1">
+                        <label className="text-[11px] text-muted-foreground">Cédula</label>
+                        <Input value={row.cedula} onChange={e => editField(i, 'cedula', e.target.value)} className="h-8 font-mono text-xs" disabled={isConfirming} />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] text-muted-foreground">Correo</label>
+                        <Input value={row.email} onChange={e => editField(i, 'email', e.target.value)} className="h-8 text-xs" disabled={isConfirming} />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] text-muted-foreground">Nombre</label>
+                        <Input value={row.first_name} onChange={e => editField(i, 'first_name', e.target.value)} className="h-8 text-xs" disabled={isConfirming} />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] text-muted-foreground">Apellido</label>
+                        <Input value={row.last_name} onChange={e => editField(i, 'last_name', e.target.value)} className="h-8 text-xs" disabled={isConfirming} />
+                      </div>
+                      <div className="space-y-1 col-span-2">
+                        <label className="text-[11px] text-muted-foreground">Organización</label>
+                        <Input value={row.organization_name} onChange={e => editField(i, 'organization_name', e.target.value)} className="h-8 text-xs" disabled={isConfirming} />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] text-muted-foreground">Municipio</label>
+                        <Input value={row.location_municipality} onChange={e => editField(i, 'location_municipality', e.target.value)} className="h-8 text-xs" disabled={isConfirming} />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] text-muted-foreground">Departamento</label>
+                        <Input value={row.location_department} onChange={e => editField(i, 'location_department', e.target.value)} className="h-8 text-xs" disabled={isConfirming} />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+
+          {/* Vista de tabla — desktop */}
+          <div className="hidden md:block rounded-lg border bg-card overflow-x-auto">
             <Table className="min-w-[900px]">
               <TableHeader>
                 <TableRow className="bg-muted/50 hover:bg-muted/50">

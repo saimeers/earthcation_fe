@@ -15,16 +15,16 @@ const adminNav = [
   {
     label: 'Principal',
     items: [
-      { title: 'Analíticas',     url: '/admin',               icon: BarChart3       },
-      { title: 'Usuarios',       url: '/admin/users',          icon: Users           },
-      { title: 'Sesiones',       url: '/admin/sessions',       icon: CalendarDays    },
+      { title: 'Analíticas',     url: '/admin',               icon: BarChart3     },
+      { title: 'Usuarios',       url: '/admin/users',          icon: Users         },
+      { title: 'Sesiones',       url: '/admin/sessions',       icon: CalendarDays  },
     ],
   },
   {
     label: 'Configuración',
     items: [
-      { title: 'Localidades',    url: '/admin/locations',      icon: MapPin          },
-      { title: 'Organizaciones', url: '/admin/organizations',  icon: Building2       },
+      { title: 'Localidades',    url: '/admin/locations',      icon: MapPin       },
+      { title: 'Organizaciones', url: '/admin/organizations',  icon: Building2    },
     ],
   },
 ]

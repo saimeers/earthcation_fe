@@ -19,6 +19,7 @@ export function useBulkImportUsers() {
 
       const newOrgs = [...new Set(result.created.map(r => r.organization_created).filter(Boolean))]
       const newLocations = [...new Set(result.created.map(r => r.location_created).filter(Boolean))]
+      const noMatchLocations = [...new Set(result.created.map(r => r.location_no_match).filter(Boolean))]
 
       toast.success('Carga completada', {
         description: `${result.created.length} usuarios creados, ${result.skipped.length} omitidos.`,
@@ -32,6 +33,11 @@ export function useBulkImportUsers() {
       if (newLocations.length) {
         toast.info(`${newLocations.length} localidad(es) nueva(s) creada(s)`, {
           description: newLocations.join(', '),
+        })
+      }
+      if (noMatchLocations.length) {
+        toast.warning(`${noMatchLocations.length} localidad(es) sin coincidencia en el catálogo oficial`, {
+          description: `${noMatchLocations.join(', ')} — revisa si son typos de un municipio ya existente.`,
         })
       }
     },

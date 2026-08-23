@@ -122,6 +122,20 @@
   backdrop-filter: none !important;
 }
 
+.leaflet-tooltip {
+  background: var(--popover) !important;
+  color: var(--popover-foreground) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  opacity: 1 !important;
+}
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+  border-top-color: var(--popover) !important;
+}
+
 [data-sidebar="sidebar"] {
   background-color: var(--sidebar);
   color: var(--sidebar-foreground);

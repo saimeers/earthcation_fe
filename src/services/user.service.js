@@ -3,6 +3,7 @@ import api from './api'
 export const userService = {
   getAll:        (params) => api.get('/api/users', { params }),
   getById:       (id)     => api.get(`/api/users/${id}`),
+  getSessions:   (id)     => api.get(`/api/users/${id}/sessions`),
   update:        (id, data) => api.put(`/api/users/${id}`, data),
   createByAdmin: (data)   => api.post('/api/users', data),
   disable:       (id)     => api.patch(`/api/users/${id}/disable`),

@@ -96,6 +96,42 @@ back-link header (same header pattern as `SessionDetailPage`), not a cramped mod
 - Theme (dark/light/system) toggle lives in `NavUser` inside the sidebar; Sonner toaster uses
   `theme="system"`.
 
+### Player detail page (`modules/admin/users/UserDetailPage.jsx`, `/admin/users/:id`)
+
+Read-only detail view (separate from `UserFormPage.jsx`'s edit mode) — click a row in `UsersPage`'s
+table to get here. Pulls three previously-unused-but-already-existing backend endpoints in one
+hook (`hooks/admin/useUserDetail.js`): `GET /api/users/:id` (profile + VARK breakdown),
+`GET /api/progress/user/:userId/history` (per-risk attempt history), `GET /api/users/:id/sessions`
+(enrollment history). None of these needed new backend work — they existed unconsumed.
+
+### Mines map (`modules/admin/analytics/MinesMap.jsx`)
+
+Uses **`react-leaflet`** (not `react-simple-maps` — tried first, dropped after it pulled in a CJS
+`require("prop-types")` that Vite's rolldown bundler can't resolve; if you ever see
+`Calling require for "X" in an environment that doesn't expose the require function`, it's this
+class of problem — check for a missing transitive dep like `prop-types`/`react-is` before assuming
+the library itself is broken). Renders `public/data/colombia-departamentos.geo.json` (DIVIPOLA
+department polygons, `DPTO_CNMBR` property) as the base layer, with `CircleMarker`s **per
+municipio** (not per department) fanned out around the department's centroid when multiple
+municipios share a department — there's no municipio-level geometry, so this is a visual spread,
+not a real position. Backend department names (typos included) are matched against the GeoJSON's
+via `normalize()` + Levenshtein distance ≤2 + a small `DEPT_ALIASES` table, same pattern as
+`bulkImport.service.js#findOrCreateLocation` in the backend, duplicated client-side on purpose
+(small, self-contained, not worth sharing across repos for this). Leaflet's tooltip/popup CSS
+needs an explicit override in `src/index.css` (`.leaflet-tooltip`) — its default background is
+effectively transparent against this app's theme.
+
+### Onboarding — dismissible cards, not a guided tour
+
+`modules/admin/components/OnboardingCard.jsx` — a plain card in the page's normal flow, not a
+spotlight/walkthrough overlay. **`react-joyride` was tried and removed**: its spotlight overlay
+desynced from page content on scroll, and its v3 API changed enough from v2 (named export, no
+`showSkipButton` prop, colors moved from `styles.options` to a new `options` prop) to cause repeat
+breakage. Don't reintroduce a tour library without checking in first. Each page's guide has its own
+`storageKey` persisted in `authStore.pageToursSeen` (dashboard uses the separate top-level
+`onboardingSeen` flag, historical naming — not worth renaming). "Ver guías de nuevo" in `NavUser`
+calls `resetAllTours()`, clearing every page's flag at once.
+
 ### Home page (`modules/home/`) — brand tokens live in `src/index.css`
 
 The public landing page's look is driven entirely by CSS variables in `src/index.css`

@@ -17,6 +17,7 @@ import { Plus } from 'lucide-react'
 
 import { SessionCard } from './components/SessionCard'
 import { CreateSessionModal } from './components/CreateSessionModal'
+import { OnboardingCard } from '@/modules/admin/components/OnboardingCard'
 
 export function SessionsPage() {
   const [search, setSearch] = useState('')
@@ -48,6 +49,18 @@ export function SessionsPage() {
 
   return (
     <div className="space-y-5">
+      <OnboardingCard
+        storageKey="sessions"
+        title="Sesiones"
+        description="Crea sesiones de entrenamiento en vivo para que los jugadores se unan desde el juego con un código."
+        tips={[
+          'Al crear una se genera un código de 3 dígitos — compártelo con los jugadores para que se unan.',
+          'Desde el detalle de una sesión la inicias y la finalizas cuando termine.',
+        ]}
+        ctaLabel="Crear tu primera sesión"
+        onCta={() => setOpen(true)}
+      />
+
       <div className="flex items-center justify-between gap-4">
         <div>
           <h1 className="text-xl font-semibold tracking-tight">Sesiones</h1>

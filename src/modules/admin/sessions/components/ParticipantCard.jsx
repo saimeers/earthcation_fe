@@ -19,14 +19,24 @@ const CATEGORY_COLOR = {
 }
 
 function RiskRow({ risk }) {
+  const mistakes = risk.mistakes_count ?? 0
+  const hasMistakes = mistakes > 0
+
   return (
-    <div className={`flex items-center justify-between px-3 py-2.5 rounded-md text-sm border ${
+    <div className={`flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 sm:justify-between px-3 py-2.5 rounded-md text-sm border ${
       risk.is_mitigated ? 'bg-green-500/5 border-green-500/10' : 'bg-destructive/5 border-destructive/10'
     }`}>
       <div className="flex items-center gap-2.5 min-w-0">
-        {risk.is_mitigated
-          ? <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0" />
-          : <XCircle      className="h-4 w-4 text-destructive shrink-0" />}
+        <span className={`shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold ${
+          risk.is_mitigated
+            ? 'bg-green-500/15 text-green-700 dark:text-green-400'
+            : 'bg-destructive/15 text-destructive'
+        }`}>
+          {risk.is_mitigated
+            ? <CheckCircle2 className="h-3 w-3" />
+            : <XCircle      className="h-3 w-3" />}
+          {risk.is_mitigated ? 'Mitigado' : 'No mitigado'}
+        </span>
         <span className="truncate text-sm font-medium">{risk.risk_name}</span>
         {risk.category && (
           <span className={`px-2 py-0.5 rounded text-[11px] font-semibold tracking-wide shrink-0 border ${
@@ -36,17 +46,17 @@ function RiskRow({ risk }) {
           </span>
         )}
       </div>
-      <div className="flex items-center gap-3 text-xs text-muted-foreground shrink-0 ml-3">
-        {risk.last_mistakes !== null && (
-          <span className="flex items-center gap-1.5 bg-background px-2 py-1 rounded-md border">
-            <AlertTriangle className="h-3 w-3 text-amber-500" />
-            {risk.last_mistakes} errores
-          </span>
-        )}
-        {risk.last_reaction_ms && (
+      <div className="flex items-center gap-3 text-xs text-muted-foreground shrink-0 sm:ml-3 pl-[calc(0.625rem+1px)] sm:pl-0">
+        <span className="flex items-center gap-1.5 bg-background px-2 py-1 rounded-md border" title={risk.is_mitigated ? 'Errores antes de lograrlo' : 'Errores registrados'}>
+          {hasMistakes && <AlertTriangle className="h-3 w-3 text-amber-500" />}
+          {risk.is_mitigated
+            ? (hasMistakes ? `${mistakes} errores antes de lograrlo` : 'Sin errores')
+            : `${mistakes} errores`}
+        </span>
+        {risk.reaction_time_ms && (
           <span className="flex items-center gap-1.5 bg-background px-2 py-1 rounded-md border">
             <Clock className="h-3 w-3" />
-            {(risk.last_reaction_ms / 1000).toFixed(1)}s
+            {(risk.reaction_time_ms / 1000).toFixed(1)}s
           </span>
         )}
       </div>
@@ -92,29 +102,44 @@ function LevelSection({ levelData }) {
   )
 }
 
+function progressTone(pct) {
+  if (pct >= 80) return { ring: 'text-green-500', bar: '[&>div]:bg-green-500', chip: 'bg-green-500/10 text-green-700 dark:text-green-400 border-green-500/20' }
+  if (pct >= 40) return { ring: 'text-amber-500', bar: '[&>div]:bg-amber-500', chip: 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20' }
+  return { ring: 'text-destructive', bar: '[&>div]:bg-destructive', chip: 'bg-destructive/10 text-destructive border-destructive/20' }
+}
+
 export function ParticipantCard({ p }) {
   const [open, setOpen] = useState(false)
+  const tone = progressTone(p.percentage)
+
+  const initials = [p.user?.first_name?.[0], p.user?.last_name?.[0]]
+    .filter(Boolean).join('').toUpperCase() || '?'
 
   return (
     <Card className="hover:border-primary/20 transition-colors shadow-sm">
       <CardContent className="p-5 space-y-4">
         {/* Header participante */}
         <div className="flex flex-col sm:flex-row sm:items-start gap-3 justify-between">
-          <div className="space-y-1 min-w-0 flex-1">
-            <div className="flex items-center gap-2 flex-wrap">
-              <p className="font-semibold text-base">{p.user?.first_name} {p.user?.last_name}</p>
-              {p.dominant_style && (
-                <Badge variant={VARK_VARIANT[p.dominant_style] ?? 'outline'} className="text-xs">
-                  {p.dominant_style}
-                </Badge>
-              )}
-              {p.percentage === 100 && (
-                <Badge className="text-xs bg-green-600 hover:bg-green-700 text-white shadow-none">Completado</Badge>
-              )}
+          <div className="flex items-start gap-3 min-w-0 flex-1">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary text-sm font-semibold shrink-0">
+              {initials}
             </div>
-            <p className="text-xs text-muted-foreground font-medium">
-              CC: {p.user?.cedula} <span className="mx-1">•</span> @{p.user?.username}
-            </p>
+            <div className="space-y-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap">
+                <p className="font-semibold text-base">{p.user?.first_name} {p.user?.last_name}</p>
+                {p.dominant_style && (
+                  <Badge variant={VARK_VARIANT[p.dominant_style] ?? 'outline'} className="text-xs">
+                    {p.dominant_style}
+                  </Badge>
+                )}
+                {p.percentage === 100 && (
+                  <Badge className="text-xs bg-green-600 hover:bg-green-700 text-white shadow-none">Completado</Badge>
+                )}
+              </div>
+              <p className="text-xs text-muted-foreground font-medium">
+                CC: {p.user?.cedula} <span className="mx-1">•</span> @{p.user?.username}
+              </p>
+            </div>
           </div>
 
           <div className="flex items-center gap-3 text-xs text-muted-foreground shrink-0 bg-muted/50 p-2 rounded-lg border">
@@ -133,12 +158,12 @@ export function ParticipantCard({ p }) {
         </div>
 
         {/* Barra de progreso global */}
-        <div className="space-y-2 bg-muted/20 p-3 rounded-lg border">
-          <div className="flex justify-between text-xs text-muted-foreground">
+        <div className={`space-y-2 p-3 rounded-lg border ${tone.chip}`}>
+          <div className="flex justify-between text-xs">
             <span className="font-medium">{p.mitigated} de {p.total_attempts} riesgos mitigados</span>
-            <span className="font-bold text-foreground">{p.percentage}% completado</span>
+            <span className={`font-bold ${tone.ring}`}>{p.percentage}% completado</span>
           </div>
-          <Progress value={p.percentage} className="h-2" />
+          <Progress value={p.percentage} className={`h-2 bg-background ${tone.bar}`} />
         </div>
 
         {/* Detalle por niveles */}

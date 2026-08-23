@@ -17,6 +17,7 @@ import {
 
 import { LocationFormModal } from './LocationFormModal'
 import { useLocations } from '@/hooks/admin/useLocations' // Ajusta la ruta si es necesario
+import { OnboardingCard } from '@/modules/admin/components/OnboardingCard'
 
 export function LocationsPage() {
   const [search, setSearch] = useState('')
@@ -56,6 +57,15 @@ export function LocationsPage() {
 
   return (
     <div className="space-y-6">
+      <OnboardingCard
+        storageKey="locations"
+        title="Localidades"
+        description="Catálogo de municipios y departamentos de Colombia, ya cargado — normalmente no necesitas tocar nada aquí."
+        tips={[
+          'Búscalo antes de crear uno nuevo — es muy probable que ya exista.',
+          'Solo agrega uno manualmente si de verdad falta en el catálogo oficial.',
+        ]}
+      />
 
       {/* Encabezado */}
       <div className="flex items-center justify-between gap-4">

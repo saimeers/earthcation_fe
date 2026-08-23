@@ -1,21 +1,31 @@
 import { useParams, Link } from 'react-router-dom'
-import { useSessionProgressAdmin } from '@/hooks/admin/useSessions'
+import { useSessionProgressAdmin, useStartSession, useEndSession } from '@/hooks/admin/useSessions'
 import { Button }          from '@/components/ui/button'
+import { Badge }           from '@/components/ui/badge'
 import { Skeleton }        from '@/components/ui/skeleton'
 import { Separator }       from '@/components/ui/separator'
 import { Card, CardContent } from '@/components/ui/card'
-import { ArrowLeft, RefreshCw, Users, Activity, CheckCircle, Timer } from 'lucide-react'
+import { ArrowLeft, RefreshCw, Users, Activity, CheckCircle, Timer, Play, Square } from 'lucide-react'
 import { format }          from 'date-fns'
 import { es }              from 'date-fns/locale'
 
 import { ParticipantCard } from './components/ParticipantCard'
 
+const STATUS_INFO = {
+  waiting:  { label: 'Esperando participantes', className: 'bg-muted text-muted-foreground border-border' },
+  active:   { label: 'En curso',                className: 'bg-green-600/15 text-green-700 dark:text-green-400 border-green-600/20' },
+  finished: { label: 'Finalizada',              className: 'bg-muted text-muted-foreground border-border' },
+}
+
 export function SessionDetailPage() {
   const { id }  = useParams()
   const { data, isLoading, refetch, isFetching } = useSessionProgressAdmin(id)
+  const startSession = useStartSession()
+  const endSession = useEndSession()
 
   const session      = data?.session
   const participants = data?.participants ?? []
+  const statusInfo = STATUS_INFO[session?.status] ?? STATUS_INFO.waiting
 
   const avgGlobal = participants.length > 0
     ? Math.round(participants.reduce((a, p) => a + p.percentage, 0) / participants.length)
@@ -34,7 +44,12 @@ export function SessionDetailPage() {
           <div className="flex-1 min-w-0">
             {isLoading
               ? <Skeleton className="h-7 w-64 mb-1" />
-              : <h1 className="text-2xl font-bold tracking-tight truncate">{session?.name}</h1>}
+              : (
+                <h1 className="text-2xl font-bold tracking-tight truncate flex items-center gap-2">
+                  {session?.name}
+                  {session?.status && <Badge variant="outline" className={statusInfo.className}>{statusInfo.label}</Badge>}
+                </h1>
+              )}
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
               <span>Código: <span className="font-mono font-semibold text-foreground">{session?.code}</span></span>
               {session?.instructor && (
@@ -46,8 +61,24 @@ export function SessionDetailPage() {
             </div>
           </div>
         </div>
-        
-        <div className="flex items-center gap-2 shrink-0">
+
+        <div className="flex items-center gap-2 shrink-0 flex-wrap">
+          {session?.status === 'waiting' && (
+            <Button
+              size="sm" className="h-9 shadow-sm bg-green-600 hover:bg-green-700"
+              onClick={() => startSession.mutate(id)} disabled={startSession.isPending}>
+              <Play className="h-4 w-4 mr-2" />
+              Iniciar sesión
+            </Button>
+          )}
+          {session?.status === 'active' && (
+            <Button
+              size="sm" variant="destructive" className="h-9 shadow-sm"
+              onClick={() => endSession.mutate(id)} disabled={endSession.isPending}>
+              <Square className="h-4 w-4 mr-2" />
+              Finalizar sesión
+            </Button>
+          )}
           <Button variant="secondary" size="sm" className="h-9 shadow-sm" onClick={() => refetch()} disabled={isFetching}>
             <RefreshCw className={`h-4 w-4 mr-2 ${isFetching ? 'animate-spin' : ''}`} />
             Sincronizar datos

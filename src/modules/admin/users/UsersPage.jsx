@@ -19,6 +19,7 @@ import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Plus, Upload } 
 import { useUsers } from '@/hooks/admin/useUsers'
 import { ROLES, roleLabel } from './constants'
 import { useUserColumns } from './userColumns'
+import { OnboardingCard } from '@/modules/admin/components/OnboardingCard'
 
 export function UsersPage() {
   const navigate = useNavigate()
@@ -64,6 +65,18 @@ export function UsersPage() {
 
   return (
     <div className="space-y-5">
+      <OnboardingCard
+        storageKey="users"
+        title="Usuarios"
+        description="Administra jugadores, instructores y admins."
+        tips={[
+          'Crea uno a la vez con el formulario, o carga un Excel ANM masivo (se revisa antes de confirmar).',
+          'Haz clic en cualquier fila para ver el detalle de progreso de esa persona.',
+        ]}
+        ctaLabel="Crear tu primer usuario"
+        onCta={() => navigate('/admin/users/new')}
+      />
+
       {/* Encabezado */}
       <div className="flex items-center justify-between gap-4">
         <div>
@@ -141,9 +154,12 @@ export function UsersPage() {
                 table.getRowModel().rows.map(row => (
                   <TableRow
                     key={row.id}
-                    className={`hover:bg-muted/30 ${row.original.is_active === false ? 'opacity-50' : ''}`}>
+                    onClick={() => navigate(`/admin/users/${row.original.id}`)}
+                    className={`cursor-pointer hover:bg-muted/30 ${row.original.is_active === false ? 'opacity-50' : ''}`}>
                     {row.getVisibleCells().map(cell => (
-                      <TableCell key={cell.id}>
+                      <TableCell
+                        key={cell.id}
+                        onClick={cell.column.id === 'actions' ? (e) => e.stopPropagation() : undefined}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     ))}
