@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import {
   Sun,
   Moon,
-  Shield,
 } from 'lucide-react'
 
 export default function Navbar({

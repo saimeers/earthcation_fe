@@ -6,8 +6,8 @@ import Features                 from './components/Features'
 import Footer                   from './components/Footer'
 import Aurora                   from '@/components/Aurora'
 
-const AURORA_DARK  = ['#0f3460', '#16213e', '#533483']  
-const AURORA_LIGHT = ['#c9d6ff', '#e2e2e2', '#a8c0ff']  
+const AURORA_DARK  = ['#0f3460', '#16213e', '#4a2f6b']
+const AURORA_LIGHT = ['#c9d6ff', '#e2e2e2', '#d9c7f0']
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(() => {

@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   useReactTable, getCoreRowModel, getFilteredRowModel,
   getPaginationRowModel, getSortedRowModel, flexRender,
@@ -13,16 +14,14 @@ import {
   AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent,
   AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Plus } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Plus, Upload } from 'lucide-react'
 
 import { useUsers } from '@/hooks/admin/useUsers'
-import { UserFormModal } from './UserFormModal'
 import { ROLES, roleLabel } from './constants'
 import { useUserColumns } from './userColumns'
 
 export function UsersPage() {
-  const [open, setOpen] = useState(false)
-  const [editing, setEditing] = useState(null)
+  const navigate = useNavigate()
   const [globalFilter, setGlobalFilter] = useState('')
   const [roleFilter, setRoleFilter] = useState('all')
   const [sorting, setSorting] = useState([])
@@ -40,7 +39,7 @@ export function UsersPage() {
   }
 
   const columns = useUserColumns({
-    onEdit: (user) => { setEditing(user); setOpen(true); },
+    onEdit: (user) => navigate(`/admin/users/${user.id}/edit`),
     onConfirmAction: setConfirm
   })
 
@@ -73,10 +72,20 @@ export function UsersPage() {
             {users?.length ?? 0} usuarios registrados
           </p>
         </div>
-        <Button size="sm" onClick={() => { setEditing(null); setOpen(true) }}>
-          <Plus className="h-4 w-4 mr-1.5" />
-          Nuevo usuario
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button size="sm" variant="outline" asChild>
+            <Link to="/admin/users/bulk-import">
+              <Upload className="h-4 w-4 mr-1.5" />
+              Carga masiva
+            </Link>
+          </Button>
+          <Button size="sm" asChild>
+            <Link to="/admin/users/new">
+              <Plus className="h-4 w-4 mr-1.5" />
+              Nuevo usuario
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <Separator />
@@ -211,12 +220,6 @@ export function UsersPage() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-
-      <UserFormModal
-        open={open}
-        onClose={() => { setOpen(false); setEditing(null) }}
-        user={editing}
-      />
     </div>
   )
 }

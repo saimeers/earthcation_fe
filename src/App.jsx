@@ -10,6 +10,8 @@ import ResetPasswordPage from './pages/auth/ResetPasswordPage'
 
 import AdminPage from './pages/admin/AdminPage'
 import UsersAdminPage from './pages/admin/UsersAdminPage'
+import UserFormAdminPage from './pages/admin/UserFormAdminPage'
+import BulkImportUsersAdminPage from './pages/admin/BulkImportUsersAdminPage'
 import LocationsAdminPage from './pages/admin/LocationsAdminPage'
 import OrganizationsAdminPage from './pages/admin/OrganizationsAdminPage'
 
@@ -43,6 +45,9 @@ function App() {
             }>
               <Route index element={<AnalyticsAdminPage />} />
               <Route path="users" element={<UsersAdminPage />} />
+              <Route path="users/new" element={<UserFormAdminPage />} />
+              <Route path="users/bulk-import" element={<BulkImportUsersAdminPage />} />
+              <Route path="users/:id/edit" element={<UserFormAdminPage />} />
               <Route path="sessions" element={<SessionsAdminPage />} />
               <Route path="sessions/:id" element={<SessionDetailAdminPage />} />
               <Route path="locations" element={<LocationsAdminPage />} />

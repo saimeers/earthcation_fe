@@ -5,7 +5,7 @@ import RotatingText      from '@/components/RotatingText'
 export default function Hero() {
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center px-6 pt-16">
-      <div className="max-w-4xl mx-auto text-center space-y-10">
+      <div className="max-w-4xl mx-auto text-center space-y-8">
 
         <div style={{ position: 'relative', height: '120px' }}>
           <TextPressure
