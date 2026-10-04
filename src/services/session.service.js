@@ -10,4 +10,6 @@ export const sessionService = {
   start:            (id)       => api.patch(`/api/sessions/${id}/start`),
   end:              (id)       => api.patch(`/api/sessions/${id}/end`),
   byLocation:       (params)   => api.get('/api/sessions/by-location', { params }),
+  participantAnalysis: (id, userId) => api.get(`/api/sessions/${id}/participants/${userId}/analysis`),
+  exportXlsx:       (id)       => api.get(`/api/sessions/${id}/export.xlsx`, { responseType: 'blob' }),
 }

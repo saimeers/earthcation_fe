@@ -33,6 +33,17 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-good: var(--status-good);
+  --color-warning: var(--status-warning);
+  --color-critical: var(--status-critical);
+  --color-neutral: var(--status-neutral);
 }
 
 :root {
@@ -63,6 +74,27 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Gráficas — paleta categórica validada para daltonismo (orden fijo, nunca ciclado) */
+  --chart-1: #2a78d6;
+  --chart-2: #eb6834;
+  --chart-3: #1baf7a;
+  --chart-4: #eda100;
+  --chart-5: #e87ba4;
+  /* Estados (desempeño, resultados) — siempre acompañados de ícono + texto */
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-critical: #d03b3b;
+  --status-neutral: #a1a09a;
+  /* Secuencial (magnitud): un solo tono, claro → oscuro */
+  --seq-100: #cde2fb;
+  --seq-200: #9ec5f4;
+  --seq-300: #6da7ec;
+  --seq-400: #3987e5;
+  --seq-500: #256abf;
+  --seq-600: #184f95;
+  --seq-700: #0d366b;
+  --chart-grid: #e1e0d9;
 }
 
 .dark {
@@ -92,6 +124,14 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  --chart-1: #3987e5;
+  --chart-2: #d95926;
+  --chart-3: #199e70;
+  --chart-4: #c98500;
+  --chart-5: #d55181;
+  --status-neutral: #6b6a65;
+  --chart-grid: #2c2c2a;
 }
 
 @layer base {
@@ -104,8 +144,10 @@
   }
 }
 
+/* Por encima de los diálogos (z-300): un Select/Popover dentro de un modal debe abrirse encima
+   del modal, no detrás. */
 [data-radix-popper-content-wrapper] {
-  z-index: 50 !important;
+  z-index: 400 !important;
 }
 
 .radix-themes {
@@ -129,11 +171,28 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
   opacity: 1 !important;
 }
-.leaflet-tooltip-top:before,
-.leaflet-tooltip-bottom:before,
-.leaflet-tooltip-left:before,
-.leaflet-tooltip-right:before {
-  border-top-color: var(--popover) !important;
+.leaflet-tooltip-top:before { border-top-color: var(--popover) !important; }
+.leaflet-tooltip-bottom:before { border-bottom-color: var(--popover) !important; }
+.leaflet-tooltip-left:before { border-left-color: var(--popover) !important; }
+.leaflet-tooltip-right:before { border-right-color: var(--popover) !important; }
+
+/* Mapa sin teselas externas: fondo propio y foco sin contorno azul del navegador */
+.leaflet-container {
+  background: transparent !important;
+  font-family: inherit !important;
+}
+.leaflet-interactive:focus { outline: none; }
+.leaflet-bar a {
+  background: var(--popover) !important;
+  color: var(--popover-foreground) !important;
+  border-color: var(--border) !important;
+}
+.leaflet-bar a:hover { background: var(--muted) !important; }
+.leaflet-bar { border: 1px solid var(--border) !important; box-shadow: 0 1px 2px rgba(0,0,0,.08) !important; }
+
+@media print {
+  @page { size: A4; margin: 12mm; }
+  html, body { background: white !important; }
 }
 
 [data-sidebar="sidebar"] {

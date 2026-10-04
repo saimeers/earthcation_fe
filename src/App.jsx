@@ -19,6 +19,8 @@ import OrganizationsAdminPage from './pages/admin/OrganizationsAdminPage'
 import AnalyticsAdminPage from './pages/admin/AnalyticsAdminPage'
 import SessionsAdminPage from './pages/admin/SessionsAdminPage'
 import SessionDetailAdminPage from './pages/admin/SessionDetailAdminPage'
+import ParticipantAnalysisAdminPage from './pages/admin/ParticipantAnalysisAdminPage'
+import SessionReportAdminPage from './pages/admin/SessionReportAdminPage'
 
 import { ProtectedRoute } from './components/shared/ProtectedRoute'
 
@@ -52,9 +54,17 @@ function App() {
               <Route path="users/:id/edit" element={<UserFormAdminPage />} />
               <Route path="sessions" element={<SessionsAdminPage />} />
               <Route path="sessions/:id" element={<SessionDetailAdminPage />} />
+              <Route path="sessions/:id/participants/:userId" element={<ParticipantAnalysisAdminPage />} />
               <Route path="locations" element={<LocationsAdminPage />} />
               <Route path="organizations" element={<OrganizationsAdminPage />} />
             </Route>
+
+            {/* Informe imprimible de una sesión — fuera del layout con sidebar para que el PDF salga limpio */}
+            <Route path="/admin/sessions/:id/report" element={
+              <ProtectedRoute allowedRoles={['admin']}>
+                <SessionReportAdminPage />
+              </ProtectedRoute>
+            } />
 
           </Routes>
         </Router>

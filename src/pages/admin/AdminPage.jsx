@@ -25,9 +25,17 @@ export default function AdminPage() {
   const getBreadcrumbs = () => {
     const paths = []
     
-    if (location.pathname.startsWith('/admin/sessions/')) {
+    const participantMatch = location.pathname.match(/^\/admin\/sessions\/([^/]+)\/participants\//)
+    if (participantMatch) {
+      paths.push({ label: 'Sesiones', href: '/admin/sessions' })
+      paths.push({ label: 'Detalle de la sesión', href: `/admin/sessions/${participantMatch[1]}` })
+      paths.push({ label: 'Análisis del participante', href: location.pathname })
+    } else if (location.pathname.startsWith('/admin/sessions/')) {
       paths.push({ label: 'Sesiones', href: '/admin/sessions' })
       paths.push({ label: 'Detalle de la sesión', href: location.pathname })
+    } else if (location.pathname.startsWith('/admin/users/')) {
+      paths.push({ label: 'Usuarios', href: '/admin/users' })
+      paths.push({ label: location.pathname.endsWith('/new') ? 'Nuevo usuario' : location.pathname.endsWith('/edit') ? 'Editar usuario' : location.pathname.endsWith('/bulk-import') ? 'Importación masiva' : 'Detalle', href: location.pathname })
     } else {
       const label = breadcrumbMap[location.pathname] ?? 'Admin'
       if (!isIndex) paths.push({ label, href: location.pathname })
