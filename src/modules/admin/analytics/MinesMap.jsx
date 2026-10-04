@@ -195,9 +195,17 @@ export function MinesMap({ height = 460 }) {
         radius *= 0.65
       }
       entries.forEach(([municipality, muniOrgs], i) => {
+        // Coordenadas reales del municipio (el backend las resuelve con DIVIPOLA); el reparto
+        // alrededor del ancla queda solo como respaldo si no vinieron.
+        const located = muniOrgs.find(o => o.lat != null && o.lng != null)
+        const position = located ? [located.lat, located.lng] : positions[i]
         const players = muniOrgs.reduce((a, o) => a + o.player_count, 0)
-        const pct = Math.round(muniOrgs.reduce((a, o) => a + o.percentage * (o.player_count || 1), 0) / muniOrgs.reduce((a, o) => a + (o.player_count || 1), 0))
-        out.push({ key: `${deptName}|${municipality}`, department: deptName, municipality, orgs: muniOrgs, position: positions[i], players, pct, feature: f })
+        const weight = (o) => o.results ?? o.player_count ?? 1
+        const totalWeight = muniOrgs.reduce((a, o) => a + weight(o), 0)
+        const pct = totalWeight
+          ? Math.round(muniOrgs.reduce((a, o) => a + o.percentage * weight(o), 0) / totalWeight)
+          : Math.round(muniOrgs.reduce((a, o) => a + o.percentage, 0) / muniOrgs.length)
+        out.push({ key: `${deptName}|${municipality}`, department: deptName, municipality, orgs: muniOrgs, position, players, pct, feature: f })
       })
     })
     return out

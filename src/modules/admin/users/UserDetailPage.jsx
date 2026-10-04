@@ -10,6 +10,7 @@ import { ArrowLeft, Pencil, Activity, CheckCircle, Timer, BookOpen } from 'lucid
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { roleLabel, roleVariant } from './constants'
+import { latestAttemptsByLevel } from '@/lib/attempts'
 
 function StatCard({ label, value, icon: Icon, color }) {
   return (
@@ -31,8 +32,10 @@ export function UserDetailPage() {
   const { id } = useParams()
   const { user, progress, sessions, isLoading } = useUserDetail(id)
 
-  const totalAttempts = progress.length
-  const mitigated = progress.filter(p => p.is_mitigated).length
+  // % del último intento de cada nivel: reintentar reemplaza el %, no lo promedia
+  const latestByLevel = latestAttemptsByLevel(progress)
+  const totalAttempts = latestByLevel.reduce((a, l) => a + l.total, 0)
+  const mitigated = latestByLevel.reduce((a, l) => a + l.mitigated, 0)
   const percentage = totalAttempts > 0 ? Math.round((mitigated / totalAttempts) * 100) : 0
   const withTime = progress.filter(p => p.reaction_time_ms)
   const avgReactionMs = withTime.length

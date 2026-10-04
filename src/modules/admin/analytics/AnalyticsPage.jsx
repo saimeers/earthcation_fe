@@ -215,7 +215,7 @@ export function AnalyticsPage() {
             </span>
           ) : 'Ninguna en curso'} />
         <StatTile label="Tasa de mitigación" icon={ShieldCheck} accent={rateTone(pct)} value={`${pct}%`}
-          sub={`${overview?.progress?.total_mitigated ?? 0} de ${overview?.progress?.total_attempts ?? 0} riesgos enfrentados`}>
+          sub={`${overview?.progress?.total_mitigated ?? 0} de ${overview?.progress?.total_attempts ?? 0} riesgos (último intento de cada jugador)`}>
           <div className="h-1.5 rounded-full bg-muted overflow-hidden"><div className="h-full rounded-full" style={{ width: `${pct}%`, background: rateTone(pct) }} /></div>
         </StatTile>
         <StatTile label="Niveles completados" icon={Flag} accent="var(--status-good)"
