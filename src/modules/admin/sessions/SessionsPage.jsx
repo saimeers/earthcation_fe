@@ -13,7 +13,8 @@ import {
   Select, SelectContent, SelectItem,
   SelectTrigger, SelectValue,
 } from '@/components/ui/select'
-import { Plus } from 'lucide-react'
+import { Plus, RefreshCw } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 import { SessionCard } from './components/SessionCard'
 import { CreateSessionModal } from './components/CreateSessionModal'
@@ -25,7 +26,7 @@ export function SessionsPage() {
   const [locationFilter, setLocationFilter] = useState('all') 
   const [open, setOpen] = useState(false)
 
-  const { data: sessions, isLoading } = useSessions()
+  const { data: sessions, isLoading, refetch, isFetching } = useSessions()
   const { data: locations } = useLocationsForFilter()
 
   const startSession = useStartSession()
@@ -68,10 +69,16 @@ export function SessionsPage() {
             {allSessions.length} sesiones registradas
           </p>
         </div>
-        <Button size="sm" onClick={() => setOpen(true)}>
-          <Plus className="h-4 w-4 mr-1.5" />
-          Nueva sesión
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button size="sm" variant="outline" onClick={() => refetch()} disabled={isFetching}>
+            <RefreshCw className={cn('h-4 w-4 mr-1.5', isFetching && 'animate-spin')} />
+            Actualizar
+          </Button>
+          <Button size="sm" onClick={() => setOpen(true)}>
+            <Plus className="h-4 w-4 mr-1.5" />
+            Nueva sesión
+          </Button>
+        </div>
       </div>
 
       <Separator />
