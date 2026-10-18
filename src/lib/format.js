@@ -28,7 +28,15 @@ export const formatNumber = (v, digits = 0) =>
 
 export const ordinal = (n) => `${n}.º`
 
+// Retos de transición (GC-05 memoria, GC-07 reacción): intentos propios, sin número de nivel
+export const CHALLENGES = {
+  reto_reaccion: 'Reto de reacción',
+  reto_memoria:  'Reto de memoria',
+}
+export const isChallenge = (key) => String(key ?? '').startsWith('reto_')
+
 export function levelLabel(key) {
+  if (CHALLENGES[key]) return CHALLENGES[key]
   const n = String(key ?? '').replace(/\D/g, '')
   return n ? `Nivel ${n}` : (key ?? '—')
 }
@@ -86,6 +94,8 @@ export const SUMMARY_COUNTERS = {
   fatigue_injuries:     'Lesiones por fatiga',
   hose_dodged:          'Manguera esquivada',
   hose_hit:             'Impactos de la manguera',
+  challenge_passed:     'Rondas superadas',
+  challenge_failed:     'Rondas no superadas',
   lantern_warnings:     'Advertencias de linterna',
   device_opened:        'Veces que abrió el detector',
   calibrations_valid:   'Calibraciones válidas',
@@ -114,6 +124,7 @@ export function describeEvent(e) {
     case 'wagon_arrived':     return 'Llega el vagón'
     case 'fatigue_injury':    return 'Se lesiona por fatiga al picar sin descanso'
     case 'qte_hose_dodged':   return `Se aparta de la manguera suelta a tiempo${p.reaction_ms ? ` (${formatSeconds(p.reaction_ms)})` : ''}`
+    case 'challenge_round':   return describeChallengeRound(e.stage, p)
     case 'qte_hose_hit':      return 'No se aparta: lo alcanzan los fragmentos de la manguera suelta'
     case 'support_prompt':    return `Aparece la orden de sostenimiento (${p.timeout_s ?? '?'} s para reaccionar)`
     case 'support_placed':    return `Coloca el sostenimiento a tiempo${p.reaction_ms ? ` (${formatSeconds(p.reaction_ms)})` : ''}`
@@ -142,8 +153,9 @@ export function describeEvent(e) {
 }
 
 // Tono de cada evento: 'good' | 'bad' | 'warn' | 'info'
-export function eventTone(type) {
+export function eventTone(type, payload) {
   if (['level_complete', 'support_placed', 'methane_evacuated', 'biohazard_reported', 'lantern_on', 'risk_mitigated', 'coal_collected', 'qte_hose_dodged'].includes(type)) return 'good'
+  if (type === 'challenge_round') return payload?.passed ? 'good' : 'bad'
   if (['player_death', 'collapse', 'level_failed', 'risk_failed', 'biohazard_contact', 'fatigue_injury', 'qte_hose_hit'].includes(type)) return 'bad'
   if (['gas_alarm', 'methane_start', 'lantern_warning', 'support_prompt', 'biohazard_warned', 'level_abandoned'].includes(type)) return 'warn'
   return 'info'
@@ -155,4 +167,14 @@ export function bandFor(percentage, hasData = true) {
   if (percentage >= 80) return 'destacado'
   if (percentage >= 40) return 'en_progreso'
   return 'refuerzo'
+}
+
+// Resumen de una ronda de reto según su tipo (stage = Reaccion / Memoria)
+export function describeChallengeRound(kind, p = {}) {
+  const res = p.passed ? 'superada' : 'no superada'
+  if (kind === 'Reaccion')
+    return `Ronda ${res}: reacción media ${p.avg_ms ?? '?'} ms (mejor ${p.best_ms ?? '?'} ms), ${p.false_alarms ?? 0} falsas alarmas, ${p.misses ?? 0} omisiones`
+  if (kind === 'Memoria')
+    return `Ronda ${res}: secuencia máxima de ${p.max_length ?? 0}, precisión ${p.precision ?? 0} %, ${p.errors ?? 0} errores`
+  return `Ronda de reto ${res}`
 }

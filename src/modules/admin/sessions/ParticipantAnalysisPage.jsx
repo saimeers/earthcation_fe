@@ -3,12 +3,12 @@ import { Link, useParams } from 'react-router-dom'
 import {
   ArrowLeft, ChevronLeft, ChevronRight, Sparkles, Scale, Route, ShieldHalf, Gamepad2, PlayCircle,
   Building2, MapPin, IdCard, Brain, ExternalLink, Pickaxe, Activity, Lightbulb, Gauge, Flame, Bug, BookOpen,
-  CheckCircle2, XCircle,
+  CheckCircle2, XCircle, Puzzle,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useParticipantAnalysis } from '@/hooks/admin/useSessions'
-import { formatNumber, formatPct, formatSeconds, fullName, initials, SUMMARY_COUNTERS } from '@/lib/format'
+import { formatNumber, formatPct, formatSeconds, fullName, initials, isChallenge, levelLabel, SUMMARY_COUNTERS } from '@/lib/format'
 import { BAND_META, categoryIcon, tintBg } from './bands'
 import { participantInsights } from './insights'
 import { Avatar, BandPill, DeltaChip, InsightCard, RadialGauge, SplitBar } from './components/Performance'
@@ -63,7 +63,7 @@ export function ParticipantAnalysisPage() {
     return (
       <div className="space-y-6 max-w-6xl mx-auto w-full">
         <Skeleton className="h-52 rounded-2xl" />
-        <div className="grid sm:grid-cols-3 gap-3">{[1, 2, 3].map(i => <Skeleton key={i} className="h-20 rounded-xl" />)}</div>
+        <div className="grid sm:grid-cols-2 gap-3">{[1, 2, 3].map(i => <Skeleton key={i} className="h-20 rounded-xl" />)}</div>
         <Skeleton className="h-64 rounded-xl" />
       </div>
     )
@@ -72,7 +72,8 @@ export function ParticipantAnalysisPage() {
   const { session, user, participant: p, group, navigation, reading, summary_counters: counters } = data
   const band = BAND_META[p.band]
   const hasData = p.total_attempts > 0
-  const levelKeys = Object.keys(attemptsByLevel).sort()
+  const levelKeys = Object.keys(attemptsByLevel).filter(k => !isChallenge(k)).sort()
+  const challengeKeys = Object.keys(attemptsByLevel).filter(isChallenge).sort()
   const selectedAttempt = attemptId && data.attempts.some(a => a.id === attemptId) ? attemptId : data.attempts.at(-1)?.id ?? null
   const mistakesPerResult = hasData ? p.mistakes_total / p.total_attempts : null
 
@@ -181,6 +182,32 @@ export function ParticipantAnalysisPage() {
           </div>
         )}
       </section>
+
+      {/* Retos de transición (GC-05 memoria, GC-07 reacción): intentos propios, no cuentan en el % de los niveles */}
+      {challengeKeys.length > 0 && (
+        <section className="space-y-3">
+          <SectionTitle icon={Puzzle} hint="Memoria y reacción · haz clic para ver sus rondas">Retos de transición</SectionTitle>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {challengeKeys.map(k => {
+              const list = attemptsByLevel[k]
+              const passed = list.filter(a => a.outcome === 'completed').length
+              const last = list[list.length - 1]
+              const ok = last?.outcome === 'completed'
+              return (
+                <button key={k} type="button" onClick={() => selectAttempt(last.id)}
+                  className={`rounded-xl border bg-card p-4 text-left space-y-2 hover:bg-muted/50 transition-colors ${selectedAttempt === last?.id ? 'ring-2 ring-primary' : ''}`}>
+                  <p className="text-sm font-semibold">{levelLabel(k)}</p>
+                  <p className="text-2xl font-bold leading-none">{passed}<span className="text-sm font-normal text-muted-foreground"> / {list.length} superados</span></p>
+                  <p className={`flex items-center gap-1.5 text-xs ${ok ? 'text-[var(--status-good)]' : 'text-[var(--status-critical)]'}`}>
+                    {ok ? <CheckCircle2 className="h-3.5 w-3.5" /> : <XCircle className="h-3.5 w-3.5" />}
+                    Último: {ok ? 'superado' : last?.outcome === 'failed' ? 'no superado' : 'sin terminar'}
+                  </p>
+                </button>
+              )
+            })}
+          </div>
+        </section>
+      )}
 
       {/* Dominio de riesgos */}
       <section className="space-y-3">

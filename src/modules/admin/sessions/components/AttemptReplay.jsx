@@ -40,7 +40,7 @@ export function AttemptReplay({ attempts, selectedId, onSelect }) {
     events.filter(e => e.event_type === 'stage_enter').forEach((e, i, arr) => {
       st.push({ stage: e.stage, from: e.t_ms, to: arr[i + 1]?.t_ms ?? (events.at(-1)?.t_ms ?? e.t_ms) })
     })
-    const mk = events.filter(e => eventTone(e.event_type) !== 'info' && e.health != null && e.t_ms != null)
+    const mk = events.filter(e => eventTone(e.event_type, e.payload) !== 'info' && e.health != null && e.t_ms != null)
     return { points: pts, stages: st, marks: mk, feed: events }
   }, [data])
 
@@ -101,7 +101,7 @@ export function AttemptReplay({ attempts, selectedId, onSelect }) {
                   <Tooltip content={<ChartTooltip />} cursor={{ stroke: 'var(--muted-foreground)', strokeWidth: 1 }} />
                   <Area type="stepAfter" dataKey="health" stroke="var(--chart-1)" strokeWidth={2} fill="url(#healthFill)" isAnimationActive={false} dot={false} activeDot={{ r: 5, strokeWidth: 2, stroke: 'var(--card)' }} />
                   {marks.map(m => (
-                    <ReferenceDot key={m.id} x={m.t_ms} y={m.health} r={5} fill={TONE[eventTone(m.event_type)].color} stroke="var(--card)" strokeWidth={2} />
+                    <ReferenceDot key={m.id} x={m.t_ms} y={m.health} r={5} fill={TONE[eventTone(m.event_type, m.payload)].color} stroke="var(--card)" strokeWidth={2} />
                   ))}
                 </AreaChart>
               </ResponsiveContainer>
@@ -126,7 +126,7 @@ export function AttemptReplay({ attempts, selectedId, onSelect }) {
                     </li>
                   )
                 }
-                const tone = TONE[eventTone(e.event_type)]
+                const tone = TONE[eventTone(e.event_type, e.payload)]
                 const Icon = tone.icon
                 return (
                   <li key={e.id} className="relative flex gap-2.5 py-1.5 pl-1">
