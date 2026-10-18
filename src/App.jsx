@@ -24,6 +24,7 @@ import SessionReportAdminPage from './pages/admin/SessionReportAdminPage'
 
 import { ProtectedRoute } from './components/shared/ProtectedRoute'
 import HealthPage from './modules/developer/health/HealthPage'
+import VersionsPage from './modules/developer/versions/VersionsPage'
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, staleTime: 30_000 } },
@@ -83,6 +84,7 @@ function App() {
               </ProtectedRoute>
             }>
               <Route index element={<HealthPage />} />
+              <Route path="versions" element={<VersionsPage />} />
               <Route path="analytics" element={<AnalyticsAdminPage />} />
               <Route path="users" element={<UsersAdminPage />} />
               <Route path="users/:id" element={<UserDetailAdminPage />} />

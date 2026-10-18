@@ -222,3 +222,8 @@ Visitas) and **Consulta** (analytics, users, sessions — the admin screens in r
 Shared screens must build links with `usePanelBase()`, never hardcode `/admin/...`.
 `modules/developer/health/HealthPage.jsx` polls `GET /api/health/details` every 10 s (p50/p95,
 errors, DB pool, Redis, requests per minute, slowest routes). Admins can open `/developer` too.
+`modules/developer/versions/VersionsPage.jsx` (`/developer/versions`): drop a build ZIP → checked in the
+browser with JSZip (`buildCheck.js`, same rules as the API) → label prefilled from Unity's `productVersion`
+→ upload with progress (`deployService.upload`: plain axios to the S3 presigned URL, or the API in dev) →
+list polls every 3 s while a version is publishing. Actions: Probar (preview tab opened before the request
+so it isn't blocked), Poner en línea, Reintentar, Borrar (AlertDialog).
