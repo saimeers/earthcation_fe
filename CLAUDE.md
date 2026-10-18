@@ -204,3 +204,11 @@ changed off shadcn's default pure-grayscale palette, which read as an unbranded 
 `@font-face` — the Google Fonts CSS2 API endpoint it points to is a stylesheet, not a raw font
 file, so `@font-face { src: url() }` silently fails to load it (this broke the animated title once
 already, from a dead third-party Cloudinary font URL in the original ported version).
+
+### Room QR (`modules/admin/sessions/components/RoomQr.jsx`, `lib/playUrl.js`)
+
+`qrcode.react`. The QR encodes `${VITE_PLAY_URL}/?sala=<code>` (default
+`https://play.earthcation.saimers.dev`); the game stores that code and locks it in the level window.
+`RoomQrButton` opens a large modal to project in class (white background, code, link, copy, PNG
+download) — used in `SessionDetailPage` (under the copyable code) and `SessionCard` (live, non free-play
+sessions). `RoomQrPrint` is an SVG QR in the printable report. Not shown for "Juego libre".

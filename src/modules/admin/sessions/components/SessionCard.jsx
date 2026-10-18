@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { usePanelBase } from '@/hooks/usePanelBase'
+import { RoomQrButton } from './RoomQr'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -59,6 +60,9 @@ export function SessionCard({ session, onStart, onEnd }) {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
+            {!session.is_free_play && session.status !== 'finished' && (
+              <RoomQrButton code={session.code} name={session.name} label="QR" className="h-8 text-xs" />
+            )}
             {!session.is_free_play && session.status === 'waiting' && (
               <Button size="sm" variant="outline" className="h-8 text-xs" onClick={() => onStart(session.id)}>
                 <Play className="h-3 w-3 mr-1" />

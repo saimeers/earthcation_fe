@@ -14,6 +14,7 @@ import { sessionInsights } from './insights'
 import { BandPill, InsightCard, SplitBar } from './components/Performance'
 import { HBarList, StackedBar } from './components/Bars'
 import { RiskMatrix, MatrixLegend } from './components/RiskMatrix'
+import { RoomQrPrint } from './components/RoomQr'
 
 // El informe siempre se imprime en claro, sin importar el tema del panel.
 const LIGHT_VARS = {
@@ -99,6 +100,9 @@ export function SessionReportPage() {
             <img src="/logo_earthcation.svg" alt="" className="h-10 w-10 ml-auto mb-1" />
             <p className="text-[10px] uppercase tracking-wide text-muted-foreground">{session.is_free_play ? 'Sesión' : 'Código de sala'}</p>
             <p className="font-mono text-2xl font-bold tracking-[0.15em] text-[color:var(--primary)]">{session.is_free_play ? 'Juego libre' : session.code}</p>
+            {!session.is_free_play && session.status !== 'finished' && (
+              <div className="mt-1 flex justify-end"><RoomQrPrint code={session.code} size={88} /></div>
+            )}
           </div>
         </header>
 

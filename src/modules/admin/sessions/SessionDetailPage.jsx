@@ -29,6 +29,7 @@ import {
 import { cn } from '@/lib/utils'
 import { BAND_META, BAND_ORDER, OUTCOME_META, categoryIcon, tintBg } from './bands'
 import { sessionInsights } from './insights'
+import { RoomQrButton } from './components/RoomQr'
 import { Avatar, BandPill, InsightCard, RadialGauge, StatTile, SplitBar } from './components/Performance'
 import { JourneyDots } from './components/LevelJourney'
 import { RiskMatrix, MatrixLegend } from './components/RiskMatrix'
@@ -121,7 +122,12 @@ function SessionHero({ session, summary, isFetching, dataUpdatedAt, onRefresh, a
             </div>
           </div>
         </div>
-        {!session?.is_free_play && <CopyCode code={session?.code} />}
+        {!session?.is_free_play && (
+          <div className="flex flex-col items-stretch gap-2">
+            <CopyCode code={session?.code} />
+            <RoomQrButton code={session?.code} name={session?.name} />
+          </div>
+        )}
       </div>
     </div>
   )
