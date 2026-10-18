@@ -227,3 +227,7 @@ browser with JSZip (`buildCheck.js`, same rules as the API) → label prefilled 
 → upload with progress (`deployService.upload`: plain axios to the S3 presigned URL, or the API in dev) →
 list polls every 3 s while a version is publishing. Actions: Probar (preview tab opened before the request
 so it isn't blocked), Poner en línea, Reintentar, Borrar (AlertDialog).
+`modules/developer/visits/VisitsPage.jsx` (`/developer/visits`, `GET /api/visits/stats`): 7/30/90-day
+toggle, totals (openings, unique, via QR, logins), `VisitsMap.jsx` (department outlines + city circles
+from Cloudflare coordinates; reads the `--chart-1` token value because Leaflet paints SVG attributes),
+per-day bars, regions/cities/countries/devices/OS/browsers/versions and login locations by role.
