@@ -1,5 +1,5 @@
 import {
-  Users, MapPin, Building2, Shield, LayoutDashboard, CalendarDays, BarChart3
+  Users, MapPin, Building2, CalendarDays, BarChart3
 } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import {
@@ -29,10 +29,23 @@ const adminNav = [
   },
 ]
 
+// El instructor solo gestiona sus sesiones (y ve el "Juego libre" de su ubicación)
+const instructorNav = [
+  {
+    label: 'Principal',
+    items: [
+      { title: 'Mis sesiones', url: '/instructor', icon: CalendarDays },
+    ],
+  },
+]
+
 export function AppSidebar({ ...props }) {
   const location      = useLocation()
   const user          = useAuthStore(s => s.user)
   const { setOpen }   = useSidebar()
+  const isInstructor  = location.pathname.startsWith('/instructor')
+  const nav           = isInstructor ? instructorNav : adminNav
+  const home          = isInstructor ? '/instructor' : '/admin'
 
   return (
     <Sidebar variant="inset" collapsible="offcanvas" {...props}>
@@ -41,7 +54,7 @@ export function AppSidebar({ ...props }) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <Link to="/admin">
+              <Link to={home}>
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground shrink-0">
                   <img src="/logo_earthcation.svg" alt="Logo" width={32} height={32} />
                 </div>
@@ -58,14 +71,15 @@ export function AppSidebar({ ...props }) {
       </SidebarHeader>
 
       <SidebarContent>
-        {adminNav.map(group => (
+        {nav.map(group => (
           <SidebarGroup key={group.label}>
             <SidebarGroupLabel>{group.label}</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {group.items.map(item => {
                   const active = location.pathname === item.url
-                    || (item.url !== '/admin' && location.pathname.startsWith(item.url))
+                    || (item.url !== home && location.pathname.startsWith(item.url))
+                    || (isInstructor && location.pathname.startsWith('/instructor/sessions'))
                   return (
                     <SidebarMenuItem key={item.title}>
                       <SidebarMenuButton

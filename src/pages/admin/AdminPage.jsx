@@ -9,6 +9,7 @@ import {
   Breadcrumb, BreadcrumbItem, BreadcrumbList,
   BreadcrumbPage, BreadcrumbSeparator, BreadcrumbLink,
 } from '@/components/ui/breadcrumb'
+import { usePanelBase }         from '@/hooks/usePanelBase'
 
 const breadcrumbMap = {
   '/admin':               'Resumen',
@@ -16,22 +17,27 @@ const breadcrumbMap = {
   '/admin/sessions':      'Sesiones', 
   '/admin/locations':     'Localidades',
   '/admin/organizations': 'Organizaciones',
+  '/instructor':           'Mis sesiones',
 }
 
 export default function AdminPage() {
   const location = useLocation()
-  const isIndex  = location.pathname === '/admin'
+  const base     = usePanelBase()
+  const isIndex  = location.pathname === base
+  // en el panel del instructor la lista de sesiones es la portada (/instructor)
+  const sessionsHref = base === '/instructor' ? '/instructor' : '/admin/sessions'
+  const sessionsLabel = base === '/instructor' ? 'Mis sesiones' : 'Sesiones'
 
   const getBreadcrumbs = () => {
     const paths = []
     
-    const participantMatch = location.pathname.match(/^\/admin\/sessions\/([^/]+)\/participants\//)
+    const participantMatch = location.pathname.match(/^\/(?:admin|instructor)\/sessions\/([^/]+)\/participants\//)
     if (participantMatch) {
-      paths.push({ label: 'Sesiones', href: '/admin/sessions' })
-      paths.push({ label: 'Detalle de la sesión', href: `/admin/sessions/${participantMatch[1]}` })
+      paths.push({ label: sessionsLabel, href: sessionsHref })
+      paths.push({ label: 'Detalle de la sesión', href: `${base}/sessions/${participantMatch[1]}` })
       paths.push({ label: 'Análisis del participante', href: location.pathname })
-    } else if (location.pathname.startsWith('/admin/sessions/')) {
-      paths.push({ label: 'Sesiones', href: '/admin/sessions' })
+    } else if (location.pathname.startsWith(`${base}/sessions/`)) {
+      paths.push({ label: sessionsLabel, href: sessionsHref })
       paths.push({ label: 'Detalle de la sesión', href: location.pathname })
     } else if (location.pathname.startsWith('/admin/users/')) {
       paths.push({ label: 'Usuarios', href: '/admin/users' })
@@ -60,7 +66,7 @@ export default function AdminPage() {
                 <>
                   <BreadcrumbItem className="hidden sm:block">
                     <BreadcrumbLink asChild>
-                      <Link to="/admin" className="text-xs">Admin</Link>
+                      <Link to={base} className="text-xs">{base === '/instructor' ? 'Instructor' : 'Admin'}</Link>
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator className="hidden sm:block" />

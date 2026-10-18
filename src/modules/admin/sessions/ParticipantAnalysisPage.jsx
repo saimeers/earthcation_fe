@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { usePanelBase } from '@/hooks/usePanelBase'
 import {
   ArrowLeft, ChevronLeft, ChevronRight, Sparkles, Scale, Route, ShieldHalf, Gamepad2, PlayCircle,
   Building2, MapPin, IdCard, Brain, ExternalLink, Pickaxe, Activity, Lightbulb, Gauge, Flame, Bug, BookOpen,
@@ -48,6 +49,7 @@ function CompareTile({ label, value, delta, hint }) {
 
 export function ParticipantAnalysisPage() {
   const { id: sessionId, userId } = useParams()
+  const base = usePanelBase()
   const { data, isLoading, isFetching } = useParticipantAnalysis(sessionId, userId)
   const [attemptId, setAttemptId] = useState(null)
   const replayRef = useRef(null)
@@ -89,15 +91,15 @@ export function ParticipantAnalysisPage() {
       {/* Navegación */}
       <div className="flex items-center justify-between gap-3">
         <Button variant="ghost" size="sm" className="h-8 -ml-2 text-muted-foreground min-w-0 shrink" asChild>
-          <Link to={`/admin/sessions/${sessionId}`}><ArrowLeft className="h-4 w-4 mr-1 shrink-0" /> <span className="truncate">{session.name}</span></Link>
+          <Link to={`${base}/sessions/${sessionId}`}><ArrowLeft className="h-4 w-4 mr-1 shrink-0" /> <span className="truncate">{session.name}</span></Link>
         </Button>
         <div className="flex items-center gap-1.5 shrink-0">
           <span className="text-xs text-muted-foreground tabular-nums mr-1 whitespace-nowrap">{navigation.index + 1} de {navigation.total}</span>
           <Button variant="outline" size="icon" className="h-8 w-8" disabled={!navigation.prev} asChild={!!navigation.prev}>
-            {navigation.prev ? <Link to={`/admin/sessions/${sessionId}/participants/${navigation.prev}`} aria-label="Participante anterior"><ChevronLeft className="h-4 w-4" /></Link> : <span><ChevronLeft className="h-4 w-4" /></span>}
+            {navigation.prev ? <Link to={`${base}/sessions/${sessionId}/participants/${navigation.prev}`} aria-label="Participante anterior"><ChevronLeft className="h-4 w-4" /></Link> : <span><ChevronLeft className="h-4 w-4" /></span>}
           </Button>
           <Button variant="outline" size="icon" className="h-8 w-8" disabled={!navigation.next} asChild={!!navigation.next}>
-            {navigation.next ? <Link to={`/admin/sessions/${sessionId}/participants/${navigation.next}`} aria-label="Participante siguiente"><ChevronRight className="h-4 w-4" /></Link> : <span><ChevronRight className="h-4 w-4" /></span>}
+            {navigation.next ? <Link to={`${base}/sessions/${sessionId}/participants/${navigation.next}`} aria-label="Participante siguiente"><ChevronRight className="h-4 w-4" /></Link> : <span><ChevronRight className="h-4 w-4" /></span>}
           </Button>
         </div>
       </div>
@@ -117,9 +119,11 @@ export function ParticipantAnalysisPage() {
                 {user.profile?.location && <span className="flex items-center gap-1.5"><MapPin className="h-4 w-4" />{user.profile.location.municipality}</span>}
                 {user.varkProfile?.dominant_style && <span className="flex items-center gap-1.5"><Brain className="h-4 w-4" />Aprende mejor: {user.varkProfile.dominant_style}</span>}
               </div>
-              <Link to={`/admin/users/${user.id}`} className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
-                Ver perfil completo <ExternalLink className="h-3 w-3" />
-              </Link>
+              {base === '/admin' && (
+                <Link to={`/admin/users/${user.id}`} className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
+                  Ver perfil completo <ExternalLink className="h-3 w-3" />
+                </Link>
+              )}
             </div>
           </div>
           <div className="flex items-center gap-5 self-center md:self-auto">

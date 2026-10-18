@@ -4,8 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-React admin panel for Earthcation — **not the game**. Today it only implements the `admin` role;
-`instructor` has full backend support but no frontend UI yet. Consumes the API in
+React panel for Earthcation — **not the game**. Implements the `admin` role and the `instructor`
+role (sessions only, see "Instructor panel" below). Consumes the API in
 `../earthcation_be` via `VITE_API_URL`. Deployed on Vercel. See `../../project-context.md` §4 for
 the exhaustive route/module breakdown — this file covers what's specific to working in this folder.
 
@@ -46,10 +46,6 @@ TS, by shadcn's default, not by app convention).
 
 ### Known active bugs / inconsistencies — check before touching auth or sessions
 
-- `modules/auth/Login.jsx` (the login actually wired up) calls `navigate('/instructor')` for
-  instructor-role users, but **no `/instructor` route is registered** in `App.jsx`. This currently
-  produces a blank/404 result for instructor logins. Building the instructor module means adding
-  the route AND the pages/module — not just fixing the navigate call.
 - `/register` is not mounted in `App.jsx` even though `Register.jsx`/`RegisterPage.jsx` work in
   isolation. The backend's public `POST /api/auth/register` is also gone now (see
   `../earthcation_be/CLAUDE.md`) — self-registration is dead everywhere, not just unmounted here.
@@ -61,6 +57,17 @@ TS, by shadcn's default, not by app convention).
     `modules/admin/analytics/AnalyticsPage.jsx`)
   - all of `pages/sessions/*`
   - `components/shared/RoleGuard.jsx` (0 bytes, never implemented)
+
+### Instructor panel (`/instructor`)
+
+Same layout (`pages/admin/AdminPage.jsx` + `AppSidebar`) and the same session screens as the admin,
+under `ProtectedRoute allowedRoles={['instructor']}`: `/instructor` = session list (`SessionsPage`
+uses `useMySessions` → `GET /api/sessions/mine`: own rooms + the "Juego libre" session of the
+instructor's location), `/instructor/sessions/:id`, `.../participants/:userId` and `.../report`.
+Shared screens build their links with `hooks/usePanelBase.js` ('/admin' or '/instructor') — never
+hardcode `/admin/...` in `modules/admin/sessions`. The sidebar shows only "Mis sesiones"; the
+participant page hides "Ver perfil completo" (user detail is admin-only). The backend checks that
+the instructor can see each session (`sessionService.assertCanView`).
 
 ### Users module — page-per-action, not modal-per-action
 

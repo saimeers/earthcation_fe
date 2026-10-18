@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { usePanelBase } from '@/hooks/usePanelBase'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { ArrowLeft, Printer, Loader2 } from 'lucide-react'
@@ -44,6 +45,7 @@ function Kpi({ label, value, sub }) {
 
 export function SessionReportPage() {
   const { id } = useParams()
+  const base = usePanelBase()
   const { data, isLoading } = useSessionProgressAdmin(id)
   const insights = useMemo(() => sessionInsights(data), [data])
 
@@ -70,7 +72,7 @@ export function SessionReportPage() {
       <div className="print:hidden sticky top-0 z-10 border-b bg-white/90 backdrop-blur">
         <div className="mx-auto max-w-[210mm] flex items-center justify-between gap-3 px-4 py-2.5">
           <Button variant="ghost" size="sm" className="h-8" asChild>
-            <Link to={`/admin/sessions/${id}`}><ArrowLeft className="h-4 w-4 mr-1" /> Volver a la sesión</Link>
+            <Link to={`${base}/sessions/${id}`}><ArrowLeft className="h-4 w-4 mr-1" /> Volver a la sesión</Link>
           </Button>
           <div className="flex items-center gap-3">
             <p className="text-xs text-zinc-500 hidden sm:block">En el diálogo de impresión elige «Guardar como PDF».</p>

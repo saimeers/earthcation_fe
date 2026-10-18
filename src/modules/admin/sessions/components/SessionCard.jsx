@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { usePanelBase } from '@/hooks/usePanelBase'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -13,6 +14,7 @@ const STATUS = {
 }
 
 export function SessionCard({ session, onStart, onEnd }) {
+  const base = usePanelBase()
   const st = STATUS[session.status] ?? STATUS.waiting
   const duration = session.started_at && session.ended_at
     ? Math.round((new Date(session.ended_at) - new Date(session.started_at)) / 60000)
@@ -70,7 +72,7 @@ export function SessionCard({ session, onStart, onEnd }) {
               </Button>
             )}
             <Button size="sm" asChild className="h-8 text-xs">
-              <Link to={`/admin/sessions/${session.id}`}>
+              <Link to={`${base}/sessions/${session.id}`}>
                 <ExternalLink className="h-3 w-3 mr-1" />
                 Ver detalle
               </Link>

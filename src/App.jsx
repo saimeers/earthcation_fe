@@ -59,6 +59,22 @@ function App() {
               <Route path="organizations" element={<OrganizationsAdminPage />} />
             </Route>
 
+            {/* Instructor: mismo layout y pantallas de sesiones que el admin, solo con sus salas */}
+            <Route path="/instructor" element={
+              <ProtectedRoute allowedRoles={['instructor']}>
+                <AdminPage />
+              </ProtectedRoute>
+            }>
+              <Route index element={<SessionsAdminPage />} />
+              <Route path="sessions/:id" element={<SessionDetailAdminPage />} />
+              <Route path="sessions/:id/participants/:userId" element={<ParticipantAnalysisAdminPage />} />
+            </Route>
+            <Route path="/instructor/sessions/:id/report" element={
+              <ProtectedRoute allowedRoles={['instructor']}>
+                <SessionReportAdminPage />
+              </ProtectedRoute>
+            } />
+
             {/* Informe imprimible de una sesión — fuera del layout con sidebar para que el PDF salga limpio */}
             <Route path="/admin/sessions/:id/report" element={
               <ProtectedRoute allowedRoles={['admin']}>

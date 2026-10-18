@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
+import { usePanelBase } from '@/hooks/usePanelBase'
 import { formatDistanceToNowStrict, format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import {
@@ -70,6 +71,7 @@ function CopyCode({ code }) {
 }
 
 function SessionHero({ session, summary, isFetching, dataUpdatedAt, onRefresh, actions }) {
+  const base = usePanelBase()
   const status = STATUS_INFO[session?.status] ?? STATUS_INFO.waiting
   const duration = session?.started_at
     ? Math.round(((session.ended_at ? new Date(session.ended_at) : new Date()) - new Date(session.started_at)) / 60000)
@@ -81,7 +83,7 @@ function SessionHero({ session, summary, isFetching, dataUpdatedAt, onRefresh, a
       <div className="relative p-5 sm:p-6 flex flex-col lg:flex-row gap-6 lg:items-center justify-between">
         <div className="flex items-start gap-3 min-w-0">
           <Button variant="outline" size="icon" className="h-9 w-9 shrink-0 mt-0.5" asChild>
-            <Link to="/admin/sessions" aria-label="Volver a sesiones"><ArrowLeft className="h-4 w-4" /></Link>
+            <Link to={`${base}/sessions`} aria-label="Volver a sesiones"><ArrowLeft className="h-4 w-4" /></Link>
           </Button>
           <div className="min-w-0 space-y-2">
             <span
@@ -287,6 +289,7 @@ function TelemetryTab({ data, sessionId }) {
 export function SessionDetailPage() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const base = usePanelBase()
   const { data, isLoading, refetch, isFetching, dataUpdatedAt } = useSessionProgressAdmin(id)
   const startSession = useStartSession()
   const endSession = useEndSession()
@@ -309,7 +312,7 @@ export function SessionDetailPage() {
       .sort(SORTS[sort].fn)
   }, [participants, search, band, sort])
 
-  const openParticipant = (userId) => navigate(`/admin/sessions/${id}/participants/${userId}`)
+  const openParticipant = (userId) => navigate(`${base}/sessions/${id}/participants/${userId}`)
 
   if (isLoading) {
     return (
@@ -344,7 +347,7 @@ export function SessionDetailPage() {
             <FileSpreadsheet className="h-4 w-4 text-green-600" />
             <span><span className="block text-sm font-medium">Excel (.xlsx)</span><span className="block text-[11px] text-muted-foreground">Participantes, riesgos e intentos en hojas</span></span>
           </DropdownMenuItem>
-          <DropdownMenuItem className="gap-2.5 py-2 cursor-pointer" onClick={() => window.open(`/admin/sessions/${id}/report`, '_blank', 'noopener')}>
+          <DropdownMenuItem className="gap-2.5 py-2 cursor-pointer" onClick={() => window.open(`${base}/sessions/${id}/report`, '_blank', 'noopener')}>
             <FileText className="h-4 w-4 text-red-600" />
             <span><span className="block text-sm font-medium">Informe PDF</span><span className="block text-[11px] text-muted-foreground">Informe visual listo para imprimir</span></span>
           </DropdownMenuItem>

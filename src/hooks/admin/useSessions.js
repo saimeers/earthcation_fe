@@ -3,10 +3,20 @@ import { sessionService } from '@/services/session.service'
 import { locationService } from '@/services/location.service'
 import { toast } from 'sonner'
 
-export function useSessions() {
+export function useSessions(options = {}) {
   return useQuery({
     queryKey: ['sessions', 'all'],
     queryFn:  () => sessionService.getAll().then(r => r.data),
+    ...options,
+  })
+}
+
+// Instructor: sus salas y la sesión "Juego libre" de su ubicación
+export function useMySessions(options = {}) {
+  return useQuery({
+    queryKey: ['sessions', 'mine'],
+    queryFn:  () => sessionService.getMine().then(r => r.data),
+    ...options,
   })
 }
 

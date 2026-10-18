@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import {
   useSessions,
+  useMySessions,
   useStartSession,
   useEndSession,
   useLocationsForFilter,
@@ -19,6 +20,7 @@ import { cn } from '@/lib/utils'
 import { SessionCard } from './components/SessionCard'
 import { CreateSessionModal } from './components/CreateSessionModal'
 import { OnboardingCard } from '@/modules/admin/components/OnboardingCard'
+import { usePanelBase } from '@/hooks/usePanelBase'
 
 export function SessionsPage() {
   const [search, setSearch] = useState('')
@@ -26,7 +28,10 @@ export function SessionsPage() {
   const [locationFilter, setLocationFilter] = useState('all') 
   const [open, setOpen] = useState(false)
 
-  const { data: sessions, isLoading, refetch, isFetching } = useSessions()
+  const isInstructor = usePanelBase() === '/instructor'
+  const allQuery = useSessions({ enabled: !isInstructor })
+  const mineQuery = useMySessions({ enabled: isInstructor })
+  const { data: sessions, isLoading, refetch, isFetching } = isInstructor ? mineQuery : allQuery
   const { data: locations } = useLocationsForFilter()
 
   const startSession = useStartSession()
@@ -64,7 +69,7 @@ export function SessionsPage() {
 
       <div className="flex items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl font-semibold tracking-tight">Sesiones</h1>
+          <h1 className="text-xl font-semibold tracking-tight">{isInstructor ? 'Mis sesiones' : 'Sesiones'}</h1>
           <p className="text-sm text-muted-foreground mt-0.5">
             {allSessions.length} sesiones registradas
           </p>
