@@ -18,6 +18,12 @@ const breadcrumbMap = {
   '/admin/locations':     'Localidades',
   '/admin/organizations': 'Organizaciones',
   '/instructor':           'Mis sesiones',
+  '/developer':            'Salud del servicio',
+  '/developer/versions':   'Versiones del juego',
+  '/developer/visits':     'Visitas',
+  '/developer/analytics':  'Analíticas',
+  '/developer/users':      'Usuarios',
+  '/developer/sessions':   'Sesiones',
 }
 
 export default function AdminPage() {
@@ -25,13 +31,13 @@ export default function AdminPage() {
   const base     = usePanelBase()
   const isIndex  = location.pathname === base
   // en el panel del instructor la lista de sesiones es la portada (/instructor)
-  const sessionsHref = base === '/instructor' ? '/instructor' : '/admin/sessions'
+  const sessionsHref = base === '/instructor' ? '/instructor' : `${base}/sessions`
   const sessionsLabel = base === '/instructor' ? 'Mis sesiones' : 'Sesiones'
 
   const getBreadcrumbs = () => {
     const paths = []
     
-    const participantMatch = location.pathname.match(/^\/(?:admin|instructor)\/sessions\/([^/]+)\/participants\//)
+    const participantMatch = location.pathname.match(/^\/(?:admin|instructor|developer)\/sessions\/([^/]+)\/participants\//)
     if (participantMatch) {
       paths.push({ label: sessionsLabel, href: sessionsHref })
       paths.push({ label: 'Detalle de la sesión', href: `${base}/sessions/${participantMatch[1]}` })
@@ -39,8 +45,8 @@ export default function AdminPage() {
     } else if (location.pathname.startsWith(`${base}/sessions/`)) {
       paths.push({ label: sessionsLabel, href: sessionsHref })
       paths.push({ label: 'Detalle de la sesión', href: location.pathname })
-    } else if (location.pathname.startsWith('/admin/users/')) {
-      paths.push({ label: 'Usuarios', href: '/admin/users' })
+    } else if (location.pathname.startsWith(`${base}/users/`)) {
+      paths.push({ label: 'Usuarios', href: `${base}/users` })
       paths.push({ label: location.pathname.endsWith('/new') ? 'Nuevo usuario' : location.pathname.endsWith('/edit') ? 'Editar usuario' : location.pathname.endsWith('/bulk-import') ? 'Importación masiva' : 'Detalle', href: location.pathname })
     } else {
       const label = breadcrumbMap[location.pathname] ?? 'Admin'
@@ -66,7 +72,7 @@ export default function AdminPage() {
                 <>
                   <BreadcrumbItem className="hidden sm:block">
                     <BreadcrumbLink asChild>
-                      <Link to={base} className="text-xs">{base === '/instructor' ? 'Instructor' : 'Admin'}</Link>
+                      <Link to={base} className="text-xs">{{ '/instructor': 'Instructor', '/developer': 'Soporte' }[base] ?? 'Admin'}</Link>
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator className="hidden sm:block" />

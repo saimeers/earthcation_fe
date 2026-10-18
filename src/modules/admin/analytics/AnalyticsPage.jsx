@@ -12,6 +12,7 @@ import {
 import { useOverview, useVarkAll, useAnalyticsByOrganization } from '@/hooks/admin/useAnalytics'
 import { useTelemetryOverview } from '@/hooks/admin/useTelemetry'
 import { useOrganizations } from '@/hooks/admin/useOrganizations'
+import { usePanelBase } from '@/hooks/usePanelBase'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -43,6 +44,7 @@ function TrendTooltip({ active, payload }) {
 }
 
 function OrgComparator() {
+  const base = usePanelBase()
   const { orgs } = useOrganizations()
   const [orgId, setOrgId] = useState('')
   const { data, isLoading } = useAnalyticsByOrganization(orgId)
@@ -69,7 +71,7 @@ function OrgComparator() {
           {rows.map(r => {
             const band = r.total_attempts ? (r.percentage >= 80 ? 'destacado' : r.percentage >= 40 ? 'en_progreso' : 'refuerzo') : 'sin_datos'
             return (
-              <Link key={r.user?.id} to={`/admin/users/${r.user?.id}`} className="rounded-lg border p-3 hover:bg-muted/40 transition-colors space-y-2">
+              <Link key={r.user?.id} to={`${base}/users/${r.user?.id}`} className="rounded-lg border p-3 hover:bg-muted/40 transition-colors space-y-2">
                 <div className="flex items-center justify-between gap-2">
                   <div className="min-w-0">
                     <p className="text-sm font-medium truncate">{r.user?.first_name} {r.user?.last_name}</p>
@@ -145,6 +147,7 @@ function VarkTable({ data }) {
 }
 
 export function AnalyticsPage() {
+  const base = usePanelBase()
   const { data: overview, isLoading } = useOverview()
   const { data: telemetry } = useTelemetryOverview()
   const { data: varkData } = useVarkAll()
@@ -311,7 +314,7 @@ export function AnalyticsPage() {
 
       {/* Detalle */}
       <Panel icon={Building2} title="Detalle por organización y jugador" description="Compara una organización o revisa el estilo de aprendizaje de cada jugador."
-        action={<Link to="/admin/users" className="text-xs text-primary hover:underline hidden sm:inline-flex items-center gap-1">Ver usuarios <ArrowRight className="h-3 w-3" /></Link>}>
+        action={<Link to={`${base}/users`} className="text-xs text-primary hover:underline hidden sm:inline-flex items-center gap-1">Ver usuarios <ArrowRight className="h-3 w-3" /></Link>}>
         <Tabs defaultValue="orgs" className="flex-col gap-4">
           <TabsList className="h-9 w-full sm:w-fit">
             <TabsTrigger value="orgs" className="px-3 text-sm"><Building2 className="h-4 w-4" /> Comparar organización</TabsTrigger>

@@ -23,6 +23,7 @@ import ParticipantAnalysisAdminPage from './pages/admin/ParticipantAnalysisAdmin
 import SessionReportAdminPage from './pages/admin/SessionReportAdminPage'
 
 import { ProtectedRoute } from './components/shared/ProtectedRoute'
+import HealthPage from './modules/developer/health/HealthPage'
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, staleTime: 30_000 } },
@@ -71,6 +72,26 @@ function App() {
             </Route>
             <Route path="/instructor/sessions/:id/report" element={
               <ProtectedRoute allowedRoles={['instructor']}>
+                <SessionReportAdminPage />
+              </ProtectedRoute>
+            } />
+
+            {/* Desarrollador/Soporte: despliegue + consulta del panel en modo lectura (useCanEdit) */}
+            <Route path="/developer" element={
+              <ProtectedRoute allowedRoles={['developer', 'admin']}>
+                <AdminPage />
+              </ProtectedRoute>
+            }>
+              <Route index element={<HealthPage />} />
+              <Route path="analytics" element={<AnalyticsAdminPage />} />
+              <Route path="users" element={<UsersAdminPage />} />
+              <Route path="users/:id" element={<UserDetailAdminPage />} />
+              <Route path="sessions" element={<SessionsAdminPage />} />
+              <Route path="sessions/:id" element={<SessionDetailAdminPage />} />
+              <Route path="sessions/:id/participants/:userId" element={<ParticipantAnalysisAdminPage />} />
+            </Route>
+            <Route path="/developer/sessions/:id/report" element={
+              <ProtectedRoute allowedRoles={['developer', 'admin']}>
                 <SessionReportAdminPage />
               </ProtectedRoute>
             } />

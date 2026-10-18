@@ -57,7 +57,7 @@ function RoleCell({ row, onRoleChange }) {
   )
 }
 
-export function useUserColumns({ onEdit, onConfirmAction }) {
+export function useUserColumns({ onEdit, onConfirmAction, readOnly = false }) {
   return useMemo(() => [
     {
       id: 'full_name',
@@ -141,5 +141,5 @@ export function useUserColumns({ onEdit, onConfirmAction }) {
         )
       },
     },
-  ], [onEdit, onConfirmAction])
+  ].filter(c => !(readOnly && c.id === 'actions')), [onEdit, onConfirmAction, readOnly])
 }

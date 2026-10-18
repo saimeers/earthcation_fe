@@ -212,3 +212,13 @@ already, from a dead third-party Cloudinary font URL in the original ported vers
 `RoomQrButton` opens a large modal to project in class (white background, code, link, copy, PNG
 download) — used in `SessionDetailPage` (under the copyable code) and `SessionCard` (live, non free-play
 sessions). `RoomQrPrint` is an SVG QR in the printable report. Not shown for "Juego libre".
+
+### Developer panel (`/developer`, role `developer` "Desarrollador/Soporte")
+
+Same layout as admin. Sidebar: **Despliegue** (Salud del servicio = index, Versiones del juego,
+Visitas) and **Consulta** (analytics, users, sessions — the admin screens in read-only mode).
+`hooks/usePanelBase.js` returns '/admin' | '/instructor' | '/developer' and `useCanEdit()` is false on
+'/developer': shared screens hide create/edit/disable/start/end there (the backend also answers 403).
+Shared screens must build links with `usePanelBase()`, never hardcode `/admin/...`.
+`modules/developer/health/HealthPage.jsx` polls `GET /api/health/details` every 10 s (p50/p95,
+errors, DB pool, Redis, requests per minute, slowest routes). Admins can open `/developer` too.

@@ -20,7 +20,7 @@ import { cn } from '@/lib/utils'
 import { SessionCard } from './components/SessionCard'
 import { CreateSessionModal } from './components/CreateSessionModal'
 import { OnboardingCard } from '@/modules/admin/components/OnboardingCard'
-import { usePanelBase } from '@/hooks/usePanelBase'
+import { usePanelBase, useCanEdit } from '@/hooks/usePanelBase'
 
 export function SessionsPage() {
   const [search, setSearch] = useState('')
@@ -29,6 +29,7 @@ export function SessionsPage() {
   const [open, setOpen] = useState(false)
 
   const isInstructor = usePanelBase() === '/instructor'
+  const canEdit = useCanEdit()
   const allQuery = useSessions({ enabled: !isInstructor })
   const mineQuery = useMySessions({ enabled: isInstructor })
   const { data: sessions, isLoading, refetch, isFetching } = isInstructor ? mineQuery : allQuery
@@ -63,8 +64,8 @@ export function SessionsPage() {
           'Al crear una se genera un código de 3 dígitos — compártelo con los jugadores para que se unan.',
           'Desde el detalle de una sesión la inicias y la finalizas cuando termine.',
         ]}
-        ctaLabel="Crear tu primera sesión"
-        onCta={() => setOpen(true)}
+        ctaLabel={canEdit ? "Crear tu primera sesión" : undefined}
+        onCta={canEdit ? () => setOpen(true) : undefined}
       />
 
       <div className="flex items-center justify-between gap-4">
@@ -79,10 +80,12 @@ export function SessionsPage() {
             <RefreshCw className={cn('h-4 w-4 mr-1.5', isFetching && 'animate-spin')} />
             Actualizar
           </Button>
-          <Button size="sm" onClick={() => setOpen(true)}>
-            <Plus className="h-4 w-4 mr-1.5" />
-            Nueva sesión
-          </Button>
+          {canEdit && (
+            <Button size="sm" onClick={() => setOpen(true)}>
+              <Plus className="h-4 w-4 mr-1.5" />
+              Nueva sesión
+            </Button>
+          )}
         </div>
       </div>
 

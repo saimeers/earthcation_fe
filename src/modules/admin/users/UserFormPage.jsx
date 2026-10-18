@@ -4,7 +4,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
 import {
-  ArrowLeft, Loader2, Save, UserPlus, UserRound, KeyRound, Building2, Gamepad2, GraduationCap, ShieldCheck,
+  ArrowLeft, Loader2, Save, UserPlus, UserRound, KeyRound, Building2, Gamepad2, GraduationCap, ShieldCheck, Wrench,
   Mail, IdCard, CheckCircle2, Info,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -24,6 +24,7 @@ const ROLES = [
   { value: 'player',     label: 'Jugador',       icon: Gamepad2,      desc: 'Juega en Unity. Entra solo con su cédula.' },
   { value: 'instructor', label: 'Instructor',    icon: GraduationCap, desc: 'Dirige sesiones. Entra al panel con contraseña.' },
   { value: 'admin',      label: 'Administrador', icon: ShieldCheck,   desc: 'Acceso total al panel web.' },
+  { value: 'developer',  label: 'Desarrollador', icon: Wrench,        desc: 'Publica versiones del juego y da soporte. Consulta el panel sin editar.' },
 ]
 const NO_ORG = '__none__'
 const EMPTY = { first_name: '', last_name: '', cedula: '', email: '', username: '', role: 'player', age: '', organization_id: '', location_id: '' }
@@ -191,7 +192,7 @@ export function UserFormPage() {
                 name="role"
                 control={control}
                 render={({ field }) => (
-                  <div role="radiogroup" aria-label="Rol" className="grid gap-2.5 sm:grid-cols-3">
+                  <div role="radiogroup" aria-label="Rol" className="grid gap-2.5 sm:grid-cols-2">
                     {ROLES.map(r => {
                       const on = field.value === r.value
                       return (
@@ -223,7 +224,7 @@ export function UserFormPage() {
                     <Mail className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input id="email" type="email" placeholder="ana@empresa.com" disabled={loading} className={cn(inputCls, 'pl-8')} aria-invalid={!!errors.email}
                       {...register('email', {
-                        validate: v => (!isStaff || !!v?.trim()) || 'El correo es obligatorio para instructores y administradores',
+                        validate: v => (!isStaff || !!v?.trim()) || 'El correo es obligatorio para el personal del panel',
                         pattern: { value: /^\S+@\S+\.\S+$/, message: 'Formato de correo inválido' },
                       })} />
                   </div>

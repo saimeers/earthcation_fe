@@ -18,6 +18,7 @@ import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Plus, Upload } 
 
 import { useUsers } from '@/hooks/admin/useUsers'
 import { ROLES, roleLabel } from './constants'
+import { usePanelBase, useCanEdit } from '@/hooks/usePanelBase'
 import { useUserColumns } from './userColumns'
 import { OnboardingCard } from '@/modules/admin/components/OnboardingCard'
 
@@ -30,6 +31,8 @@ export function UsersPage() {
   const [confirm, setConfirm] = useState(null)
 
   const { users, isLoading, changeRole, disableUser, enableUser } = useUsers()
+  const base = usePanelBase()
+  const canEdit = useCanEdit()
 
   const handleConfirm = () => {
     if (!confirm) return
@@ -41,7 +44,8 @@ export function UsersPage() {
 
   const columns = useUserColumns({
     onEdit: (user) => navigate(`/admin/users/${user.id}/edit`),
-    onConfirmAction: setConfirm
+    onConfirmAction: setConfirm,
+    readOnly: !canEdit,
   })
 
   const filteredData = useMemo(() => {
@@ -85,7 +89,7 @@ export function UsersPage() {
             {users?.length ?? 0} usuarios registrados
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        {canEdit && <div className="flex items-center gap-2">
           <Button size="sm" variant="outline" asChild>
             <Link to="/admin/users/bulk-import">
               <Upload className="h-4 w-4 mr-1.5" />
@@ -98,7 +102,7 @@ export function UsersPage() {
               Nuevo usuario
             </Link>
           </Button>
-        </div>
+        </div>}
       </div>
 
       <Separator />
@@ -154,7 +158,7 @@ export function UsersPage() {
                 table.getRowModel().rows.map(row => (
                   <TableRow
                     key={row.id}
-                    onClick={() => navigate(`/admin/users/${row.original.id}`)}
+                    onClick={() => navigate(`${base}/users/${row.original.id}`)}
                     className={`cursor-pointer hover:bg-muted/30 ${row.original.is_active === false ? 'opacity-50' : ''}`}>
                     {row.getVisibleCells().map(cell => (
                       <TableCell

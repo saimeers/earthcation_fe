@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { usePanelBase } from '@/hooks/usePanelBase'
+import { usePanelBase, useCanEdit } from '@/hooks/usePanelBase'
 import { formatDistanceToNowStrict, format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import {
@@ -296,6 +296,7 @@ export function SessionDetailPage() {
   const { id } = useParams()
   const navigate = useNavigate()
   const base = usePanelBase()
+  const canEdit = useCanEdit()
   const { data, isLoading, refetch, isFetching, dataUpdatedAt } = useSessionProgressAdmin(id)
   const startSession = useStartSession()
   const endSession = useEndSession()
@@ -332,12 +333,12 @@ export function SessionDetailPage() {
 
   const actions = (
     <>
-      {!session?.is_free_play && session?.status === 'waiting' && (
+      {canEdit && !session?.is_free_play && session?.status === 'waiting' && (
         <Button size="sm" className="h-8 bg-green-600 hover:bg-green-700 text-white" onClick={() => startSession.mutate(id)} disabled={startSession.isPending}>
           <Play className="h-3.5 w-3.5 mr-1.5" /> Iniciar sesión
         </Button>
       )}
-      {!session?.is_free_play && session?.status === 'active' && (
+      {canEdit && !session?.is_free_play && session?.status === 'active' && (
         <Button size="sm" variant="destructive" className="h-8" onClick={() => endSession.mutate(id)} disabled={endSession.isPending}>
           <Square className="h-3.5 w-3.5 mr-1.5" /> Finalizar sesión
         </Button>

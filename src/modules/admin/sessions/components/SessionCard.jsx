@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { usePanelBase } from '@/hooks/usePanelBase'
+import { usePanelBase, useCanEdit } from '@/hooks/usePanelBase'
 import { RoomQrButton } from './RoomQr'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -16,6 +16,7 @@ const STATUS = {
 
 export function SessionCard({ session, onStart, onEnd }) {
   const base = usePanelBase()
+  const canEdit = useCanEdit()
   const st = STATUS[session.status] ?? STATUS.waiting
   const duration = session.started_at && session.ended_at
     ? Math.round((new Date(session.ended_at) - new Date(session.started_at)) / 60000)
@@ -63,13 +64,13 @@ export function SessionCard({ session, onStart, onEnd }) {
             {!session.is_free_play && session.status !== 'finished' && (
               <RoomQrButton code={session.code} name={session.name} label="QR" className="h-8 text-xs" />
             )}
-            {!session.is_free_play && session.status === 'waiting' && (
+            {canEdit && !session.is_free_play && session.status === 'waiting' && (
               <Button size="sm" variant="outline" className="h-8 text-xs" onClick={() => onStart(session.id)}>
                 <Play className="h-3 w-3 mr-1" />
                 Iniciar
               </Button>
             )}
-            {!session.is_free_play && session.status === 'active' && (
+            {canEdit && !session.is_free_play && session.status === 'active' && (
               <Button size="sm" variant="outline" className="h-8 text-xs text-amber-600 border-amber-300 hover:bg-amber-50 dark:hover:bg-amber-950/30" onClick={() => onEnd(session.id)}>
                 <Square className="h-3 w-3 mr-1" />
                 Finalizar

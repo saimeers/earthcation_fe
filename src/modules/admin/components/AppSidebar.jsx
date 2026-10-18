@@ -1,5 +1,5 @@
 import {
-  Users, MapPin, Building2, CalendarDays, BarChart3
+  Users, MapPin, Building2, CalendarDays, BarChart3, Activity, Rocket, Globe2
 } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import {
@@ -39,13 +39,34 @@ const instructorNav = [
   },
 ]
 
+// Desarrollador/Soporte: despliegue del juego y soporte; el resto del panel en modo lectura
+const developerNav = [
+  {
+    label: 'Despliegue',
+    items: [
+      { title: 'Salud del servicio', url: '/developer',          icon: Activity },
+      { title: 'Versiones del juego', url: '/developer/versions', icon: Rocket },
+      { title: 'Visitas',             url: '/developer/visits',   icon: Globe2 },
+    ],
+  },
+  {
+    label: 'Consulta',
+    items: [
+      { title: 'Analíticas', url: '/developer/analytics', icon: BarChart3 },
+      { title: 'Usuarios',   url: '/developer/users',     icon: Users },
+      { title: 'Sesiones',   url: '/developer/sessions',  icon: CalendarDays },
+    ],
+  },
+]
+
 export function AppSidebar({ ...props }) {
   const location      = useLocation()
   const user          = useAuthStore(s => s.user)
   const { setOpen }   = useSidebar()
   const isInstructor  = location.pathname.startsWith('/instructor')
-  const nav           = isInstructor ? instructorNav : adminNav
-  const home          = isInstructor ? '/instructor' : '/admin'
+  const isDeveloper   = location.pathname.startsWith('/developer')
+  const nav           = isInstructor ? instructorNav : isDeveloper ? developerNav : adminNav
+  const home          = isInstructor ? '/instructor' : isDeveloper ? '/developer' : '/admin'
 
   return (
     <Sidebar variant="inset" collapsible="offcanvas" {...props}>

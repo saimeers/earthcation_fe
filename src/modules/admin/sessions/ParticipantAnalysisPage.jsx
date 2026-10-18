@@ -119,8 +119,8 @@ export function ParticipantAnalysisPage() {
                 {user.profile?.location && <span className="flex items-center gap-1.5"><MapPin className="h-4 w-4" />{user.profile.location.municipality}</span>}
                 {user.varkProfile?.dominant_style && <span className="flex items-center gap-1.5"><Brain className="h-4 w-4" />Aprende mejor: {user.varkProfile.dominant_style}</span>}
               </div>
-              {base === '/admin' && (
-                <Link to={`/admin/users/${user.id}`} className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
+              {base !== '/instructor' && (
+                <Link to={`${base}/users/${user.id}`} className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
                   Ver perfil completo <ExternalLink className="h-3 w-3" />
                 </Link>
               )}

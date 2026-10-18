@@ -42,9 +42,9 @@ export default function Login() {
       const res = await authService.login(data)
       const { token, user } = res.data
 
-      if (user.role !== 'instructor' && user.role !== 'admin') {
+      if (!['instructor', 'admin', 'developer'].includes(user.role)) {
         toast.error('Acceso restringido', {
-          description: 'Esta plataforma es solo para instructores y administradores.',
+          description: 'Esta plataforma es solo para el personal (instructores, administradores y soporte).',
         })
         setLoading(false)
         return
@@ -55,6 +55,7 @@ export default function Login() {
 
       if (user.role === 'admin') navigate('/admin')
       else if (user.role === 'instructor') navigate('/instructor')
+      else if (user.role === 'developer') navigate('/developer')
 
     } catch (err) {
       toast.error('Error al iniciar sesión', {

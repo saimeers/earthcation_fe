@@ -11,6 +11,7 @@ import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { roleLabel, roleVariant } from './constants'
 import { latestAttemptsByLevel } from '@/lib/attempts'
+import { usePanelBase, useCanEdit } from '@/hooks/usePanelBase'
 
 function StatCard({ label, value, icon: Icon, color }) {
   return (
@@ -30,6 +31,8 @@ function StatCard({ label, value, icon: Icon, color }) {
 
 export function UserDetailPage() {
   const { id } = useParams()
+  const base = usePanelBase()
+  const canEdit = useCanEdit()
   const { user, progress, sessions, isLoading } = useUserDetail(id)
 
   // % del último intento de cada nivel: reintentar reemplaza el %, no lo promedia
@@ -50,7 +53,7 @@ export function UserDetailPage() {
       <div className="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
         <div className="flex items-center gap-3 min-w-0">
           <Button variant="outline" size="icon" className="h-9 w-9 shrink-0" asChild>
-            <Link to="/admin/users">
+            <Link to={`${base}/users`}>
               <ArrowLeft className="h-4 w-4" />
             </Link>
           </Button>
@@ -72,12 +75,12 @@ export function UserDetailPage() {
           </div>
         </div>
 
-        <Button variant="secondary" size="sm" className="h-9 shadow-sm" asChild>
+        {canEdit && <Button variant="secondary" size="sm" className="h-9 shadow-sm" asChild>
           <Link to={`/admin/users/${id}/edit`}>
             <Pencil className="h-4 w-4 mr-2" />
             Editar datos
           </Link>
-        </Button>
+        </Button>}
       </div>
 
       <Separator />
@@ -199,7 +202,7 @@ export function UserDetailPage() {
                       {sessions.map(su => (
                         <TableRow key={su.id}>
                           <TableCell className="text-sm font-medium">
-                            <Link to={`/admin/sessions/${su.session?.id}`} className="hover:underline">
+                            <Link to={`${base}/sessions/${su.session?.id}`} className="hover:underline">
                               {su.session?.name ?? '—'}
                             </Link>
                           </TableCell>
