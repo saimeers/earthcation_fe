@@ -39,6 +39,7 @@ export const FAIL_REASONS = {
   mordedura_ofidio:     'Mordedura de serpiente',
   infeccion_por_hongos: 'Infección por hongos',
   lesion_por_fatiga:    'Lesión por fatiga',
+  impacto_proyeccion:   'Impacto por proyección de fragmentos',
   fatiga:               'Lesión por fatiga',
   desconocido:          'Causa desconocida',
 }
@@ -83,6 +84,8 @@ export const VARK_LABEL = { Visual: 'Visual', Auditivo: 'Auditivo', 'Lector/Escr
 export const SUMMARY_COUNTERS = {
   coal_collected:       'Carbón recolectado',
   fatigue_injuries:     'Lesiones por fatiga',
+  hose_dodged:          'Manguera esquivada',
+  hose_hit:             'Impactos de la manguera',
   lantern_warnings:     'Advertencias de linterna',
   device_opened:        'Veces que abrió el detector',
   calibrations_valid:   'Calibraciones válidas',
@@ -110,6 +113,8 @@ export function describeEvent(e) {
     case 'wagon_sent':        return p.to_surface === false ? 'Envía el vagón de regreso' : 'Envía el vagón a superficie'
     case 'wagon_arrived':     return 'Llega el vagón'
     case 'fatigue_injury':    return 'Se lesiona por fatiga al picar sin descanso'
+    case 'qte_hose_dodged':   return `Se aparta de la manguera suelta a tiempo${p.reaction_ms ? ` (${formatSeconds(p.reaction_ms)})` : ''}`
+    case 'qte_hose_hit':      return 'No se aparta: lo alcanzan los fragmentos de la manguera suelta'
     case 'support_prompt':    return `Aparece la orden de sostenimiento (${p.timeout_s ?? '?'} s para reaccionar)`
     case 'support_placed':    return `Coloca el sostenimiento a tiempo${p.reaction_ms ? ` (${formatSeconds(p.reaction_ms)})` : ''}`
     case 'collapse':          return 'Se acaba el tiempo: derrumbe'
@@ -138,8 +143,8 @@ export function describeEvent(e) {
 
 // Tono de cada evento: 'good' | 'bad' | 'warn' | 'info'
 export function eventTone(type) {
-  if (['level_complete', 'support_placed', 'methane_evacuated', 'biohazard_reported', 'lantern_on', 'risk_mitigated', 'coal_collected'].includes(type)) return 'good'
-  if (['player_death', 'collapse', 'level_failed', 'risk_failed', 'biohazard_contact', 'fatigue_injury'].includes(type)) return 'bad'
+  if (['level_complete', 'support_placed', 'methane_evacuated', 'biohazard_reported', 'lantern_on', 'risk_mitigated', 'coal_collected', 'qte_hose_dodged'].includes(type)) return 'good'
+  if (['player_death', 'collapse', 'level_failed', 'risk_failed', 'biohazard_contact', 'fatigue_injury', 'qte_hose_hit'].includes(type)) return 'bad'
   if (['gas_alarm', 'methane_start', 'lantern_warning', 'support_prompt', 'biohazard_warned', 'level_abandoned'].includes(type)) return 'warn'
   return 'info'
 }
