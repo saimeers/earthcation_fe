@@ -29,9 +29,9 @@ export function SessionCard({ session, onStart, onEnd }) {
             </div>
 
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
-              <span className="font-mono font-medium text-foreground">
-                {session.code}
-              </span>
+              {session.is_free_play
+                ? <Badge variant="outline" className="text-[10px] h-5">Juego libre</Badge>
+                : <span className="font-mono font-medium text-foreground">{session.code}</span>}
               <span className="flex items-center gap-1">
                 <Users className="h-3 w-3" />
                 {session.participants?.length ?? 0} participantes
@@ -57,13 +57,13 @@ export function SessionCard({ session, onStart, onEnd }) {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            {session.status === 'waiting' && (
+            {!session.is_free_play && session.status === 'waiting' && (
               <Button size="sm" variant="outline" className="h-8 text-xs" onClick={() => onStart(session.id)}>
                 <Play className="h-3 w-3 mr-1" />
                 Iniciar
               </Button>
             )}
-            {session.status === 'active' && (
+            {!session.is_free_play && session.status === 'active' && (
               <Button size="sm" variant="outline" className="h-8 text-xs text-amber-600 border-amber-300 hover:bg-amber-50 dark:hover:bg-amber-950/30" onClick={() => onEnd(session.id)}>
                 <Square className="h-3 w-3 mr-1" />
                 Finalizar

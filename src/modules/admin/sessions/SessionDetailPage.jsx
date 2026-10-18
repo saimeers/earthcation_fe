@@ -119,7 +119,7 @@ function SessionHero({ session, summary, isFetching, dataUpdatedAt, onRefresh, a
             </div>
           </div>
         </div>
-        <CopyCode code={session?.code} />
+        {!session?.is_free_play && <CopyCode code={session?.code} />}
       </div>
     </div>
   )
@@ -323,12 +323,12 @@ export function SessionDetailPage() {
 
   const actions = (
     <>
-      {session?.status === 'waiting' && (
+      {!session?.is_free_play && session?.status === 'waiting' && (
         <Button size="sm" className="h-8 bg-green-600 hover:bg-green-700 text-white" onClick={() => startSession.mutate(id)} disabled={startSession.isPending}>
           <Play className="h-3.5 w-3.5 mr-1.5" /> Iniciar sesión
         </Button>
       )}
-      {session?.status === 'active' && (
+      {!session?.is_free_play && session?.status === 'active' && (
         <Button size="sm" variant="destructive" className="h-8" onClick={() => endSession.mutate(id)} disabled={endSession.isPending}>
           <Square className="h-3.5 w-3.5 mr-1.5" /> Finalizar sesión
         </Button>
@@ -340,7 +340,7 @@ export function SessionDetailPage() {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start" className="w-64 bg-popover border shadow-lg z-[200]">
-          <DropdownMenuItem className="gap-2.5 py-2 cursor-pointer" onClick={() => exportXlsx.mutate({ id, code: session?.code })}>
+          <DropdownMenuItem className="gap-2.5 py-2 cursor-pointer" onClick={() => exportXlsx.mutate({ id, code: session?.code ?? 'juego-libre' })}>
             <FileSpreadsheet className="h-4 w-4 text-green-600" />
             <span><span className="block text-sm font-medium">Excel (.xlsx)</span><span className="block text-[11px] text-muted-foreground">Participantes, riesgos e intentos en hojas</span></span>
           </DropdownMenuItem>

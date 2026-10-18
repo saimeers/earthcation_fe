@@ -95,8 +95,8 @@ export function SessionReportPage() {
           </div>
           <div className="text-right shrink-0">
             <img src="/logo_earthcation.svg" alt="" className="h-10 w-10 ml-auto mb-1" />
-            <p className="text-[10px] uppercase tracking-wide text-muted-foreground">Código de sala</p>
-            <p className="font-mono text-2xl font-bold tracking-[0.15em] text-[color:var(--primary)]">{session.code}</p>
+            <p className="text-[10px] uppercase tracking-wide text-muted-foreground">{session.is_free_play ? 'Sesión' : 'Código de sala'}</p>
+            <p className="font-mono text-2xl font-bold tracking-[0.15em] text-[color:var(--primary)]">{session.is_free_play ? 'Juego libre' : session.code}</p>
           </div>
         </header>
 
