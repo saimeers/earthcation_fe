@@ -1,0 +1,55 @@
+# CI del panel: corre en cada PR y en cada push a develop/main. Vercel publica main, que solo recibe
+# merges con este check en verde (protección de rama); los PR tienen su vista previa de Vercel.
+name: ci
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+    branches: [develop, main]
+
+permissions:
+  contents: read
+  pull-requests: read # gitleaks lee los commits del PR
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Informativo hasta la fase 2 (hoy hay 22 problemas de lint conocidos)
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Build
+        run: npm run build
+        env:
+          VITE_API_URL: https://api-earthcation.saimers.dev
+          VITE_PLAY_URL: https://play.earthcation.saimers.dev
+
+      - name: Auditoría de dependencias
+        run: npm audit --omit=dev --audit-level=high
+        continue-on-error: true
+
+  secretos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
