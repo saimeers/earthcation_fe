@@ -98,6 +98,11 @@ export const SUMMARY_COUNTERS = {
   challenge_failed:     'Rondas no superadas',
   lantern_warnings:     'Advertencias de linterna',
   device_opened:        'Veces que abrió el detector',
+  device_closed:        'Veces que cerró el detector',
+  device_powered_on:    'Veces que encendió el detector',
+  device_powered_off:   'Veces que apagó el detector',
+  lantern_switched_on:  'Veces que encendió la linterna',
+  lantern_switched_off: 'Veces que apagó la linterna',
   calibrations_valid:   'Calibraciones válidas',
   calibrations_invalid: 'Calibraciones fuera de zona segura',
   exits_uncalibrated:   'Avanzó sin calibrar',
@@ -137,6 +142,8 @@ export function describeEvent(e) {
     case 'lantern_on':        return p.after_warning ? 'Enciende la linterna después de la advertencia' : 'Enciende la linterna a tiempo'
     case 'device_opened':     return 'Abre el detector de gases'
     case 'device_closed':     return 'Cierra el detector de gases'
+    case 'device_powered_off': return 'Apaga el detector'
+    case 'lantern_toggled':   return p.on ? 'Enciende la linterna' : 'Apaga la linterna'
     case 'device_powered_on': return `Enciende el detector${p.in_safe_zone === false ? ' fuera de la zona segura' : ''}`
     case 'device_calibrated': return p.valid === false ? 'Calibra el detector fuera de la zona segura' : 'Calibra el detector correctamente'
     case 'safe_zone_enter':   return 'Entra a la zona segura'
