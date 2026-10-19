@@ -27,8 +27,9 @@ function DayBars({ data, days, since }) {
   })
   const max = Math.max(1, ...series.map(d => d.visits))
   return (
-    <div>
-      <div className="flex items-end gap-px h-32" aria-label="Visitas por día">
+    // Ocupa todo el alto de la tarjeta (va al lado del mapa, que es más alto)
+    <div className="flex-1 flex flex-col min-h-0">
+      <div className="flex-1 min-h-32 flex items-end gap-px" aria-label="Visitas por día">
         {series.map(d => (
           <div key={d.day} className="flex-1 h-full flex flex-col justify-end min-w-0"
             title={`${new Date(`${d.day}T12:00`).toLocaleDateString('es-CO', { day: 'numeric', month: 'short' })} · ${d.visits} visitas · ${d.unique} únicas`}>
@@ -83,7 +84,7 @@ export default function VisitsPage() {
       </div>
 
       <div className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-4 transition-opacity ${isFetching ? 'opacity-70' : ''}`}>
-        <StatTile label="Aperturas del juego" value={t.visits} sub={`${t.unique} únicas (sin contar recargas en 30 min)`} icon={Globe2} />
+        <StatTile label="Aperturas del juego" value={t.visits} sub={`${t.unique} únicas (sin recargas en 30 min)${t.bots ? ` · ${t.bots} de robots descartadas` : ''}`} icon={Globe2} />
         <StatTile label="Dispositivos distintos" value={t.visitors} sub="Por red y navegador, aproximado" icon={Users} />
         <StatTile label="Llegaron por QR" value={t.via_qr} sub={t.visits ? `${pct(t.via_qr, t.visits)} de las aperturas` : 'Código de sala en el enlace'} icon={QrCode} />
         <StatTile label="Inicios de sesión" value={logins} sub={`${loginUsers} personas distintas`} icon={LogIn} />
@@ -93,7 +94,7 @@ export default function VisitsPage() {
         <Panel title="Mapa de visitas" description="Ciudades desde donde se abrió el juego." icon={MapPin} className="lg:col-span-3">
           <VisitsMap cities={data.cities} />
         </Panel>
-        <Panel title="Por día" description={`Últimos ${days} días, hora de Colombia.`} icon={Globe2} className="lg:col-span-2">
+        <Panel title="Por día" description={`Últimos ${days} días, hora de Colombia.`} icon={Globe2} className="lg:col-span-2 flex flex-col">
           <DayBars data={data.per_day} days={data.days} since={data.since} />
         </Panel>
       </div>

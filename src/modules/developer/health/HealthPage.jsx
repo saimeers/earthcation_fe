@@ -23,15 +23,30 @@ function StatusPill({ ok, label }) {
   )
 }
 
-function MiniBars({ data }) {
-  const max = Math.max(1, ...data.map(d => d.requests))
+// Los minutos sin tráfico no vienen de la API: se rellenan para que la escala de tiempo sea real.
+// Cada columna necesita h-full: sin alto propio, el % de la barra se calculaba sobre 0 y no se veía nada.
+function MiniBars({ data, minutes, until }) {
+  const byMinute = Object.fromEntries(data.map(d => [new Date(d.minute).getTime(), d]))
+  const last = Math.floor(until / 60000) * 60000
+  const series = Array.from({ length: minutes }, (_, i) => {
+    const t = last - (minutes - 1 - i) * 60000
+    return byMinute[t] ?? { minute: new Date(t).toISOString(), requests: 0, errors: 0 }
+  })
+  const max = Math.max(1, ...series.map(d => d.requests))
   return (
+    <div>
     <div className="flex items-end gap-1 h-24" aria-label="Peticiones por minuto">
-      {data.map(d => (
-        <div key={d.minute} className="flex-1 flex flex-col justify-end min-w-0" title={`${new Date(d.minute).toLocaleTimeString()} · ${d.requests} peticiones · ${d.errors} errores`}>
+      {series.map(d => (
+        <div key={d.minute} className="flex-1 h-full flex flex-col justify-end min-w-0" title={`${new Date(d.minute).toLocaleTimeString()} · ${d.requests} peticiones · ${d.errors} errores`}>
           <div className="rounded-t" style={{ height: `${(d.requests / max) * 100}%`, minHeight: d.requests ? 2 : 0, background: d.errors ? 'var(--status-critical)' : 'var(--chart-1)' }} />
         </div>
       ))}
+    </div>
+    <div className="flex justify-between text-[11px] text-muted-foreground mt-1.5 tabular-nums">
+      <span>{new Date(series[0].minute).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+      <span>{max} máx/min</span>
+      <span>Ahora</span>
+    </div>
     </div>
   )
 }
@@ -87,7 +102,7 @@ export default function HealthPage() {
           <p className="text-sm text-muted-foreground">Guarda los límites de peticiones y la caché de consultas pesadas. Si falla, la API sigue funcionando sin caché.</p>
         </Panel>
         <Panel title="Peticiones por minuto" icon={Server}>
-          {m.per_minute?.length ? <MiniBars data={m.per_minute} /> : <p className="text-sm text-muted-foreground">Sin tráfico en esta ventana.</p>}
+          <MiniBars data={m.per_minute ?? []} minutes={m.window_minutes ?? 15} until={dataUpdatedAt} />
         </Panel>
       </div>
 
