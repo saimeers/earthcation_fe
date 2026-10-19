@@ -12,7 +12,8 @@ api.interceptors.request.use(config => {
       const { state } = JSON.parse(raw)
       if (state?.token)
         config.headers.Authorization = `Bearer ${state.token}`
-    } catch {}
+    } catch { // sesión guardada ilegible: se sigue sin token
+    }
   }
   return config
 })

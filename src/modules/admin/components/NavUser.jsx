@@ -6,7 +6,7 @@ import {
   DropdownMenuSubContent, DropdownMenuPortal,
 } from '@/components/ui/dropdown-menu'
 import {
-  SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar,
+  SidebarMenu, SidebarMenuButton, SidebarMenuItem,
 } from '@/components/ui/sidebar'
 import { useAuthStore } from '@/store/authStore'
 import { useNavigate }  from 'react-router-dom'
@@ -32,12 +32,11 @@ function useTheme() {
     apply(t)
   }
 
-  useEffect(() => { apply(theme) }, [])
+  useEffect(() => { apply(theme) }, [theme])
   return { theme, change }
 }
 
 export function NavUser() {
-  const { isMobile } = useSidebar()
   const user         = useAuthStore(s => s.user)
   const logout       = useAuthStore(s => s.logout)
   const resetAllTours = useAuthStore(s => s.resetAllTours)

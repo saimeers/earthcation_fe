@@ -48,7 +48,7 @@ export function OrganizationFormModal({ open, onClose, organization }) {
     try {
       await saveOrg({ id: organization?.id, data, isEdit })
       onClose()
-    } catch (err) {
+    } catch {
       // El error ya es manejado por el toast en el hook useOrganizations
     }
   }
