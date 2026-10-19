@@ -1,0 +1,51 @@
+{
+  "status": 200,
+  "body": [
+    {
+      "id": "c40ba2a0-959f-4975-a9c9-cec50ec832b9",
+      "instructor_id": null,
+      "location_id": "524a2464-6bd9-421e-a6de-13dbf6998a12",
+      "name": "Juego libre – Cúcuta",
+      "code": null,
+      "is_free_play": true,
+      "status": "active",
+      "started_at": "2026-10-19T20:50:57.584Z",
+      "ended_at": null,
+      "created_at": "2026-10-19T20:50:57.587Z",
+      "participants": [
+        {
+          "id": "da735963-9112-474e-b4a7-a9d9de68f764",
+          "session_id": "c40ba2a0-959f-4975-a9c9-cec50ec832b9",
+          "user_id": "3e1b7c3b-fbf7-4c69-9b75-d89985f925cc",
+          "joined_at": "2026-10-19T20:50:57.595Z"
+        }
+      ]
+    },
+    {
+      "id": "9b3b53a0-40bf-496d-9852-29be6ed0c30c",
+      "instructor_id": "117661d1-d215-44c9-b53f-3bf88e761754",
+      "location_id": "524a2464-6bd9-421e-a6de-13dbf6998a12",
+      "name": "Sala de prueba",
+      "code": "927",
+      "is_free_play": false,
+      "status": "active",
+      "started_at": "2026-10-19T20:50:57.251Z",
+      "ended_at": null,
+      "created_at": "2026-10-19T20:50:57.238Z",
+      "participants": [
+        {
+          "id": "6b563722-2287-4a39-984f-360b22d41af1",
+          "session_id": "9b3b53a0-40bf-496d-9852-29be6ed0c30c",
+          "user_id": "ef1c82cf-3417-48b6-bd0b-a0e50c7d93c3",
+          "joined_at": "2026-10-19T20:50:57.267Z"
+        },
+        {
+          "id": "45fcde0a-36da-4a7a-8a41-a3f89713c3fd",
+          "session_id": "9b3b53a0-40bf-496d-9852-29be6ed0c30c",
+          "user_id": "cdbad7a6-3f62-46b1-a320-8d8e63f342b6",
+          "joined_at": "2026-10-19T20:50:57.279Z"
+        }
+      ]
+    }
+  ]
+}

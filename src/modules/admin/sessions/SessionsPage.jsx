@@ -38,7 +38,7 @@ export function SessionsPage() {
   const startSession = useStartSession()
   const endSession = useEndSession()
 
-  const allSessions = sessions ?? []
+  const allSessions = useMemo(() => sessions ?? [], [sessions])
 
   const filtered = useMemo(() => {
     return allSessions.filter(s => {

@@ -1,0 +1,102 @@
+{
+  "status": 200,
+  "body": {
+    "users": {
+      "total": 6,
+      "players": 3,
+      "instructors": 1
+    },
+    "sessions": {
+      "total": 2,
+      "active": 2
+    },
+    "progress": {
+      "total_attempts": 6,
+      "total_mitigated": 4,
+      "global_percentage": 67,
+      "history_results": 8,
+      "level_attempts": 4
+    },
+    "vark_distribution": [
+      {
+        "style": "Visual",
+        "count": 3
+      }
+    ],
+    "progress_by_level": [
+      {
+        "level": "Nivel 1 - Operación Segura",
+        "percentage": 75,
+        "mitigated": 3,
+        "total": 4,
+        "players": 2,
+        "players_100": 1,
+        "avg_attempts": 1.5
+      },
+      {
+        "level": "Nivel 2 - Inspección Profunda",
+        "percentage": 50,
+        "mitigated": 1,
+        "total": 2,
+        "players": 1,
+        "players_100": 0,
+        "avg_attempts": 1
+      }
+    ],
+    "riesgos_mas_fallados": [
+      {
+        "risk_id": "CR-07",
+        "name": "Ofidios",
+        "category": "Biológico",
+        "total_attempts": 1,
+        "failed": 1,
+        "fail_rate": 100,
+        "avg_mistakes": 2
+      },
+      {
+        "risk_id": "CR-04",
+        "name": "Derrumbe",
+        "category": "Geotécnico",
+        "total_attempts": 2,
+        "failed": 1,
+        "fail_rate": 50,
+        "avg_mistakes": 1
+      },
+      {
+        "risk_id": "CR-01",
+        "name": "Vibración",
+        "category": "Biomecánico",
+        "total_attempts": 3,
+        "failed": 1,
+        "fail_rate": 33,
+        "avg_mistakes": 0.7
+      },
+      {
+        "risk_id": "CR-03",
+        "name": "Mecánicos",
+        "category": "Mecánico",
+        "total_attempts": 1,
+        "failed": 0,
+        "fail_rate": 0,
+        "avg_mistakes": 0
+      },
+      {
+        "risk_id": "CR-06",
+        "name": "Atmósferas Tóxicas",
+        "category": "Químico",
+        "total_attempts": 1,
+        "failed": 0,
+        "fail_rate": 0,
+        "avg_mistakes": 0
+      }
+    ],
+    "tendencia_temporal": [
+      {
+        "week": "2026-10-19T00:00:00.000Z",
+        "total": 8,
+        "mitigated": 5,
+        "percentage": 63
+      }
+    ]
+  }
+}

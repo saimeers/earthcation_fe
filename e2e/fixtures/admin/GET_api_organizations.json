@@ -1,0 +1,12 @@
+{
+  "status": 200,
+  "body": [
+    {
+      "id": "b34ecf01-47ab-4489-b168-6bbf216a388f",
+      "name": "Mina La Prueba",
+      "type": "Mina",
+      "is_active": true,
+      "created_at": "2026-10-19T20:50:55.560Z"
+    }
+  ]
+}

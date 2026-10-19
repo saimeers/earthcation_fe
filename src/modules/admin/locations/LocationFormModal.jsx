@@ -33,7 +33,7 @@ export function LocationFormModal({ open, onClose, location }) {
     try {
       await saveLocation({ id: location?.id, data, isEdit })
       onClose()
-    } catch (err) {
+    } catch {
       // El error ya es manejado por el toast en el hook
     }
   }

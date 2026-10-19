@@ -16,9 +16,26 @@ npm run dev       # vite dev server
 npm run build     # vite build
 npm run lint      # eslint .
 npm run preview   # preview production build locally
+npm test          # vitest (jsdom) + Testing Library + MSW: src/**/*.test.{js,jsx}
+npm run e2e       # Playwright smoke of the 3 panels over `vite preview`
 ```
 
-No test framework configured.
+### Tests (fase 2, 2026-10-19)
+
+- Unit/component tests live next to the code (`*.test.js(x)`). `src/test/setup.js` starts an MSW server
+  (`src/test/server.js`, `onUnhandledRequest: 'error'`) — tests add handlers with `server.use(...)` against
+  `API = http://api.test/api` (the `VITE_API_URL` set in `vitest.config.js`). Mock `@/components/Aurora`
+  (WebGL) in tests that render auth pages.
+- Playwright (`e2e/panels.spec.js`): admin, instructor and developer landing pages on the production build,
+  with the API replaced by **real responses recorded** from a seeded local API (`e2e/fixtures/<role>/`).
+  A page that calls an endpoint without a recording fails the test. To re-record: run the backend seed
+  (`earthcation_be/tests/support/seed.cjs`) behind a listening app, export `E2E_TOKEN_ADMIN/INSTRUCTOR/DEVELOPER`
+  (signed by that backend) and run `E2E_RECORD_URL=http://localhost:3999 npx playwright test`.
+- CI: lint (errors block; 4 known React Compiler warnings for react-hook-form/TanStack Table), vitest, build,
+  Playwright (report uploaded on failure).
+- Lockfile: npm 11.4.2 crashes installing vitest (`Cannot read properties of null (reading 'edgesOut')`);
+  dependency changes were done with `npx npm@10.9.4 install`, whose lockfile works with npm 10 and 11.
+- `AdminPage.jsx` renders a `<main>` inside the sidebar's `<main>` (nested landmarks) — to clean up in phase 6.
 
 ## Stack
 
