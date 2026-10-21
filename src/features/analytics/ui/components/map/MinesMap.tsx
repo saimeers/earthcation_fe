@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css'
 import type { Feature, Geometry } from 'geojson'
 import { Skeleton } from '@/shared/ui/skeleton'
 import { useIsDark } from '@/shared/lib/useIsDark'
-import { mainlandFeatures, useColombiaDepartments, type DepartmentFeature, type DepartmentProps } from '@/shared/lib/geo'
+import { boundsOf, mainlandFeatures, useColombiaDepartments, type DepartmentFeature, type DepartmentProps } from '@/shared/lib/geo'
 import {
   buildMarkers, minesByDepartment, mitigationLevel, playersByDepartment, sequentialStep, type MineMarker,
 } from '../../../domain/minesMap'
@@ -23,7 +23,7 @@ export function MinesMap({ height = 460 }: { height?: number }) {
   const pal = dark ? PALETTE.dark : PALETTE.light
 
   const features = useMemo(() => geoData?.features ?? [], [geoData])
-  const bounds = useMemo(() => (geoData ? L.geoJSON({ type: 'FeatureCollection', features: mainlandFeatures(geoData) }).getBounds() : null), [geoData])
+  const bounds = useMemo(() => (geoData ? boundsOf(mainlandFeatures(geoData)) : null), [geoData])
   const grouped = useMemo(
     () => (mines?.length && features.length ? minesByDepartment(mines, features.map(f => f.properties.DPTO_CNMBR)) : {}),
     [mines, features],

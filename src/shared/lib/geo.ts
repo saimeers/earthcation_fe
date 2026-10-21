@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import L, { type LatLngBounds } from 'leaflet'
 import type { Feature, FeatureCollection, MultiPolygon, Polygon } from 'geojson'
 
 // Polígonos de los departamentos de Colombia (DANE/MGN, propiedad DPTO_CNMBR), servidos desde public/.
@@ -20,3 +21,8 @@ export function useColombiaDepartments(): DepartmentCollection | null {
 /** Departamentos sin San Andrés: está a ~700 km y encogería el encuadre de todo el país. */
 export const mainlandFeatures = (geo: DepartmentCollection): DepartmentFeature[] =>
   geo.features.filter(f => !/^ARCHIPI/i.test(f.properties.DPTO_CNMBR.normalize('NFD').replace(/[̀-ͯ]/g, '')))
+
+/** Límites de un conjunto de geometrías de departamentos (para encuadrar el mapa). */
+export function boundsOf(features: DepartmentFeature[]): LatLngBounds {
+  return L.geoJSON({ type: 'FeatureCollection', features } as GeoJSON.FeatureCollection).getBounds()
+}

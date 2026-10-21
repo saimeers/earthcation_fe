@@ -8,7 +8,7 @@ import { cn } from "@/shared/lib/utils"
 function TooltipProvider({
   delayDuration = 0,
   ...props
-}) {
+}: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
   return (
     <TooltipPrimitive.Provider
       delayDuration={delayDuration}
@@ -19,13 +19,13 @@ function TooltipProvider({
 
 function Tooltip({
   ...props
-}) {
+}: React.ComponentProps<typeof TooltipPrimitive.Root>) {
   return <TooltipPrimitive.Root {...props} />
 }
 
 function TooltipTrigger({
   ...props
-}) {
+}: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
   return <TooltipPrimitive.Trigger {...props} />
 }
 
@@ -34,7 +34,7 @@ function TooltipContent({
   sideOffset = 4,
   children,
   ...props
-}) {
+}: React.ComponentProps<typeof TooltipPrimitive.Content>) {
   return (
     <TooltipPrimitive.Portal>
       <TooltipPrimitive.Content
