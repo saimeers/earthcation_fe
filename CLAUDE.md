@@ -45,7 +45,8 @@ src/features/<feature>/
 
 Current features: `auth`, `users`, `sessions`, `bulk-import`, `locations`, `organizations`,
 `analytics` (admin/instructor data), `deploy` (game build versions, developer role),
-`visits` (traffic analytics, developer role), `health` (service health, developer role).
+`visits` (traffic analytics, developer role), `health` (service health, developer role),
+`landing` (public page at `/`, see below).
 
 ### Dependency injection: ports
 
@@ -87,25 +88,29 @@ one file per backend resource, re-exported from `types/index.ts`), `shared/lib/*
 `color.ts`, `geo.ts`, `filters.ts`, `ports.tsx`, `use-mobile.ts`, `useIsDark.ts`, `utils.ts`),
 `shared/ui/*` — the shadcn/ui kit (`radix-mira` style) plus `shared/ui/data/*` (`StatTile`,
 `Panel`, `HBarList`, `StackedBar`, `Gauges`, `InsightCard`, `CatalogList` — generic data-display
-primitives reused across features) and `shared/ui/effects/*` (`Aurora`, `TextPressure`,
-`RotatingText`, used by the public landing page).
+primitives reused across features) and `shared/ui/effects/Aurora` (WebGL background of the auth
+screens).
 
-### TypeScript strict, everywhere that matters
+### TypeScript strict, everywhere
 
 `tsconfig.json` has `strict: true`, `noUnusedLocals`, `noUnusedParameters`,
-`noFallthroughCasesInSwitch`, `noImplicitOverride`, `verbatimModuleSyntax`. All of `src/features`,
-`src/app`, `src/shared` and tests are `.ts`/`.tsx`. The one exception is the public landing page
-(`src/pages/home`, `src/modules/home`) — plain JSX, no business logic, not yet migrated; `src/app/router.tsx`
-imports it through an ambient module declaration in `src/vite-env.d.ts` so `tsc` stays clean without
-porting 350 lines of marketing markup that isn't part of any feature.
+`noFallthroughCasesInSwitch`, `noImplicitOverride`, `verbatimModuleSyntax`. Everything under `src/`
+and the tests are `.ts`/`.tsx` — there is no JSX left.
 
-### Known gap: the public landing page isn't a "feature"
+### Public landing page (`features/landing`)
 
-`src/pages/home/HomePage.jsx` → `src/modules/home/*` is the only code left outside the
-`features/app/shared` structure. It was deliberately left alone: it has no domain logic, no API
-calls, and doesn't fit the `domain/application/infrastructure/ui` shape — porting it would mean
-rewriting presentational JSX to TSX for no behavioral gain. If it ever grows real logic (A/B
-copy, a contact form that calls the API), give it a proper `features/home/` first.
+`/` mounts `features/landing`'s `HomePage`. Static content, so no port/infrastructure: `domain/`
+holds the copy (`content.ts`: strata, steps, protocols, instructor capabilities) and the depth gauge
+math (`depth.ts`), `application/useScrollDepth.ts` maps scroll position to meters, `ui/` the sections.
+Concept: the page is a cross-section of the mine — each section is a stratum with its depth
+(0 / −40 / −120 / −200 m, −250 m at the footer) and the background darkens as you scroll
+(limestone → sandstone → shale → coal → bedrock). It has **its own palette and type** in
+`ui/landing.css` (`--l-*` variables scoped to `.landing`, used as `bg-(--l-coal)`; Archivo variable
+with the width axis for condensed headings, JetBrains Mono for readouts) and ignores the panel's
+light/dark theme on purpose. Safety signs follow the standard shapes/colors (yellow triangle =
+warning, blue circle = mandatory, green square = safe condition). Animations (shaft cage, blinking
+hazard/LED) stop under `prefers-reduced-motion`. Smoke-tested by `e2e/home.spec.ts` (desktop and
+mobile, no API calls).
 
 ## Stack
 
@@ -113,7 +118,7 @@ React 19 + Vite (rolldown) + React Router 7. Tailwind CSS v4 (via Vite plugin) +
 (`radix-mira` style, see `components.json`). Hugeicons + lucide-react for icons. TanStack React
 Query for server state, Zustand (`features/auth/application/authStore.ts`, persisted to
 `localStorage` under key `auth-storage`) for auth state. react-hook-form for forms. Recharts for
-charts. Sonner for toasts. TypeScript everywhere except the home landing page (see above).
+charts. Sonner for toasts. TypeScript everywhere.
 
 ### Tests
 
