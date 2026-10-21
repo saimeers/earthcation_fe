@@ -16,6 +16,7 @@ import { Panel } from '@/shared/ui/data/Panel'
 import { apiErrorMessage } from '@/shared/api/client'
 import { formatBytes } from '@/shared/lib/format'
 import { useDeployActions, useDeployStatus, useVersions } from '../../application/useDeploy'
+import { NotesEditor } from '../components/NotesEditor'
 import { checkBuild, compressionLabel, COMPRESSION_LABEL, type BuildCheck, type GameVersion } from '../../domain/deploy'
 
 const fmtDate = (d: string | null) => (d ? new Date(d).toLocaleString('es-CO', { dateStyle: 'medium', timeStyle: 'short' }) : '—')
@@ -196,7 +197,7 @@ function VersionRow({ v, onConfirm }: { v: GameVersion, onConfirm: (c: Confirm) 
           {m && ` · ${m.files?.length ?? 0} archivos, ${formatBytes(m.total_bytes)} · ${compressionLabel(m.compression)}`}
           {v.activated_at && !v.is_active && ` · estuvo en línea el ${fmtDate(v.activated_at)}`}
         </p>
-        {v.notes && <p className="text-sm whitespace-pre-line">{v.notes}</p>}
+        <NotesEditor v={v} />
         {v.error && <Warnings items={[v.error]} tone="var(--status-critical)" />}
         <Warnings items={m?.warnings} />
       </div>

@@ -18,5 +18,6 @@ export const deployHttp: DeployGateway = {
   complete: (id) => v1.post<GameVersionDto>(`/game-versions/${id}/completion`),
   activate: (id) => v1.post<GameVersionDto>(`/game-versions/${id}/activation`),
   preview: (id) => v1.get<PreviewDto>(`/game-versions/${id}/preview-url`).then(r => r.url),
+  editNotes: (id, notes) => v1.patch<GameVersionDto>(`/game-versions/${id}`, { notes }),
   remove: (id) => v1.delete(`/game-versions/${id}`),
 }

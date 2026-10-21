@@ -17,6 +17,8 @@ export interface DeployGateway {
   complete(id: Uuid): Promise<GameVersion>
   activate(id: Uuid): Promise<GameVersion>
   preview(id: Uuid): Promise<string>
+  /** Cambia la nota de la versión (vacía la borra). */
+  editNotes(id: Uuid, notes: string): Promise<GameVersion>
   remove(id: Uuid): Promise<void>
 }
 
