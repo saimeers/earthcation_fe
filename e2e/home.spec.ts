@@ -10,6 +10,7 @@ for (const { name, viewport } of [
     const errors: string[] = []
     const apiCalls: string[] = []
     page.on('pageerror', (e) => errors.push(e.message))
+    page.on('console', (m) => { if (/Content Security Policy/i.test(m.text())) errors.push(m.text()) })
     page.on('request', (r) => { if (r.url().startsWith('http://api.test')) apiCalls.push(r.url()) })
     await page.setViewportSize(viewport)
 

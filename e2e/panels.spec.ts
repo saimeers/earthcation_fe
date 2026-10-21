@@ -13,6 +13,8 @@ for (const { role, url, heading, user } of PANELS) {
   test(`panel ${role}`, async ({ page }) => {
     const errors: string[] = []
     page.on('pageerror', (e) => errors.push(e.message))
+    // La política de contenido de producción (vercel.json) se aplica también aquí: una violación rompe la prueba
+    page.on('console', (m) => { if (/Content Security Policy/i.test(m.text())) errors.push(m.text()) })
     const missing = await mockApi(page, role)
     await loginAs(page, user)
 
