@@ -10,7 +10,7 @@ import { ForInstructors } from '../components/ForInstructors'
 import { LandingFooter } from '../components/LandingFooter'
 import { DepthGauge } from '../components/DepthGauge'
 
-/** Portada pública: la página se recorre como un descenso a la mina, de la bocamina al fondo del pozo. */
+/** Portada pública: la página se recorre como un descenso a la mina, de la superficie al frente de explotación. */
 export function HomePage() {
   const depth = useScrollDepth()
   return (

@@ -19,6 +19,11 @@ for (const { name, viewport } of [
     await expect(page.getByRole('link', { name: 'Acceso instructores' }).first()).toHaveAttribute('href', '/login')
     await page.screenshot({ path: `test-results/portada-${name}.png`, fullPage: true })
 
+    // Portada → acceso (con View Transition donde el navegador la soporta)
+    await page.getByRole('link', { name: 'Soy instructor' }).click()
+    await expect(page).toHaveURL(/\/login$/)
+    await expect(page.getByText('Iniciar sesión').first()).toBeVisible()
+
     expect(errors).toEqual([])
     expect(apiCalls).toEqual([])
   })

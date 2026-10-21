@@ -88,8 +88,21 @@ one file per backend resource, re-exported from `types/index.ts`), `shared/lib/*
 `color.ts`, `geo.ts`, `filters.ts`, `ports.tsx`, `use-mobile.ts`, `useIsDark.ts`, `utils.ts`),
 `shared/ui/*` — the shadcn/ui kit (`radix-mira` style) plus `shared/ui/data/*` (`StatTile`,
 `Panel`, `HBarList`, `StackedBar`, `Gauges`, `InsightCard`, `CatalogList` — generic data-display
-primitives reused across features) and `shared/ui/effects/Aurora` (WebGL background of the auth
-screens).
+primitives reused across features), `shared/ui/brand/Logo.tsx` (`Logo`/`LogoMark`: the only brand mark,
+used by the landing, auth screens, sidebar and printable report; `public/logo.svg` is the same glyph as
+favicon) and `shared/ui/TransitionLink.tsx` + `shared/lib/viewTransition.ts` (navigation inside a View
+Transition: `BrowserRouter` ignores React Router's `viewTransition` prop, so this calls
+`document.startViewTransition` + `flushSync` itself; animations live in `app/index.css`, keyed by
+`data-transition="down|up"`, off under `prefers-reduced-motion`).
+
+### Brand: palette and type shared by landing, auth and panel
+
+Panel tokens in `src/app/index.css` use the landing palette: limestone/coal backgrounds, ink text, safety
+amber primary (a darker amber `#a8560b` in light mode so text and button labels pass AA; `#f4a51c` with ink
+text in dark). Fonts are Archivo variable (width axis; `h1` at 78 %) and JetBrains Mono (`font-mono`),
+imported in `src/main.tsx`. Chart, status and sequential tokens are untouched (validated for color
+blindness). Auth screens (`features/auth/ui/components/AuthLayout.tsx` + `auth.css`) redefine the kit's
+tokens inside `.auth-form` so Card/Input/Button take the coal/paper/amber look without changing their code.
 
 ### TypeScript strict, everywhere
 
@@ -102,15 +115,19 @@ and the tests are `.ts`/`.tsx` — there is no JSX left.
 `/` mounts `features/landing`'s `HomePage`. Static content, so no port/infrastructure: `domain/`
 holds the copy (`content.ts`: strata, steps, protocols, instructor capabilities) and the depth gauge
 math (`depth.ts`), `application/useScrollDepth.ts` maps scroll position to meters, `ui/` the sections.
-Concept: the page is a cross-section of the mine — each section is a stratum with its depth
-(0 / −40 / −120 / −200 m, −250 m at the footer) and the background darkens as you scroll
-(limestone → sandstone → shale → coal → bedrock). It has **its own palette and type** in
+Copy follows the thesis proposal (`../../PGCS01_Estructura_Anteproyecto.md`): "Juego Serio" (never
+"videojuego"), "mina" (not "bocamina"), no "pozo" (Norte de Santander coal mines are worked through
+inclined drifts, not vertical shafts), no em-dash asides in UI copy. Concept: the page is a walk down an
+underground coal mine (Superficie 0 m / Inclinado −40 / Frente de explotación −120 / Control −200) and the
+background darkens as you scroll (limestone → sandstone → shale → coal → bedrock). The hero illustration
+(`MineSection.tsx`) is a hillside section: portal with timber frame, inclined drift with rails and a cart
+pulled by the winch (malacate), coal seams, sobreguías, timber sets and a ventilation fan. It has **its own palette and type** in
 `ui/landing.css` (`--l-*` variables scoped to `.landing`, used as `bg-(--l-coal)`; Archivo variable
 with the width axis for condensed headings, JetBrains Mono for readouts) and ignores the panel's
 light/dark theme on purpose. Safety signs follow the standard shapes/colors (yellow triangle =
-warning, blue circle = mandatory, green square = safe condition). Animations (shaft cage, blinking
-hazard/LED) stop under `prefers-reduced-motion`. Smoke-tested by `e2e/home.spec.ts` (desktop and
-mobile, no API calls).
+warning, blue circle = mandatory, green square = safe condition) with the protocol number, no pictograms.
+Animations (cart, fan, blinking hazard/LED) stop under `prefers-reduced-motion`. Smoke-tested by
+`e2e/home.spec.ts` (desktop and mobile, no API calls, landing → login navigation).
 
 ## Stack
 
@@ -124,9 +141,7 @@ charts. Sonner for toasts. TypeScript everywhere.
 
 - Unit/domain tests live next to the code (`domain/*.test.ts`), vitest + jsdom. `src/test/setup.ts`
   starts an MSW server (`src/test/server.ts`, `onUnhandledRequest: 'error'`) for the handful of
-  tests that exercise HTTP; most domain tests are pure-function tests with no network at all.
-  Mock `@/shared/ui/effects/Aurora` (WebGL) in any test that renders auth pages.
-- Playwright (`e2e/panels.spec.ts`): admin, instructor and developer landing pages on the
+  tests that exercise HTTP; most domain tests are pure-function tests with no network at all.- Playwright (`e2e/panels.spec.ts`): admin, instructor and developer landing pages on the
   production build, with the API replaced by **real responses recorded** from a seeded local API
   (`e2e/fixtures/<role>/`). A page that calls an endpoint without a recording fails the test. To
   re-record: run the backend seed (`earthcation_be/tests/support/seed.cjs`) behind a listening app,

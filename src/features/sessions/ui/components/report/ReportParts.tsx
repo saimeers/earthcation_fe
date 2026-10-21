@@ -2,6 +2,7 @@
 import type { CSSProperties, ReactNode } from 'react'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
+import { Logo } from '@/shared/ui/brand/Logo'
 import { SplitBar } from '@/shared/ui/data/Gauges'
 import { HBarList } from '@/shared/ui/data/HBarList'
 import { StackedBar } from '@/shared/ui/data/StackedBar'
@@ -59,7 +60,7 @@ export function ReportHeader({ session }: { session: SessionProgressDto['session
         </p>
       </div>
       <div className="text-right shrink-0">
-        <img src="/logo_earthcation.svg" alt="" className="h-10 w-10 ml-auto mb-1" />
+        <Logo className="mb-2 text-xl" />
         <p className="text-[10px] uppercase tracking-wide text-muted-foreground">{session.is_free_play ? 'Sesión' : 'Código de sala'}</p>
         <p className="font-mono text-2xl font-bold tracking-[0.15em] text-[color:var(--primary)]">{session.is_free_play ? 'Juego libre' : session.code}</p>
         {showsRoomQr(session) && (

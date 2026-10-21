@@ -1,10 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Misma tipografía que la portada: Archivo (con eje de ancho) y JetBrains Mono para datos */
+  --font-sans: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -46,34 +48,37 @@
   --color-neutral: var(--status-neutral);
 }
 
+/* Paleta de la marca (la misma de la portada, features/landing/ui/landing.css): caliza y carbón de fondo, tinta
+   para el texto y ámbar de seguridad como primario. En claro el primario es un ámbar oscuro para que el texto
+   sobre caliza y el texto blanco sobre el botón cumplan contraste AA; en oscuro, el ámbar de la marca con tinta. */
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.52 0.22 300);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.95 0.05 300);
-  --accent-foreground: oklch(0.4 0.15 300);
+  --radius: 0.375rem;
+  --background: #f7f2e9;
+  --foreground: #1b1613;
+  --card: #fcf9f3;
+  --card-foreground: #1b1613;
+  --popover: #fcf9f3;
+  --popover-foreground: #1b1613;
+  --primary: #a8560b;
+  --primary-foreground: #fffaf0;
+  --secondary: #ede4d3;
+  --secondary-foreground: #1b1613;
+  --muted: #ede4d3;
+  --muted-foreground: #6b5d4f;
+  --accent: #f4e4c4;
+  --accent-foreground: #6e3a05;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(90.06% 0.0001 271.152 / 0.472);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --border: #e2d7c3;
+  --input: #d8cbb3;
+  --ring: #d48a1a;
+  --sidebar: #efe7d8;
+  --sidebar-foreground: #1b1613;
+  --sidebar-primary: #1b1613;
+  --sidebar-primary-foreground: #f1e7d3;
+  --sidebar-accent: #e5d9c3;
+  --sidebar-accent-foreground: #1b1613;
+  --sidebar-border: #e2d7c3;
+  --sidebar-ring: #d48a1a;
 
   /* Gráficas — paleta categórica validada para daltonismo (orden fijo, nunca ciclado) */
   --chart-1: #2a78d6;
@@ -98,32 +103,32 @@
 }
 
 .dark {
-  --background: oklch(0.205 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.62 0.20 300);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.3 0.08 300);
-  --accent-foreground: oklch(0.9 0.1 300);
+  --background: #181411;
+  --foreground: #f1e7d3;
+  --card: #201b17;
+  --card-foreground: #f1e7d3;
+  --popover: #201b17;
+  --popover-foreground: #f1e7d3;
+  --primary: #f4a51c;
+  --primary-foreground: #1b1613;
+  --secondary: #2a2420;
+  --secondary-foreground: #f1e7d3;
+  --muted: #2a2420;
+  --muted-foreground: #b8ab98;
+  --accent: #3a2c1c;
+  --accent-foreground: #f6c56a;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.922 0 0);
-  --sidebar-primary-foreground: oklch(0.205 0 0);
-  --sidebar-accent: oklch(0.269 0 0); 
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --border: rgb(241 231 211 / 12%);
+  --input: rgb(241 231 211 / 18%);
+  --ring: #c98a1f;
+  --sidebar: #13100e;
+  --sidebar-foreground: #f1e7d3;
+  --sidebar-primary: #f4a51c;
+  --sidebar-primary-foreground: #1b1613;
+  --sidebar-accent: #2a2420;
+  --sidebar-accent-foreground: #f1e7d3;
+  --sidebar-border: rgb(241 231 211 / 10%);
+  --sidebar-ring: #c98a1f;
 
   --chart-1: #3987e5;
   --chart-2: #d95926;
@@ -139,8 +144,11 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
-    font-family: "Outfit", sans-serif;
+    @apply bg-background text-foreground font-sans;
+  }
+  /* Títulos de página condensados, como los titulares de la portada */
+  h1 {
+    font-stretch: 78%;
   }
 }
 
@@ -189,6 +197,25 @@
 }
 .leaflet-bar a:hover { background: var(--muted) !important; }
 .leaflet-bar { border: 1px solid var(--border) !important; box-shadow: 0 1px 2px rgba(0,0,0,.08) !important; }
+
+/* Transición portada ↔ acceso (shared/lib/viewTransition.ts): la pantalla nueva sube desde abajo, como si se
+   bajara a la mina; al volver a la portada, al revés. El logo (view-transition-name: brand) viaja a su sitio. */
+@keyframes vt-leave-up { to { transform: translateY(-8%); opacity: 0; } }
+@keyframes vt-enter-from-below { from { transform: translateY(14%); opacity: 0; } }
+@keyframes vt-leave-down { to { transform: translateY(8%); opacity: 0; } }
+@keyframes vt-enter-from-above { from { transform: translateY(-14%); opacity: 0; } }
+
+:root[data-transition="down"]::view-transition-old(root) { animation: 380ms cubic-bezier(0.4, 0, 0.2, 1) both vt-leave-up; }
+:root[data-transition="down"]::view-transition-new(root) { animation: 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both vt-enter-from-below; }
+:root[data-transition="up"]::view-transition-old(root) { animation: 380ms cubic-bezier(0.4, 0, 0.2, 1) both vt-leave-down; }
+:root[data-transition="up"]::view-transition-new(root) { animation: 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both vt-enter-from-above; }
+::view-transition-group(brand) { animation-duration: 520ms; animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}
 
 @media print {
   @page { size: A4; margin: 12mm; }

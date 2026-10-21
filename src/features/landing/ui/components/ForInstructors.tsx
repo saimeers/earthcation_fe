@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { TransitionLink } from '@/shared/ui/TransitionLink'
 import type { LucideIcon } from 'lucide-react'
 import { ArrowRight, QrCode, Activity, FileSpreadsheet, Map } from 'lucide-react'
 import { CAPABILITIES, stratum, type CapabilityId } from '../../domain/content'
@@ -19,28 +19,30 @@ export function ForInstructors() {
         <div>
           <StratumLabel stratum={stratum('instructores')}>Para instructores</StratumLabel>
           <h2 id="instructores-title" className="l-display text-[clamp(2.6rem,6vw,4.5rem)]">
-            El turno se sigue desde arriba, en vivo.
+            La sesión se sigue desde el panel, en vivo.
           </h2>
           <p className="mt-6 max-w-md leading-relaxed text-(--l-paper-soft)">
-            Crea una sala, comparte el código con el grupo y mira cómo avanza cada jugador mientras juega: qué
-            riesgos mitigó, cuánto tardó en reaccionar y dónde se equivocó.
+            El instructor crea una sala, comparte el código con el grupo y observa a cada jugador mientras juega. Al
+            cerrar la sesión tiene el registro de la capacitación listo para exportar.
           </p>
-          <Link
+          <TransitionLink
             to="/login"
             className="l-focus group mt-10 inline-flex items-center gap-3 border-2 border-(--l-amber) px-5 py-3 font-semibold text-(--l-amber) transition-colors hover:bg-(--l-amber) hover:text-(--l-ink)">
             Acceso instructores
             <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          </TransitionLink>
         </div>
 
-        <ul className="grid gap-px self-start bg-(--l-paper)/12 sm:grid-cols-2">
+        <ul className="self-start border-t-2 border-(--l-paper)/70">
           {CAPABILITIES.map(({ id, title, description }) => {
             const Icon = ICONS[id]
             return (
-              <li key={id} className="bg-(--l-coal) p-6">
-                <Icon aria-hidden="true" strokeWidth={1.75} className="size-6 text-(--l-amber)" />
-                <h3 className="mt-5 text-lg font-bold [font-stretch:85%]">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-(--l-paper-soft)">{description}</p>
+              <li key={id} className="grid grid-cols-[2.5rem_1fr] gap-x-4 border-b border-dashed border-(--l-paper)/25 py-6">
+                <Icon aria-hidden="true" strokeWidth={1.75} className="mt-0.5 size-6 text-(--l-amber)" />
+                <div>
+                  <h3 className="text-lg font-bold [font-stretch:85%]">{title}</h3>
+                  <p className="mt-1.5 leading-relaxed text-(--l-paper-soft)">{description}</p>
+                </div>
               </li>
             )
           })}

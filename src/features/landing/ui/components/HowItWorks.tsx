@@ -20,11 +20,11 @@ export function HowItWorks() {
           <div>
             <StratumLabel stratum={stratum('como-funciona')}>Cómo funciona</StratumLabel>
             <h2 id="como-funciona-title" className="l-display text-[clamp(2.6rem,6vw,4.5rem)]">
-              Un turno completo, de la bocamina al frente.
+              Una jornada completa, de la entrada al frente.
             </h2>
             <p className="mt-6 max-w-md leading-relaxed text-(--l-ink-soft)">
-              Earthcation combina tecnología educativa con la simulación de entornos mineros para formar
-              trabajadores capaces de identificar y mitigar riesgos reales.
+              La capacitación tradicional no siempre llega a todos ni se entiende igual. En el juego, cada decisión
+              tiene una consecuencia visible y se puede repetir hasta hacerla bien.
             </p>
           </div>
 
