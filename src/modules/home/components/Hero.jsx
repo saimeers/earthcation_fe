@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import TextPressure      from '@/components/TextPressure'
-import RotatingText      from '@/components/RotatingText'
+import TextPressure      from '@/shared/ui/effects/TextPressure'
+import RotatingText      from '@/shared/ui/effects/RotatingText'
 
 export default function Hero() {
   return (
