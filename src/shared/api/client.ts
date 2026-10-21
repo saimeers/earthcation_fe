@@ -96,7 +96,7 @@ export interface UploadOptions {
 /** Cliente de la API v1 con el token de la sesión. Devuelve directamente el cuerpo de la respuesta. */
 export const http = {
   get: <T>(url: string, params?: QueryParams) => api.get<T>(url, { params }).then(r => r.data),
-  getBlob: (url: string) => api.get<Blob>(url, { responseType: 'blob' }).then(r => r.data),
+  getBlob: (url: string, params?: QueryParams) => api.get<Blob>(url, { params, responseType: 'blob' }).then(r => r.data),
   post: <T>(url: string, body?: unknown, config?: AxiosRequestConfig) => api.post<T>(url, body, config).then(r => r.data),
   put: <T>(url: string, body?: unknown) => api.put<T>(url, body).then(r => r.data),
   patch: <T>(url: string, body?: unknown) => api.patch<T>(url, body).then(r => r.data),

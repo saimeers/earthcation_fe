@@ -6,7 +6,9 @@ import { http, type QueryParams } from './client'
 const BASE = '/api/v1'
 const PAGE_SIZE = 100
 
-interface Envelope<T> { data: T, meta?: { totalPages: number } }
+interface PageMeta { page: number, limit: number, total: number, total_pages: number }
+
+interface Envelope<T> { data: T, meta?: { page: number, limit: number, total: number, totalPages: number } }
 
 const queryOf = (params?: Record<string, unknown>): QueryParams | undefined =>
   (params ? camelKeys<QueryParams>(params) : undefined)
@@ -25,7 +27,10 @@ export const v1 = {
   get: <T>(path: string, params?: Record<string, unknown>) => http.get<Envelope<unknown>>(`${BASE}${path}`, queryOf(params)).then((b) => unwrap<T>(b)),
   /** Una lista completa: pide todas las páginas (los listados del panel no paginan en pantalla). */
   list: <T>(path: string, params?: Record<string, unknown>) => pagesOf<T>(path, queryOf(params) ?? {}),
-  getBlob: (path: string) => http.getBlob(`${BASE}${path}`),
+  /** Una página de una lista, con su `meta` (para paginar en pantalla). */
+  page: <T>(path: string, params?: Record<string, unknown>) =>
+    http.get<Envelope<unknown[]>>(`${BASE}${path}`, queryOf(params)).then((b) => ({ items: snakeKeys<T[]>(b.data), meta: snakeKeys<PageMeta>(b.meta) })),
+  getBlob: (path: string, params?: Record<string, unknown>) => http.getBlob(`${BASE}${path}`, queryOf(params)),
   post: <T = undefined>(path: string, body?: unknown) =>
     http.post<Envelope<unknown> | undefined>(`${BASE}${path}`, body instanceof FormData ? body : camelKeys(body)).then((b) => unwrap<T>(b)),
   put: <T = undefined>(path: string, body?: unknown) => http.put<Envelope<unknown> | undefined>(`${BASE}${path}`, camelKeys(body)).then((b) => unwrap<T>(b)),
