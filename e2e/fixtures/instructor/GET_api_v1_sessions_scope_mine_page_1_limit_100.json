@@ -1,0 +1,12 @@
+{
+  "status": 200,
+  "body": {
+    "data": [],
+    "meta": {
+      "page": 1,
+      "limit": 100,
+      "total": 0,
+      "totalPages": 1
+    }
+  }
+}

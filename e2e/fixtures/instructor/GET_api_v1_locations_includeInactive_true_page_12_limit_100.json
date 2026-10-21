@@ -1,0 +1,62 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "fa512f65-320a-4359-9171-7a4ee1fe56f6",
+        "municipality": "Carurú",
+        "department": "Vaupés",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "42cff1b4-4bfe-4787-a34c-16a1abba17d3",
+        "municipality": "Mitú",
+        "department": "Vaupés",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "925ef231-b21a-4b74-9178-4500aafc9276",
+        "municipality": "Taraira",
+        "department": "Vaupés",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "416d05cf-6659-4da5-b2a9-3dd8973e6090",
+        "municipality": "Cumaribo",
+        "department": "Vichada",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "3111dac5-2edd-4fab-95e1-f10d2b17edd8",
+        "municipality": "La Primavera",
+        "department": "Vichada",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "725d578c-ecad-4f36-a3c6-8361901d2751",
+        "municipality": "Puerto Carreño",
+        "department": "Vichada",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ad3bbbdb-47d5-47a6-80da-29e33260b58e",
+        "municipality": "Santa Rosalía",
+        "department": "Vichada",
+        "country": "Colombia",
+        "isActive": true
+      }
+    ],
+    "meta": {
+      "page": 12,
+      "limit": 100,
+      "total": 1107,
+      "totalPages": 12
+    }
+  }
+}

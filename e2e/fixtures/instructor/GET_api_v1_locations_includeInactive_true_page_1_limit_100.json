@@ -1,0 +1,713 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "5a32f35e-09bf-4363-a8b2-a22ef056e1af",
+        "municipality": "Leticia",
+        "department": "Amazonas",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "4482f7eb-aec2-4f50-86d3-48162940263a",
+        "municipality": "Puerto Nariño",
+        "department": "Amazonas",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d3811ac3-0ce8-4167-88ba-a44b0a5dbcc0",
+        "municipality": "Abejorral",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8bf8317e-1e2b-497a-8390-512a6a52dd58",
+        "municipality": "Abriaquí",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "826e6961-382b-4696-94ff-686b0ad09b3c",
+        "municipality": "Alejandría",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "46cd84e6-3c1d-4f81-9b1a-b1d4800a0db9",
+        "municipality": "Amagá",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fd8db5d1-d6aa-4ec5-b8ba-b091238a7b1b",
+        "municipality": "Amalfi",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "49be957e-bad9-44dd-9a29-1ff85959b231",
+        "municipality": "Andes",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "6df52eae-62a6-4818-92ca-750efa9e3175",
+        "municipality": "Angelópolis",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "13ea6b15-a034-4cb6-bdf1-af8f37867a7e",
+        "municipality": "Angostura",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "f7ff4d11-b969-4a7b-bb22-be4190bcfd32",
+        "municipality": "Anorí",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "4f5129e1-e65c-4be3-9f19-01ce1b38ae0a",
+        "municipality": "Anzá",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "689d67db-8fc0-4161-a293-75265e75914f",
+        "municipality": "Apartadó",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a10de508-655c-4004-ac8a-a0f3b4c3bdb4",
+        "municipality": "Arboletes",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "78fd9737-7241-4c3c-ac0e-61108c1940bf",
+        "municipality": "Argelia",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "dbe449f4-c1b6-4f85-b3b6-0f3809679278",
+        "municipality": "Armenia",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "891f133d-ed3b-4054-8e8e-c6660ed65452",
+        "municipality": "Barbosa",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "288938b4-6b2c-4005-b58b-f0d933de3704",
+        "municipality": "Bello",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "4e01fb2c-f3ed-4df5-b8bc-626a40dbfe06",
+        "municipality": "Belmira",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "6c3bb615-b246-4077-a1ac-02498749f306",
+        "municipality": "Betania",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "5a6d1a9b-30fd-4e02-8820-e8c9233ee3d8",
+        "municipality": "Betulia",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "6f0f5ec5-2677-4e05-9296-dc90fa541c71",
+        "municipality": "Briceño",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "69fbf031-d3f8-4dba-b16b-f8d3f5ae8a59",
+        "municipality": "Buriticá",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "f0d88aa5-909d-4eea-9ab0-b3452a457e74",
+        "municipality": "Caicedo",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "6408a696-41c1-4384-a06e-93919b124b02",
+        "municipality": "Caldas",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "f11a40d6-feca-408d-bcdd-6fbd1bde2581",
+        "municipality": "Campamento",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "62f7874d-ecf5-4aab-a11c-44ac76cec20f",
+        "municipality": "Caracolí",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ef7a6ee9-269a-48ef-9a36-7e632fa272b6",
+        "municipality": "Caramanta",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fb151a72-ade1-4679-a0a3-47f8c60b774e",
+        "municipality": "Carepa",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "46dd6107-3ef1-4836-9138-ea770a08842f",
+        "municipality": "Carolina del Príncipe",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d2c7a6ea-f9e5-4fe3-9b62-c6cb514bfac1",
+        "municipality": "Caucasia",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "4bfab417-bb26-48a5-96a6-d6b2cc0ad772",
+        "municipality": "Cañasgordas",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "08a82313-a090-405a-ba5c-f41418fd4cc1",
+        "municipality": "Chigorodó",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "00e4393b-5732-453a-b07c-d6559e7d2249",
+        "municipality": "Cisneros",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "aac37684-e67b-45ac-b16f-93ed64797efe",
+        "municipality": "Ciudad Bolívar",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a4af8c0e-d91b-4dae-bd30-fb220426a61a",
+        "municipality": "Cocorná",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "bbca7964-7371-4670-8292-f2a04534ba01",
+        "municipality": "Concepción",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "6fb1082c-58d4-4e9b-a788-1416ebdc2382",
+        "municipality": "Concordia",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "3169fd7c-6ce9-446c-a968-e3ed6eacd6c3",
+        "municipality": "Copacabana",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a5140571-a1ce-46e8-8cb7-81bcf97dde08",
+        "municipality": "Cáceres",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "38d22a19-8ed4-4325-a907-99d1d496334d",
+        "municipality": "Dabeiba",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "19a57ebf-7910-4177-962c-bd0f106da74d",
+        "municipality": "Donmatías",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a19be4ff-0a27-487f-a972-fd4fb3b721fc",
+        "municipality": "Ebéjico",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b00e718a-82f6-46bf-85bb-253347cc5e5c",
+        "municipality": "El Bagre",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "15479b12-c9dc-4e25-bab4-2fd24ac07ac7",
+        "municipality": "El Carmen de Viboral",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "3957178a-7a68-4c49-9d89-b1b0ddf61aa5",
+        "municipality": "El Peñol",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "24858f4c-46b6-4aa7-bc77-eb0e9ecb3bde",
+        "municipality": "El Retiro",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "bfbe19e3-bd88-4d11-b953-e342b301da95",
+        "municipality": "El Santuario",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "52dcd134-0f7e-4521-8f49-416e3d961c55",
+        "municipality": "Entrerríos",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "aec9e4cc-ddf3-4806-b91a-f89a150db76e",
+        "municipality": "Envigado",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "2aeb0347-66d7-4010-8d69-5854da5898d9",
+        "municipality": "Fredonia",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "0cf0d12b-0939-489c-aca3-5f8e2f018df1",
+        "municipality": "Frontino",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "140e1da5-6142-473a-a7a6-a4470848ce98",
+        "municipality": "Giraldo",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "abd431e7-3f91-47c0-b686-12dd7424478c",
+        "municipality": "Girardota",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fd7cb5f3-769e-45fa-8553-305fddedc4f0",
+        "municipality": "Granada",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "2d79d1f7-8d58-42ea-b8b7-7b843b0e105a",
+        "municipality": "Guadalupe",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8136cd4f-3c54-4dd1-a2b7-80c28d700a4e",
+        "municipality": "Guarne",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "63b09324-54ba-4744-802f-c33b9117b766",
+        "municipality": "Guatapé",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a3bbbd1d-53a3-491e-b83d-8a7b83a20619",
+        "municipality": "Gómez Plata",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d66088ea-fcd0-4cd8-b7e2-bce82e52e7cd",
+        "municipality": "Heliconia",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "f14c5bd2-9e97-48e0-830b-1eacf2d55a41",
+        "municipality": "Hispania",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fd84aec8-09f4-4bc6-8223-2432acd32075",
+        "municipality": "Itagüí",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a0c415eb-a508-4b9a-bf97-27e08bc32601",
+        "municipality": "Ituango",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "64020d80-8bf2-4d89-a25e-d7829cd5e865",
+        "municipality": "Jardín",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ec38c9a3-fe7f-404d-9064-4b07592fb5e0",
+        "municipality": "Jericó",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d564c671-c03e-4742-b618-f063ce6396d4",
+        "municipality": "La Ceja",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9a0f8688-a4c7-42fa-af6a-f70a00786e3f",
+        "municipality": "La Estrella",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "03988e4e-ddd1-4671-8ba0-e4b91b7a8236",
+        "municipality": "La Pintada",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "3b450f12-61fc-4cad-9917-4e9fbb05d3ba",
+        "municipality": "La Unión",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "bd8342e1-ba6c-4f81-9bad-9c678fb52c5b",
+        "municipality": "Liborina",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9f9cccdb-d648-4bd9-aefd-4241a4bfcfb1",
+        "municipality": "Maceo",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e9ee5ff2-86bd-4ddc-bc6d-05f54f25089f",
+        "municipality": "Marinilla",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "44299fc7-e963-402d-9922-d3efd84a0cc8",
+        "municipality": "Medellín",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "13cf252e-9d76-4d89-8792-50c6e5581edc",
+        "municipality": "Montebello",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b38932eb-5aa0-4a33-9eb0-c4929f5e24e7",
+        "municipality": "Murindó",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "536d06e1-d37a-4140-bf2a-ba0eca7f97c8",
+        "municipality": "Mutatá",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b9e3f17c-6aee-47a8-b009-c6a83f218bf7",
+        "municipality": "Nariño",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "69523693-bb8f-485a-a050-1c311e70cbb7",
+        "municipality": "Nechí",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "5dac9829-6f1f-4dac-a649-3b60239cd2c7",
+        "municipality": "Necoclí",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "66c4e60e-0a02-4cc5-86d2-7cb9a3da5590",
+        "municipality": "Olaya",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "802d3089-aa7d-4417-9b75-8487674b8c92",
+        "municipality": "Peque",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9f57c1c2-aa5f-42f7-9c5b-d5b038486699",
+        "municipality": "Pueblorrico",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e17928ec-9d93-4967-94b8-77631c883aa7",
+        "municipality": "Puerto Berrío",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e7ca24ef-59a9-411d-a948-eab76ad4b701",
+        "municipality": "Puerto Nare",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "75429304-1dd4-4bbd-a346-34c2503be66e",
+        "municipality": "Puerto Triunfo",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "72e98740-33c1-4bd1-ad85-9d6b6aed033c",
+        "municipality": "Remedios",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "4ea0338b-379a-4c0a-843f-f16369bebfee",
+        "municipality": "Rionegro",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "04d9ef1f-6d97-4e4f-8c81-539f7b2bb844",
+        "municipality": "Sabanalarga",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "60039346-f45f-4004-9117-747624e789f6",
+        "municipality": "Sabaneta",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "bd7543b9-1915-41d6-8b17-34b6cb7e48c1",
+        "municipality": "Salgar",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e6c694e9-2ef4-4f54-9044-43da9efb6698",
+        "municipality": "San Andrés de Cuerquia",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "1759b082-d9f4-48a0-8d9d-ae4e4e0c47e5",
+        "municipality": "San Carlos",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "f6ff32c8-594a-49af-b0b8-a53a068b4b20",
+        "municipality": "San Francisco",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "0b814cce-e4e8-49dd-80c3-c39eaede781f",
+        "municipality": "San Jerónimo",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "4df39af9-b235-4aa8-874c-2e5121eb924b",
+        "municipality": "San José de la Montaña",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "749fc96d-ec29-449c-a6c6-8eef0d2a735f",
+        "municipality": "San Juan de Urabá",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "5459d7d1-e717-4102-bca8-28613abf6207",
+        "municipality": "San Luis",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "48974137-7c1d-4057-958c-b57c16b8255a",
+        "municipality": "San Pedro de Urabá",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "03b00bfe-aa78-4c17-bf5f-5467d46664cc",
+        "municipality": "San Pedro de los Milagros",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "bdf6276a-b105-4217-9f61-0c832ac49e56",
+        "municipality": "San Rafael",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      }
+    ],
+    "meta": {
+      "page": 1,
+      "limit": 100,
+      "total": 1107,
+      "totalPages": 12
+    }
+  }
+}

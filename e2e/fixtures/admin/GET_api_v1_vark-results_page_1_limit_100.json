@@ -1,0 +1,188 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "981dff01-2e6f-4d0f-a46b-14cfb33a5e6d",
+        "visualScore": 1,
+        "auditoryScore": 1,
+        "readingScore": 2,
+        "dominantStyle": "Lector/Escritor",
+        "userId": "5bff792a-810a-4761-b522-3234871d30fd",
+        "user": {
+          "id": "5bff792a-810a-4761-b522-3234871d30fd",
+          "firstName": "Renombrado",
+          "lastName": "Semilla",
+          "cedula": "30000001",
+          "role": "player",
+          "profile": {
+            "id": "4f5f9e40-1e9d-423f-b773-d91baaba72f8",
+            "userId": "5bff792a-810a-4761-b522-3234871d30fd",
+            "organizationId": "b1abc866-cec2-4a94-9871-e9b80b5c4814",
+            "locationId": "49fe7249-ee85-4987-95f5-3699df06cdea",
+            "organization": {
+              "id": "b1abc866-cec2-4a94-9871-e9b80b5c4814",
+              "name": "Mina La Prueba",
+              "type": "Mina",
+              "isActive": true,
+              "createdAt": "2026-10-21T17:38:24.135Z"
+            },
+            "location": {
+              "id": "49fe7249-ee85-4987-95f5-3699df06cdea",
+              "municipality": "Cúcuta",
+              "department": "Norte de Santander",
+              "country": "Colombia",
+              "isActive": true
+            }
+          }
+        }
+      },
+      {
+        "id": "de3c0951-183b-4438-b884-1b3818d459d6",
+        "visualScore": 4,
+        "auditoryScore": 0,
+        "readingScore": 0,
+        "dominantStyle": "Visual",
+        "userId": "5bff792a-810a-4761-b522-3234871d30fd",
+        "user": {
+          "id": "5bff792a-810a-4761-b522-3234871d30fd",
+          "firstName": "Renombrado",
+          "lastName": "Semilla",
+          "cedula": "30000001",
+          "role": "player",
+          "profile": {
+            "id": "4f5f9e40-1e9d-423f-b773-d91baaba72f8",
+            "userId": "5bff792a-810a-4761-b522-3234871d30fd",
+            "organizationId": "b1abc866-cec2-4a94-9871-e9b80b5c4814",
+            "locationId": "49fe7249-ee85-4987-95f5-3699df06cdea",
+            "organization": {
+              "id": "b1abc866-cec2-4a94-9871-e9b80b5c4814",
+              "name": "Mina La Prueba",
+              "type": "Mina",
+              "isActive": true,
+              "createdAt": "2026-10-21T17:38:24.135Z"
+            },
+            "location": {
+              "id": "49fe7249-ee85-4987-95f5-3699df06cdea",
+              "municipality": "Cúcuta",
+              "department": "Norte de Santander",
+              "country": "Colombia",
+              "isActive": true
+            }
+          }
+        }
+      },
+      {
+        "id": "fff10ff3-b2c9-4452-9eea-ca590530db7e",
+        "visualScore": 4,
+        "auditoryScore": 0,
+        "readingScore": 0,
+        "dominantStyle": "Visual",
+        "userId": "f0e06c14-2110-4dcc-9b4c-a4c18f97e3d8",
+        "user": {
+          "id": "f0e06c14-2110-4dcc-9b4c-a4c18f97e3d8",
+          "firstName": "player-30000002",
+          "lastName": "Cambiado",
+          "cedula": "30000002",
+          "role": "player",
+          "profile": {
+            "id": "30349990-c0df-4fe9-869a-4499ea3805f3",
+            "userId": "f0e06c14-2110-4dcc-9b4c-a4c18f97e3d8",
+            "organizationId": "b1abc866-cec2-4a94-9871-e9b80b5c4814",
+            "locationId": "49fe7249-ee85-4987-95f5-3699df06cdea",
+            "organization": {
+              "id": "b1abc866-cec2-4a94-9871-e9b80b5c4814",
+              "name": "Mina La Prueba",
+              "type": "Mina",
+              "isActive": true,
+              "createdAt": "2026-10-21T17:38:24.135Z"
+            },
+            "location": {
+              "id": "49fe7249-ee85-4987-95f5-3699df06cdea",
+              "municipality": "Cúcuta",
+              "department": "Norte de Santander",
+              "country": "Colombia",
+              "isActive": true
+            }
+          }
+        }
+      },
+      {
+        "id": "a6af310d-3030-4a31-9423-b8a80240cd83",
+        "visualScore": 4,
+        "auditoryScore": 0,
+        "readingScore": 0,
+        "dominantStyle": "Visual",
+        "userId": "de3051e8-e9a6-49d3-97e6-6d4e3c355e0f",
+        "user": {
+          "id": "de3051e8-e9a6-49d3-97e6-6d4e3c355e0f",
+          "firstName": "Editado",
+          "lastName": "Semilla",
+          "cedula": "30000003",
+          "role": "player",
+          "profile": {
+            "id": "5bcdb24d-de10-4c45-9619-d5866901d124",
+            "userId": "de3051e8-e9a6-49d3-97e6-6d4e3c355e0f",
+            "organizationId": "b1abc866-cec2-4a94-9871-e9b80b5c4814",
+            "locationId": "49fe7249-ee85-4987-95f5-3699df06cdea",
+            "organization": {
+              "id": "b1abc866-cec2-4a94-9871-e9b80b5c4814",
+              "name": "Mina La Prueba",
+              "type": "Mina",
+              "isActive": true,
+              "createdAt": "2026-10-21T17:38:24.135Z"
+            },
+            "location": {
+              "id": "49fe7249-ee85-4987-95f5-3699df06cdea",
+              "municipality": "Cúcuta",
+              "department": "Norte de Santander",
+              "country": "Colombia",
+              "isActive": true
+            }
+          }
+        }
+      },
+      {
+        "id": "73b67734-db10-4596-936c-85dc3ca9a301",
+        "visualScore": 2,
+        "auditoryScore": 1,
+        "readingScore": 1,
+        "dominantStyle": "Visual",
+        "userId": "5bff792a-810a-4761-b522-3234871d30fd",
+        "user": {
+          "id": "5bff792a-810a-4761-b522-3234871d30fd",
+          "firstName": "Renombrado",
+          "lastName": "Semilla",
+          "cedula": "30000001",
+          "role": "player",
+          "profile": {
+            "id": "4f5f9e40-1e9d-423f-b773-d91baaba72f8",
+            "userId": "5bff792a-810a-4761-b522-3234871d30fd",
+            "organizationId": "b1abc866-cec2-4a94-9871-e9b80b5c4814",
+            "locationId": "49fe7249-ee85-4987-95f5-3699df06cdea",
+            "organization": {
+              "id": "b1abc866-cec2-4a94-9871-e9b80b5c4814",
+              "name": "Mina La Prueba",
+              "type": "Mina",
+              "isActive": true,
+              "createdAt": "2026-10-21T17:38:24.135Z"
+            },
+            "location": {
+              "id": "49fe7249-ee85-4987-95f5-3699df06cdea",
+              "municipality": "Cúcuta",
+              "department": "Norte de Santander",
+              "country": "Colombia",
+              "isActive": true
+            }
+          }
+        }
+      }
+    ],
+    "meta": {
+      "page": 1,
+      "limit": 100,
+      "total": 5,
+      "totalPages": 1
+    }
+  }
+}

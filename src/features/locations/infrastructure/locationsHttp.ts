@@ -1,10 +1,10 @@
-import { http } from '@/shared/api/client'
+import { v1 } from '@/shared/api/v1'
 import type { LocationDto } from '@/shared/api/types'
 import type { LocationsGateway } from '../application/ports'
 
 export const locationsHttp: LocationsGateway = {
-  list: () => http.get<LocationDto[]>('/api/locations'),
-  create: (input) => http.post('/api/locations', input).then(() => undefined),
-  update: (id, input) => http.put(`/api/locations/${id}`, input).then(() => undefined),
-  setActive: (id, active) => http.patch(`/api/locations/${id}/${active ? 'enable' : 'disable'}`).then(() => undefined),
+  list: () => v1.list<LocationDto>('/locations', { include_inactive: true }),
+  create: (input) => v1.post('/locations', input),
+  update: (id, input) => v1.patch(`/locations/${id}`, input),
+  setActive: (id, active) => v1.put(`/locations/${id}/active`, { is_active: active }),
 }

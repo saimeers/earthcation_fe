@@ -1,7 +1,7 @@
 export interface MinuteTrafficDto { minute: string, requests: number, errors: number }
 export interface RouteMetricsDto { route: string, requests: number, errors: number, p50_ms: number, p95_ms: number }
 
-/** GET /api/health/details */
+/** GET /api/v1/health/details */
 export interface HealthDto {
   status: string
   version: string

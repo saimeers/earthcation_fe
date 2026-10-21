@@ -1,20 +1,18 @@
-import { http } from '@/shared/api/client'
+import { v1 } from '@/shared/api/v1'
 import type {
   AttemptDetailDto, ParticipantAnalysisDto, SessionDto, SessionProgressDto, TelemetryOverviewDto,
 } from '@/shared/api/types'
 import type { SessionsGateway } from '../application/ports'
 
-const done = () => undefined
-
 export const sessionsHttp: SessionsGateway = {
-  listAll: () => http.get<SessionDto[]>('/api/sessions/all'),
-  listMine: () => http.get<SessionDto[]>('/api/sessions/mine'),
-  progress: (id) => http.get<SessionProgressDto>(`/api/sessions/${id}/progress/admin`),
-  participantAnalysis: (sessionId, userId) => http.get<ParticipantAnalysisDto>(`/api/sessions/${sessionId}/participants/${userId}/analysis`),
-  create: (input) => http.post('/api/sessions', input).then(done),
-  start: (id) => http.patch(`/api/sessions/${id}/start`).then(done),
-  end: (id) => http.patch(`/api/sessions/${id}/end`).then(done),
-  exportXlsx: (id) => http.getBlob(`/api/sessions/${id}/export.xlsx`),
-  telemetryOverview: (params) => http.get<TelemetryOverviewDto>('/api/telemetry/overview', { ...params }),
-  attemptDetail: (id) => http.get<AttemptDetailDto>(`/api/telemetry/attempts/${id}`),
+  listAll: () => v1.list<SessionDto>('/sessions', { scope: 'all' }),
+  listMine: () => v1.list<SessionDto>('/sessions', { scope: 'mine' }),
+  progress: (id) => v1.get<SessionProgressDto>(`/sessions/${id}`),
+  participantAnalysis: (sessionId, userId) => v1.get<ParticipantAnalysisDto>(`/sessions/${sessionId}/participants/${userId}/analysis`),
+  create: (input) => v1.post('/sessions', input),
+  start: (id) => v1.put(`/sessions/${id}/status`, { status: 'active' }),
+  end: (id) => v1.put(`/sessions/${id}/status`, { status: 'finished' }),
+  exportXlsx: (id) => v1.getBlob(`/sessions/${id}/report.xlsx`),
+  telemetryOverview: (params) => v1.get<TelemetryOverviewDto>('/telemetry/overview', { ...params }),
+  attemptDetail: (id) => v1.get<AttemptDetailDto>(`/attempts/${id}`),
 }

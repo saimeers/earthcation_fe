@@ -1,0 +1,227 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "status": "ok",
+      "version": "1.4.0",
+      "uptimeS": 229,
+      "memoryMb": 129,
+      "database": {
+        "ok": true,
+        "ms": 1,
+        "pool": {
+          "size": 19,
+          "available": 19,
+          "using": 0,
+          "waiting": 0,
+          "max": 20
+        }
+      },
+      "redis": {
+        "ok": null,
+        "mode": "memoria (sin REDIS_URL)"
+      },
+      "metrics": {
+        "windowMinutes": 15,
+        "requests": 85,
+        "errors": 4,
+        "p50Ms": 20,
+        "p95Ms": 2006,
+        "perMinute": [
+          {
+            "minute": "2026-10-21T18:11:00.000Z",
+            "requests": 38,
+            "errors": 3
+          },
+          {
+            "minute": "2026-10-21T18:12:00.000Z",
+            "requests": 29,
+            "errors": 1
+          },
+          {
+            "minute": "2026-10-21T18:14:00.000Z",
+            "requests": 18,
+            "errors": 0
+          }
+        ],
+        "routes": [
+          {
+            "route": "GET /api/v1/telemetry/overview",
+            "requests": 2,
+            "errors": 0,
+            "p50Ms": 3673,
+            "p95Ms": 3673
+          },
+          {
+            "route": "GET /api/v1/sessions",
+            "requests": 4,
+            "errors": 0,
+            "p50Ms": 21,
+            "p95Ms": 2348
+          },
+          {
+            "route": "GET /api/v1/locations",
+            "requests": 14,
+            "errors": 0,
+            "p50Ms": 242,
+            "p95Ms": 2034
+          },
+          {
+            "route": "GET /api/v1/analytics/overview",
+            "requests": 2,
+            "errors": 0,
+            "p50Ms": 2016,
+            "p95Ms": 2016
+          },
+          {
+            "route": "GET /api/v1/vark-results",
+            "requests": 2,
+            "errors": 0,
+            "p50Ms": 2006,
+            "p95Ms": 2006
+          },
+          {
+            "route": "POST /api/v1/users",
+            "requests": 1,
+            "errors": 0,
+            "p50Ms": 669,
+            "p95Ms": 669
+          },
+          {
+            "route": "GET /api/v1/analytics/mines-map",
+            "requests": 2,
+            "errors": 0,
+            "p50Ms": 472,
+            "p95Ms": 472
+          },
+          {
+            "route": "GET /api/v1/organizations",
+            "requests": 3,
+            "errors": 0,
+            "p50Ms": 10,
+            "p95Ms": 364
+          },
+          {
+            "route": "GET /api/analytics/overview",
+            "requests": 1,
+            "errors": 0,
+            "p50Ms": 61,
+            "p95Ms": 61
+          },
+          {
+            "route": "GET /api/analytics/map",
+            "requests": 1,
+            "errors": 0,
+            "p50Ms": 50,
+            "p95Ms": 50
+          },
+          {
+            "route": "GET /api/locations/",
+            "requests": 2,
+            "errors": 0,
+            "p50Ms": 47,
+            "p95Ms": 47
+          },
+          {
+            "route": "GET /api/visits/stats",
+            "requests": 1,
+            "errors": 0,
+            "p50Ms": 47,
+            "p95Ms": 47
+          },
+          {
+            "route": "GET /api/sessions/all",
+            "requests": 3,
+            "errors": 0,
+            "p50Ms": 27,
+            "p95Ms": 45
+          },
+          {
+            "route": "GET /api/telemetry/overview",
+            "requests": 1,
+            "errors": 0,
+            "p50Ms": 41,
+            "p95Ms": 41
+          },
+          {
+            "route": "GET /api/sessions/:id/progress/admin",
+            "requests": 3,
+            "errors": 0,
+            "p50Ms": 25,
+            "p95Ms": 40
+          },
+          {
+            "route": "GET /api/users/",
+            "requests": 3,
+            "errors": 0,
+            "p50Ms": 24,
+            "p95Ms": 31
+          },
+          {
+            "route": "POST /api/v1/sessions",
+            "requests": 1,
+            "errors": 1,
+            "p50Ms": 28,
+            "p95Ms": 28
+          },
+          {
+            "route": "GET /api/vark/all",
+            "requests": 1,
+            "errors": 0,
+            "p50Ms": 27,
+            "p95Ms": 27
+          },
+          {
+            "route": "GET /api/v1/users",
+            "requests": 2,
+            "errors": 0,
+            "p50Ms": 27,
+            "p95Ms": 27
+          },
+          {
+            "route": "GET /api/v1/sessions/:id/progress",
+            "requests": 1,
+            "errors": 0,
+            "p50Ms": 21,
+            "p95Ms": 21
+          },
+          {
+            "route": "GET /api/deploy/status",
+            "requests": 1,
+            "errors": 0,
+            "p50Ms": 20,
+            "p95Ms": 20
+          },
+          {
+            "route": "POST /api/v1/game-versions",
+            "requests": 1,
+            "errors": 0,
+            "p50Ms": 20,
+            "p95Ms": 20
+          },
+          {
+            "route": "GET /api/v1/health",
+            "requests": 1,
+            "errors": 0,
+            "p50Ms": 18,
+            "p95Ms": 18
+          },
+          {
+            "route": "GET /api/deploy/versions",
+            "requests": 1,
+            "errors": 0,
+            "p50Ms": 18,
+            "p95Ms": 18
+          },
+          {
+            "route": "POST /api/v1/auth/login",
+            "requests": 1,
+            "errors": 0,
+            "p50Ms": 18,
+            "p95Ms": 18
+          }
+        ]
+      }
+    }
+  }
+}

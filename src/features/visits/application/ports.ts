@@ -1,7 +1,7 @@
 import { definePort } from '@/shared/lib/ports'
 import type { Visits } from '../domain/visits'
 
-/** GET /api/visits/stats?days=. */
+/** GET /api/v1/visits/stats?days=. */
 export interface VisitsGateway {
   stats(days: number): Promise<Visits>
 }
