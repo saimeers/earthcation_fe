@@ -13,6 +13,7 @@ import { organizationsBindings } from '@/features/organizations'
 import { sessionsBindings } from '@/features/sessions'
 import { usersBindings } from '@/features/users'
 import { visitsBindings } from '@/features/visits'
+import { auditBindings } from '@/features/audit'
 
 // El cliente HTTP (shared/api/client) no conoce la sesión: la composición de la app lo conecta con
 // el feature de auth. Se hace una sola vez, al cargar este módulo.
@@ -28,6 +29,7 @@ const BINDINGS = [
   ...analyticsBindings,
   ...deployBindings,
   ...visitsBindings,
+  ...auditBindings,
   ...healthBindings,
 ]
 

@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react'
-import { Users, MapPin, Building2, CalendarDays, BarChart3, Activity, Rocket, Globe2 } from 'lucide-react'
+import { Users, MapPin, Building2, CalendarDays, BarChart3, Activity, Rocket, Globe2, ScrollText } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import {
@@ -29,6 +29,7 @@ const adminNav: NavGroup[] = [
     items: [
       { title: 'Localidades', url: '/admin/locations', icon: MapPin },
       { title: 'Organizaciones', url: '/admin/organizations', icon: Building2 },
+      { title: 'Auditoría', url: '/admin/audit', icon: ScrollText },
     ],
   },
 ]
@@ -49,6 +50,7 @@ const developerNav: NavGroup[] = [
       { title: 'Salud del servicio', url: '/developer', icon: Activity },
       { title: 'Versiones del juego', url: '/developer/versions', icon: Rocket },
       { title: 'Visitas', url: '/developer/visits', icon: Globe2 },
+      { title: 'Auditoría', url: '/developer/audit', icon: ScrollText },
     ],
   },
   {

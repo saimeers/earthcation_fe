@@ -2,7 +2,7 @@
 // funciones traducen las claves en la frontera HTTP; los valores no se tocan.
 
 // Contenido libre del juego: se deja como llega
-const OPAQUE_KEYS: ReadonlySet<string> = new Set(['payload'])
+const OPAQUE_KEYS: ReadonlySet<string> = new Set(['payload', 'changes'])
 
 const toSnake = (key: string): string => key.replace(/[A-Z]/g, (c) => `_${c.toLowerCase()}`)
 const toCamel = (key: string): string => key.replace(/_([a-z0-9])/g, (_, c: string) => c.toUpperCase())

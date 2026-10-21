@@ -28,3 +28,20 @@ for (const { role, url, heading, user } of PANELS) {
     expect(missing).toEqual([])
   })
 }
+
+test('auditoría del admin: tabla de registros con paginación', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => { if (/Content Security Policy/i.test(m.text())) errors.push(m.text()) })
+  const missing = await mockApi(page, 'admin')
+  await loginAs(page, { id: 'u-admin', role: 'admin', first_name: 'Admin', last_name: 'Semilla' })
+
+  await page.goto('/admin/audit')
+  await expect(page.getByRole('heading', { level: 1, name: 'Auditoría' })).toBeVisible()
+  await expect(page.getByRole('columnheader', { name: 'Acción' })).toBeVisible()
+  await expect(page.getByText(/Página 1 de \d+/)).toBeVisible()
+  await page.screenshot({ path: 'test-results/auditoria.png', fullPage: true })
+
+  expect(errors).toEqual([])
+  expect(missing).toEqual([])
+})
