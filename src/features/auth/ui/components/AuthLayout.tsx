@@ -1,46 +1,61 @@
 import type { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import '@fontsource-variable/jetbrains-mono'
 import { ArrowLeft } from 'lucide-react'
-import Aurora from '@/shared/ui/effects/Aurora'
-import { useIsDark } from '@/shared/lib/useIsDark'
+import { Logo } from '@/shared/ui/brand/Logo'
+import { TransitionLink } from '@/shared/ui/TransitionLink'
+import './auth.css'
 
-const AURORA_DARK = ['#0f3460', '#16213e', '#533483']
-const AURORA_LIGHT = ['#c9d6ff', '#e2e2e2', '#a8c0ff']
+// Franja de estratos del costado: las mismas capas que se atraviesan en la portada
+const STRATA = ['var(--a-ochre)', '#8c6440', '#6b4f37', 'var(--a-shale)', 'var(--a-coal)']
 
-/** Fondo Aurora + "Volver al inicio" + rótulo de la plataforma, común a las pantallas de acceso. */
-export function AuthLayout({ children }: { children: ReactNode }) {
-  const isDark = useIsDark()
+function Strata() {
   return (
-    <div className="relative flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+    <div aria-hidden="true" className="flex h-24 flex-col">
+      {STRATA.map((color) => <div key={color} className="flex-1" style={{ background: color }} />)}
+      <div className="auth-hazard h-2.5" />
+    </div>
+  )
+}
 
-      <div className="fixed inset-0 z-0">
-        <Aurora
-          colorStops={isDark ? AURORA_DARK : AURORA_LIGHT}
-          blend={isDark ? 0.5 : 0.35}
-          amplitude={isDark ? 1.0 : 0.6}
-          speed={0.5}
-        />
-        <div className={`absolute inset-0 transition-colors duration-500 ${isDark ? 'bg-background/60' : 'bg-background/70'
-          }`} />
+/** Costado claro (pantallas anchas): logo, a quién va dirigido el acceso y los estratos de la mina. */
+function Surface() {
+  return (
+    <aside className="hidden flex-col justify-between bg-(--a-limestone) text-(--a-ink) lg:flex">
+      <div className="px-12 pt-10">
+        <TransitionLink to="/" direction="up" className="auth-focus inline-block [view-transition-name:brand]" aria-label="Earthcation, volver al inicio">
+          <Logo />
+        </TransitionLink>
       </div>
+      <div className="px-12">
+        <p className="auth-mono text-xs tracking-[0.2em] text-(--a-ink-soft) uppercase">Panel de capacitación</p>
+        <h1 className="auth-display mt-4 text-[clamp(3rem,5vw,4.5rem)]">Instructores, administración y soporte.</h1>
+        <p className="mt-6 max-w-sm leading-relaxed text-(--a-ink-soft)">
+          Desde aquí se crean las salas, se sigue a cada jugador durante la sesión y se exporta el registro de la
+          capacitación.
+        </p>
+      </div>
+      <Strata />
+    </aside>
+  )
+}
 
-      <div className="relative z-10 w-full max-w-sm">
-
-        <Link
-          to="/"
-          className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors mb-6">
-          <ArrowLeft className="h-3.5 w-3.5" />
-          Volver al inicio
-        </Link>
-
-        <div className="mb-8 text-center">
-          <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase mb-2">
-            Plataforma de instructores
-          </p>
+/** Pantallas de acceso (iniciar sesión, olvidé mi contraseña, restablecer) con la estética de la portada. */
+export function AuthLayout({ children }: { children: ReactNode }) {
+  return (
+    <div className="auth grid min-h-svh lg:grid-cols-[1fr_1.1fr]">
+      <Surface />
+      <main className="auth-form flex flex-col bg-(--a-coal) text-(--a-paper)">
+        <div className="flex items-center justify-between px-4 pt-6 sm:px-10">
+          <TransitionLink to="/" direction="up" className="auth-focus inline-flex items-center gap-1.5 text-sm text-(--a-paper-soft) hover:text-(--a-paper)">
+            <ArrowLeft aria-hidden="true" className="size-4" />
+            Volver al inicio
+          </TransitionLink>
+          <Logo className="text-xl text-(--a-paper) lg:hidden" />
         </div>
-
-        {children}
-      </div>
+        <div className="flex flex-1 items-center justify-center px-4 py-12 sm:px-10">
+          <div className="w-full max-w-sm">{children}</div>
+        </div>
+      </main>
     </div>
   )
 }

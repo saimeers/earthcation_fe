@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .roof { stroke: #1b1613; }
+    @media (prefers-color-scheme: dark) { .roof { stroke: #f1e7d3; } }
+  </style>
+  <path class="roof" d="M7 12.5 L16 3.5 L25 12.5" fill="none" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="12.75" y="15.5" width="6.5" height="16.5" fill="#f4a51c" />
+</svg>
