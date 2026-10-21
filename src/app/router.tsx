@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import HomePage from '@/pages/home/HomePage'
+import { HomePage } from '@/features/landing'
 import { LoginPage, ForgotPasswordPage, ResetPasswordPage } from '@/features/auth'
 import {
   UsersPage, UserFormPage, UserDetailPage,
