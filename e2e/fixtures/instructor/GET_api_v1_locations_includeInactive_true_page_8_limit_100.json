@@ -1,0 +1,713 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "47eef8a0-0bb5-436a-b8c5-b9d9f306f8b3",
+        "municipality": "El Banco",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "feebd0a4-fe9e-4806-b624-107dbbd1f691",
+        "municipality": "El Piñón",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "3c7764bb-e41f-4902-883f-f9aa138e83a5",
+        "municipality": "El Retén",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "53a7f72c-1ebb-4629-85ed-dd8a5b4c67f1",
+        "municipality": "Fundación",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "5ad5c36c-46d9-4285-9a33-144235c94b95",
+        "municipality": "Guamal",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "31e415c9-d713-4784-a5c9-267f880a9713",
+        "municipality": "Nueva Granada",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "beff271f-336b-4780-9f06-fb21d480a3e7",
+        "municipality": "Pedraza",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8b6424cd-9f0b-43b6-9faa-6be417886c2c",
+        "municipality": "Pijiño del Carmen",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "f3596e2f-460e-4b5a-b955-3079b31c6677",
+        "municipality": "Pivijay",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "4d1ca91f-d964-4abf-b5ab-94aedd08b049",
+        "municipality": "Plato",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "92219ce5-d10d-4ace-a89c-2ee9ab476a8f",
+        "municipality": "Pueblo Viejo",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b8d16970-6a8b-4f82-9cdb-27e2cc83717f",
+        "municipality": "Remolino",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "5b247774-00b1-4136-869e-9cfc41e60df5",
+        "municipality": "Sabanas de San Ángel",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ae5701ad-5290-48fd-984c-054c8cd242fe",
+        "municipality": "Salamina",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "12676752-2bba-416a-9743-a503c5e5a1c7",
+        "municipality": "San Sebastián de Buenavista",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9807dfec-c105-4d70-9c98-d40788cb4300",
+        "municipality": "San Zenón",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "45fad930-4990-4580-8fef-b96079d298b8",
+        "municipality": "Santa Ana",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e8ac1dee-2810-4de3-b18a-5bea69d43705",
+        "municipality": "Santa Bárbara de Pinto",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "be359577-d91e-4efe-a722-03b6902bd8a7",
+        "municipality": "Santa Marta",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "1a8f7039-4d33-4417-a92b-480d6b345628",
+        "municipality": "Sitionuevo",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "bb17d2ed-7ea8-4021-8d88-f673fe16eab4",
+        "municipality": "Tenerife",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "45f689a4-28db-428e-8d00-20e77dbe904a",
+        "municipality": "Zapayán",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "5c45c3fc-8e0b-425e-9e16-44ab74ff9424",
+        "municipality": "Zona Bananera",
+        "department": "Magdalena",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "86328a4a-e1ee-465e-9c87-c5af26b7d71f",
+        "municipality": "Acacías",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "7d68a0fc-1f29-4996-b234-57ad34f5bb2b",
+        "municipality": "Barranca de Upía",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9cc5fe00-06b3-4490-b21d-86efa8ffcc70",
+        "municipality": "Cabuyaro",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "c147af7d-7c95-434d-9e63-aaa4fdb5ab20",
+        "municipality": "Castilla la Nueva",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b7f49a00-050f-45db-9aa3-ae81f3807144",
+        "municipality": "Cubarral",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "733b3158-0df8-4d65-8312-7b07f4965e51",
+        "municipality": "Cumaral",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ad4d57f0-02c8-4159-8ed3-2c6d555c5bc4",
+        "municipality": "El Calvario",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "30d2dc5a-2dcf-415e-b141-6e33d37a3dfa",
+        "municipality": "El Castillo",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "0f6b5e95-402b-4e7e-b6d0-a80c1b437327",
+        "municipality": "El Dorado",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "de1cb509-c969-4512-82b6-e2f31f82dd0e",
+        "municipality": "Fuente de Oro",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8eab180f-1c2c-4d0b-9f9d-ec1ddc848b17",
+        "municipality": "Granada",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "5a8ed3af-ee1f-47d1-9cb7-bbad0c15a188",
+        "municipality": "Guamal",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "09bd1107-accb-4482-b601-6506c2330496",
+        "municipality": "La Macarena",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e926bbf1-4ce8-4e8b-8d5e-a7a6e7ae206e",
+        "municipality": "La Uribe",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "7837c984-ef36-4c6e-bf8c-520de45785aa",
+        "municipality": "Lejanías",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8b169d3f-5553-46cd-a044-e2ed3057c731",
+        "municipality": "Mapiripán",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e37083da-9035-4538-ad90-c598746b7f76",
+        "municipality": "Mesetas",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8164fed9-6d14-44df-b4c5-641499932f49",
+        "municipality": "Puerto Concordia",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "65c1180c-0a70-426b-81bb-31153ea8cdee",
+        "municipality": "Puerto Gaitán",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "7fd5930f-df4b-4070-a953-1eb0db6ceac0",
+        "municipality": "Puerto Lleras",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fccf836c-ca37-4d8e-b762-e1da6e37f75d",
+        "municipality": "Puerto López",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "adf43792-edfa-4d9f-833b-5a97583c723a",
+        "municipality": "Puerto Rico",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9ecc9271-0f9a-4f6b-a464-8acb1ae481b3",
+        "municipality": "Restrepo",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "5402fc63-eb10-4811-9d19-817a0cce0874",
+        "municipality": "San Carlos de Guaroa",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d49aa624-de8c-4dbf-8cb3-d960af8eaf17",
+        "municipality": "San Juan de Arama",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ea6a5141-b46c-4c56-ad42-2ddadfb1763f",
+        "municipality": "San Juanito",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "c985db01-5cad-4c30-a2a5-fd003068d612",
+        "municipality": "San Martín",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b6e3b3cd-1ab3-4b6c-8e5a-6dc6262aadb5",
+        "municipality": "Villavicencio",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "46c1498f-57c0-4333-be21-4dd4af97b0a1",
+        "municipality": "Vista Hermosa",
+        "department": "Meta",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "188bb417-5e3f-4ba1-bbcf-a5facd02936b",
+        "municipality": "Aldana",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "053fce4b-8add-43c4-bf64-74a2e0ba1521",
+        "municipality": "Ancuyá",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "0c95cabc-0e54-4612-9b49-f54435ffbe4b",
+        "municipality": "Arboleda",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9b8a3521-a4b5-4c3f-bb20-a36806605938",
+        "municipality": "Barbacoas",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "aff8d971-09eb-4ce5-b6eb-10c5ac216f43",
+        "municipality": "Belén",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "5e1f3b81-635b-41c9-b13b-db379d2ad922",
+        "municipality": "Buesaco",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "c0ed71ae-28a5-4b0d-8694-02a8bfdd54f6",
+        "municipality": "Chachagüí",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ff69d9de-cf38-49be-997f-939137653750",
+        "municipality": "Colón",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a905d541-8533-4dd5-a0c3-32f971a8e096",
+        "municipality": "Consacá",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "99a8848a-0593-44b1-95e9-2d058cc410b8",
+        "municipality": "Contadero",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "07ebaf5e-e698-4de7-ad47-adf70c322fda",
+        "municipality": "Cuaspud",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e70030c1-072b-4cfc-9bf2-ffcc6aac0536",
+        "municipality": "Cumbal",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b9fbd69e-3d1e-431b-8f3e-d961507a8d5e",
+        "municipality": "Cumbitara",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "c6954109-9a0b-4f79-a526-113b11d019c7",
+        "municipality": "Córdoba",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9d421a2b-2fdd-48a9-bb57-ff55fde5f3eb",
+        "municipality": "El Charco",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ca6717ca-6e5c-4c08-aae1-e300513ec868",
+        "municipality": "El Peñol",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "77d12f2b-9b66-40e5-a60c-b094314c0511",
+        "municipality": "El Rosario",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d6e24730-7447-40c1-8a05-a7a21fbd8fd5",
+        "municipality": "El Tablón",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e153d90e-5433-4403-aa65-5dbc5be390a4",
+        "municipality": "El Tambo",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d05b6d33-eb4c-4cd3-ad9f-bb58887d9fa3",
+        "municipality": "Francisco Pizarro",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b2253968-cee9-4d5a-adb7-a777a0edff89",
+        "municipality": "Funes",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ba7cad1f-0e46-45b4-95dd-6010340dbadd",
+        "municipality": "Guachucal",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "52321d3e-ccaf-42b3-a7ab-5ca9db4fc480",
+        "municipality": "Guaitarilla",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "997f8fd6-5be9-4cda-aba4-b2ea06fc87f7",
+        "municipality": "Gualmatán",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fbcc60a3-52d9-487b-b1f7-326462c68804",
+        "municipality": "Iles",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a770e401-0f5a-4ccc-aa5b-fe7d56f3697a",
+        "municipality": "Imués",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e06e1ce1-9c07-47e2-9e93-0b02693c24e6",
+        "municipality": "Ipiales",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "73e05c5b-5a75-4fe2-b9ec-227d19c1a12f",
+        "municipality": "La Cruz",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "26cf3ec6-2536-47c0-9adf-364c40e23e2d",
+        "municipality": "La Florida",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "cac46fdd-4a46-4844-8d78-64a562c461f0",
+        "municipality": "La Llanada",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "997aa2d5-0a4b-4b55-9ec4-c4c91ae9fe31",
+        "municipality": "La Tola",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "30180597-e5f0-4d23-bf4b-0f201915e0dc",
+        "municipality": "La Unión",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8a4b7fdc-c123-40f9-a53b-b0fe45a947c2",
+        "municipality": "Leiva",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "faa287d9-90a9-4dcb-abf5-10fcc98bf6de",
+        "municipality": "Linares",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "72e653c9-9125-44b7-a004-b58762b8ede3",
+        "municipality": "Los Andes",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "90284e03-4de3-4690-a0a4-fe77185ceedc",
+        "municipality": "Magüí Payán",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "40c2597c-cb94-4642-84cc-1b522c6df9b1",
+        "municipality": "Mallama",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a5533c0a-8eba-4321-9e61-7f49a62bd513",
+        "municipality": "Mosquera",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "5a4e6ffd-0626-49da-86fa-c5f6b32d8537",
+        "municipality": "Nariño",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "453f3f20-f3ff-418a-94ba-372ac5baffbe",
+        "municipality": "Olaya Herrera",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fd942f9e-506e-4e75-b25d-8de627b1b248",
+        "municipality": "Ospina",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "3da5a339-28a3-438b-bff8-c41edf2e1809",
+        "municipality": "Pasto",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "744504ce-99d9-4abb-9138-7f507a738704",
+        "municipality": "Policarpa",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "534b0af4-2cd8-491e-a7eb-a3f36122063d",
+        "municipality": "Potosí",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e8359a70-38ce-4535-9af9-5635915f562d",
+        "municipality": "Providencia",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "55e072ee-3f11-4297-8335-88678562beb7",
+        "municipality": "Puerres",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d3a40927-eddd-49ad-84ea-e1f1ff24c797",
+        "municipality": "Pupiales",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "c744d554-f5c1-4a48-89ba-98a4676a5783",
+        "municipality": "Ricaurte",
+        "department": "Nariño",
+        "country": "Colombia",
+        "isActive": true
+      }
+    ],
+    "meta": {
+      "page": 8,
+      "limit": 100,
+      "total": 1107,
+      "totalPages": 12
+    }
+  }
+}

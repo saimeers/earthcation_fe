@@ -1,0 +1,713 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "faffe38c-8b90-4a02-9ba8-768b01be7fa1",
+        "municipality": "Carmen de Carupa",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8e7e365a-fc97-4b3c-9307-861373a89476",
+        "municipality": "Chaguaní",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "c3e29f1c-9a57-44f4-98e3-2460c539ca9e",
+        "municipality": "Chipaque",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "c86b3133-86a2-44b6-bcea-24862170129f",
+        "municipality": "Choachí",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "034267f4-2e3b-4920-ae63-7cd9be53b44d",
+        "municipality": "Chocontá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "f1e7123f-c3b6-4914-bdfe-bc7683c1ca34",
+        "municipality": "Chía",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "18c523f8-1149-45ff-a961-bc03f44431eb",
+        "municipality": "Cogua",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "bcef4e59-4713-4091-8098-3c42adbdd026",
+        "municipality": "Cota",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "482befc5-1513-4689-b51e-ab5b75b51117",
+        "municipality": "Cucunubá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "0ec9bcda-e9a1-4e0e-8e59-7672c801c14b",
+        "municipality": "Cáqueza",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ca04a137-3d96-4a96-a253-a3b7a61884bc",
+        "municipality": "El Colegio",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "570763a6-7d21-44d8-af53-3a979cb534f1",
+        "municipality": "El Peñón",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "151945c8-f2ba-4a03-af40-449f18579fc0",
+        "municipality": "El Rosal",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8dfd39a5-18e5-41d7-86f3-7c419a9febdd",
+        "municipality": "Facatativá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9e98d58f-5f7f-4e20-9574-9c2bbb6f0794",
+        "municipality": "Fosca",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "66be4f50-6b56-4489-934b-8bdef961f004",
+        "municipality": "Funza",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "0c3b2e27-390b-4dbe-be5a-7d7d5f9fc26f",
+        "municipality": "Fusagasugá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "81e40bed-e854-4b2b-b259-631b21f6394b",
+        "municipality": "Fómeque",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "272b5789-2e49-4b76-9ca9-c2b5764c833c",
+        "municipality": "Fúquene",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "05b75940-a4d0-4248-9413-17b2e9958718",
+        "municipality": "Gachalá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "89ef4135-e833-49f8-879d-5e883695ecc5",
+        "municipality": "Gachancipá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "de6226d7-3bfc-4023-af44-f11f85992f52",
+        "municipality": "Gachetá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "0893dcae-20af-4a89-af82-bd029c2904cc",
+        "municipality": "Gama",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fbf718f9-fc41-4227-b335-fdab23482db0",
+        "municipality": "Girardot",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "05c57cb8-fb41-460d-9b4a-225f14f778a0",
+        "municipality": "Granada",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "eaa455b1-af84-4275-aaa4-6c1547b6fa3a",
+        "municipality": "Guachetá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "cf0c7738-f3a9-4650-a064-37acea594a8f",
+        "municipality": "Guaduas",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8ff08b94-d32c-4fb5-bc14-08f376bfe114",
+        "municipality": "Guasca",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "80f73130-cc12-4a79-b36c-13c31182cd80",
+        "municipality": "Guataquí",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "2929496d-5dab-42c7-a532-bd5783856f16",
+        "municipality": "Guatavita",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9e5f334b-d282-47b1-9fb7-7945b59286f5",
+        "municipality": "Guayabal de Síquima",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "1c395457-f29c-45b2-85ed-1355ab7ad217",
+        "municipality": "Guayabetal",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d880f7ea-2ba2-4ef9-bc12-ae783353e8aa",
+        "municipality": "Gutiérrez",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "6898ee5a-26b4-42f9-ade9-90c07a644755",
+        "municipality": "Jerusalén",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "85c72875-2319-4f41-8ab6-29c48292d4d8",
+        "municipality": "Junín",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "4afbfa88-da05-4280-9979-41eeeeed3c1f",
+        "municipality": "La Calera",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fc7576fc-b1db-4cb2-a263-d581b0404748",
+        "municipality": "La Mesa",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "018e8c4f-4390-4b68-a1a8-f63106822cfd",
+        "municipality": "La Palma",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "20aa4058-ce2c-4001-8c15-0f1a41ffbe95",
+        "municipality": "La Peña",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d1f9714d-a834-49b3-92bd-90f85fedd4d1",
+        "municipality": "La Vega",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "02b2412f-b297-4dcc-80f7-6c538749830e",
+        "municipality": "Lenguazaque",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8c6f80e7-6584-4dbc-825b-148e4afe6e4a",
+        "municipality": "Machetá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "62b44b74-8c89-4b77-bb84-2c33097887e9",
+        "municipality": "Madrid",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "30891076-116a-45b0-9ddf-afc332b645ac",
+        "municipality": "Manta",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "02bf7885-e0ec-4a08-bb15-aca906f9a4bc",
+        "municipality": "Medina",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a16cca44-f30f-47d5-806f-b26e6b8f4fbd",
+        "municipality": "Mosquera",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d74ce8dd-cae0-4aec-9ba2-02ecf8e236b1",
+        "municipality": "Nariño",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "0a9a07b6-9e00-4f76-b420-2b51ee560fa5",
+        "municipality": "Nemocón",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "0637b27f-e3b4-403c-80c7-a961b309afdc",
+        "municipality": "Nilo",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e8718b5d-4d6a-485e-816e-413dd02e4566",
+        "municipality": "Nimaima",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "54fdea11-592a-4a25-adbf-a3f3f51ef586",
+        "municipality": "Nocaima",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "328fe71f-bf00-47e9-893f-26ec23e7e9f4",
+        "municipality": "Pacho",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "3bc5921b-04d4-4979-b61e-dd1a6561397e",
+        "municipality": "Paime",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "3ea5348e-ddfc-4d07-aedb-cfa9b831ed53",
+        "municipality": "Pandi",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ca2db8a9-e793-4c9f-9502-e12cb7e97c82",
+        "municipality": "Paratebueno",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d9f1f0b4-9c62-4f4e-b5ad-6f6f9bc62c4a",
+        "municipality": "Pasca",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "182feff0-0d2b-48fb-ae70-8da0c23a9d7d",
+        "municipality": "Puerto Salgar",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "564b0a84-f955-4416-9448-aeb42f5784c3",
+        "municipality": "Pulí",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "752e10dc-9745-468f-a91f-0fd54e2075a0",
+        "municipality": "Quebradanegra",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "78db549f-f640-4a4f-936d-b4fe8bda7e1f",
+        "municipality": "Quetame",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "35a4e944-b1c7-4d50-b08a-02eb4f54f083",
+        "municipality": "Quipile",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "1cb28675-a74f-495d-a554-c64ddacaae7a",
+        "municipality": "Ricaurte",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "c9fb607f-e71a-4382-a69b-e5dc72aed756",
+        "municipality": "San Antonio del Tequendama",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "74cc4629-0428-4df9-bce6-78cf90b4634a",
+        "municipality": "San Bernardo",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "67952476-f7c4-4cf3-bd5f-c3a53109deff",
+        "municipality": "San Cayetano",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "57c4f5ca-145b-4a6f-90ff-e59673adad57",
+        "municipality": "San Francisco",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "666a1d49-2ca2-44e5-8212-6379668b862e",
+        "municipality": "San Juan de Rioseco",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "0e044608-30a9-4887-a2d3-c6a7e0f486bb",
+        "municipality": "Sasaima",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "de7bbad9-447f-488a-9c51-e26d44e4b8ab",
+        "municipality": "Sesquilé",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "6d9eb297-edab-46ae-90b6-f90efc95e629",
+        "municipality": "Sibaté",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "041145e7-4906-4a55-a6b8-e1748e3cd611",
+        "municipality": "Silvania",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "6c4ae129-2229-44b5-b5b5-13ba4c4a4247",
+        "municipality": "Simijaca",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "df7ec69e-73db-43ea-827e-5be138446e2c",
+        "municipality": "Soacha",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "c08a3fbb-8d50-4fcb-a7fc-075a9a0de255",
+        "municipality": "Sopó",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8d0681f9-5441-460e-b7ea-f9f19d421985",
+        "municipality": "Subachoque",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fa668845-1529-4bd0-987e-48ee7873ec7f",
+        "municipality": "Suesca",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e1557458-8892-4904-974d-d296137bec3a",
+        "municipality": "Supatá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a62e307e-fb76-4836-9c1a-8663fdfd2b69",
+        "municipality": "Susa",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9aa23e55-cc75-48b5-b420-48744db52fd3",
+        "municipality": "Sutatausa",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "595f56af-e89a-4def-afc4-3707d32f1f39",
+        "municipality": "Tabio",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "74255d3f-221d-47ae-b573-7e2137167b79",
+        "municipality": "Tausa",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e0d29bee-f909-4118-9632-edc799f60cd0",
+        "municipality": "Tena",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "35bc13a8-0bfb-4b57-8ca5-732596b7e947",
+        "municipality": "Tenjo",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a1e4bb6c-9d62-4458-9b76-1df8d72d1e6c",
+        "municipality": "Tibacuy",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8b420226-fdd8-4a22-84d3-91038fc41564",
+        "municipality": "Tibirita",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fc3cb6f3-654e-4ab0-8272-b0d0b07d59c3",
+        "municipality": "Tocaima",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "175cab80-f810-4464-8082-c6887dee2df0",
+        "municipality": "Tocancipá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "99e4e338-dfd6-45ca-a3d7-2f3ed29d0457",
+        "municipality": "Topaipí",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "2e95fe76-7598-45a9-8cae-d7906b7c2d09",
+        "municipality": "Ubalá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "f1f0a2a6-2b5a-436e-8475-68106e7de2e6",
+        "municipality": "Ubaque",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "709e5c78-7fc3-4311-b54b-a573d6eba313",
+        "municipality": "Ubaté",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "6895e04f-81dd-4876-ac4e-3d6283b96f18",
+        "municipality": "Une",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "09506cd3-a4a8-4cc8-bfe3-9b7266b707c8",
+        "municipality": "Venecia",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "02bed8d9-fc6c-4fd6-b893-0db9d6080240",
+        "municipality": "Vergara",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e6a3ead7-882f-4558-b5ea-98c7eebe6bb3",
+        "municipality": "Vianí",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a385a4c9-cb9f-48ec-8aaa-1ef47cab05a8",
+        "municipality": "Villagómez",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "772065cd-06f3-455d-8f01-a809db320374",
+        "municipality": "Villapinzón",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "813a2d3e-f9d6-4d8a-9acf-5abecd6b1d30",
+        "municipality": "Villeta",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d600044a-8ae4-435f-9904-6b3bc5d6796e",
+        "municipality": "Viotá",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8ad9ba7f-1fcc-49b2-ab4a-46eb20ffc2d3",
+        "municipality": "Yacopí",
+        "department": "Cundinamarca",
+        "country": "Colombia",
+        "isActive": true
+      }
+    ],
+    "meta": {
+      "page": 6,
+      "limit": 100,
+      "total": 1107,
+      "totalPages": 12
+    }
+  }
+}

@@ -122,7 +122,7 @@ export interface FailReasonDto {
   count: number
 }
 
-/** GET /api/sessions/:id/progress/admin */
+/** GET /api/v1/sessions/:id */
 export interface SessionProgressDto {
   session: SessionDto
   summary: SessionSummaryDto
@@ -135,7 +135,7 @@ export interface SessionProgressDto {
 export interface GroupRiskDto { mitigation_rate: number | null, avg_reaction_ms: number | null }
 export interface GroupLevelDto { avg_attempts_until_first_completion: number | null }
 
-/** GET /api/sessions/:id/participants/:userId/analysis */
+/** GET /api/v1/sessions/:id/participants/:userId/analysis */
 export interface ParticipantAnalysisDto {
   session: SessionDto
   user: UserDto

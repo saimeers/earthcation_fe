@@ -38,7 +38,7 @@ export interface RiskRefDto {
   level?: { id: number | string, name: string } | null
 }
 
-/** Una fila del historial de progreso por riesgo (GET /api/progress/user/:id/history). */
+/** Una fila del historial de progreso por riesgo (GET /api/v1/users/:id/risk-results). */
 export interface ProgressRowDto {
   id: Uuid
   risk_id: string
@@ -51,7 +51,7 @@ export interface ProgressRowDto {
   risk?: RiskRefDto | null
 }
 
-/** Inscripción de un usuario en una sesión (GET /api/users/:id/sessions). */
+/** Inscripción de un usuario en una sesión (GET /api/v1/users/:id/sessions). */
 export interface UserSessionDto {
   id: Uuid
   joined_at: IsoDate | null

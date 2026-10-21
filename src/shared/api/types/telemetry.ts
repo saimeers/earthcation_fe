@@ -1,6 +1,6 @@
 import type { AttemptOutcome } from './sessions'
 
-/** GET /api/telemetry/overview[?session_id=] */
+/** GET /api/v1/telemetry/overview[?session_id=] */
 export interface TelemetryOverviewDto {
   levels: { level_key: string, outcome: AttemptOutcome, count: number, avg_duration_ms?: number | null, players?: number }[]
   fail_reasons: { level_key: string, fail_reason: string | null, fail_risk_id?: string | null, fail_stage?: string | null, count: number }[]
@@ -23,7 +23,7 @@ export interface GameEventDto {
   payload: Record<string, unknown> | null
 }
 
-/** GET /api/telemetry/attempts/:id */
+/** GET /api/v1/attempts/:id */
 export interface AttemptDetailDto {
   events: GameEventDto[]
 }

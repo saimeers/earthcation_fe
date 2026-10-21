@@ -83,7 +83,7 @@ boundary). When a feature needs something from another feature, add it to that f
 
 ### `src/shared/` — cross-feature building blocks
 
-`shared/api/client.ts` (axios instance + `ApiError`/`apiErrorMessage`), `shared/api/types/*` (DTOs,
+`shared/api/client.ts` (axios instance + `ApiError`/`apiErrorMessage`/`endsSession`) and `shared/api/v1.ts` (the client every adapter uses: prefixes `/api/v1`, unwraps `{ data, meta }`, `v1.list` asks every page, and `keys.ts` turns v1 camelCase into the snake_case names of `shared/api/types` and bodies/params back, leaving event `payload` untouched; transitional: the day the types become camelCase the mapping goes away), `shared/api/types/*` (DTOs,
 one file per backend resource, re-exported from `types/index.ts`), `shared/lib/*` (`format.ts`,
 `color.ts`, `geo.ts`, `filters.ts`, `ports.tsx`, `use-mobile.ts`, `useIsDark.ts`, `utils.ts`),
 `shared/ui/*` — the shadcn/ui kit (`radix-mira` style) plus `shared/ui/data/*` (`StatTile`,

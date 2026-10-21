@@ -2,7 +2,7 @@ import type { IsoDate, PersonDto, Uuid } from './common'
 
 export type VersionStatus = 'uploading' | 'processing' | 'ready' | 'failed'
 
-/** Versión del juego (GET /api/deploy/versions). */
+/** Versión del juego (GET /api/v1/game-versions). */
 export interface GameVersionDto {
   id: Uuid
   label: string
@@ -17,7 +17,7 @@ export interface GameVersionDto {
   manifest?: { files?: unknown[], total_bytes?: number | null, compression?: string, warnings?: string[] } | null
 }
 
-/** GET /api/deploy/status */
+/** GET /api/v1/game-versions/status */
 export interface DeployStatusDto {
   play_url?: string | null
   max_mb?: number | null

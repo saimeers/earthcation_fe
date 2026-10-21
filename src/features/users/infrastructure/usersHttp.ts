@@ -1,15 +1,13 @@
-import { http } from '@/shared/api/client'
+import { v1 } from '@/shared/api/v1'
 import type { CreateUserResponseDto, ProgressRowDto, UserDto, UserSessionDto } from '@/shared/api/types'
 import type { UsersGateway } from '../application/ports'
 
-const done = () => undefined
-
 export const usersHttp: UsersGateway = {
-  list: () => http.get<UserDto[]>('/api/users'),
-  get: (id) => http.get<UserDto>(`/api/users/${id}`),
-  sessions: (id) => http.get<UserSessionDto[]>(`/api/users/${id}/sessions`),
-  progressHistory: (id) => http.get<ProgressRowDto[]>(`/api/progress/user/${id}/history`),
-  create: (payload) => http.post<CreateUserResponseDto | null>('/api/users', payload).then(r => r ?? {}),
-  update: (id, payload) => http.put(`/api/users/${id}`, payload).then(done),
-  setActive: (id, active) => http.patch(`/api/users/${id}/${active ? 'enable' : 'disable'}`).then(done),
+  list: () => v1.list<UserDto>('/users'),
+  get: (id) => v1.get<UserDto>(`/users/${id}`),
+  sessions: (id) => v1.list<UserSessionDto>(`/users/${id}/sessions`),
+  progressHistory: (id) => v1.list<ProgressRowDto>(`/users/${id}/risk-results`),
+  create: (payload) => v1.post<CreateUserResponseDto | null>('/users', payload).then(r => r ?? {}),
+  update: (id, payload) => v1.patch(`/users/${id}`, payload),
+  setActive: (id, active) => v1.put(`/users/${id}/active`, { is_active: active }),
 }

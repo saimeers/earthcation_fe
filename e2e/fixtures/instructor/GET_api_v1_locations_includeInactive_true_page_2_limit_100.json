@@ -1,0 +1,713 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "0d2c7bad-7a9d-4224-a782-b4e84900239e",
+        "municipality": "San Roque",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a45dabaa-074b-47f3-bfcc-596f172a9229",
+        "municipality": "San Vicente",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "59c10d66-e168-43b8-a8b2-2d1f4e8cf638",
+        "municipality": "Santa Bárbara",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fce3c69c-6fee-4771-b209-e63bc268ffa1",
+        "municipality": "Santa Fe de Antioquia",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "6abec409-eba6-444e-9304-1e9b67aa196c",
+        "municipality": "Santa Rosa de Osos",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ad8729c2-8dfa-4ebe-9b84-a0ce837d2d43",
+        "municipality": "Santo Domingo",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "35551e79-083e-44aa-a3a9-7b80764e5dad",
+        "municipality": "Segovia",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e9503219-671d-42af-9027-34e041c2d1eb",
+        "municipality": "Sonsón",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8734aa5c-367f-444c-ba07-592e779af273",
+        "municipality": "Sopetrán",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8adf279b-057b-4d07-ba37-5542f3009b68",
+        "municipality": "Tarazá",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8e54e580-89c9-417f-b797-160e12b876da",
+        "municipality": "Tarso",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "85784880-dbbc-4c35-a162-27697a9c0cb2",
+        "municipality": "Titiribí",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b6c26728-07fc-4c7c-a007-dae82de2c826",
+        "municipality": "Toledo",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b1802260-b7ab-474b-9a77-1f037bf62af5",
+        "municipality": "Turbo",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9fc1d05d-8552-404e-8586-1067033483db",
+        "municipality": "Támesis",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d0636fea-e790-48a0-9878-7d9840ae7104",
+        "municipality": "Uramita",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "2fa2bc0b-f8dc-4a3c-8815-2e22f976b80c",
+        "municipality": "Urrao",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "72c9cef8-779d-4e00-9483-115caad0852b",
+        "municipality": "Valdivia",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "7ca3d581-6a90-484d-83b8-8003d7eaef3a",
+        "municipality": "Valparaíso",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8c3662ae-a0ac-4d3c-ae89-9d20843a6fb9",
+        "municipality": "Vegachí",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "20cd3dcb-d4a3-4f64-b8f7-efc7410c85f6",
+        "municipality": "Venecia",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "5ceefdff-fd76-4a08-aaa5-6bf4fe3dd90b",
+        "municipality": "Vigía del Fuerte",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "feb26f4d-f368-444b-8b84-a548a8e61cf2",
+        "municipality": "Yalí",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "065bd93c-ed0f-490d-8752-d392c65295da",
+        "municipality": "Yarumal",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "27ae150e-7c92-4aa3-8735-b27dac8ca87f",
+        "municipality": "Yolombó",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "271fe768-58b8-41da-b93d-811be335df01",
+        "municipality": "Yondó",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "0cc50d44-1921-4b50-82ac-2a94c1592a88",
+        "municipality": "Zaragoza",
+        "department": "Antioquia",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8335198f-244e-4ec9-a559-e2e01b558c88",
+        "municipality": "Arauca",
+        "department": "Arauca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "210036d7-230c-41f6-aa7a-93dad74a9edc",
+        "municipality": "Arauquita",
+        "department": "Arauca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b761b172-e5a9-44df-9400-d149a1e38132",
+        "municipality": "Cravo Norte",
+        "department": "Arauca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e7860ae7-56ba-4ced-a679-fdb1888fa0de",
+        "municipality": "Fortul",
+        "department": "Arauca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "23f123f7-c29d-4efa-825d-96dafcd82e92",
+        "municipality": "Puerto Rondón",
+        "department": "Arauca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "3c42c4df-af58-4ab8-a8ce-f106ec2f4120",
+        "municipality": "Saravena",
+        "department": "Arauca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "03107173-ce6a-40ca-a3d9-a1c9a174d05c",
+        "municipality": "Tame",
+        "department": "Arauca",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "42b28d70-a14c-4637-b303-880bb110f67d",
+        "municipality": "Baranoa",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "bb358ec3-b26a-4aab-b65a-55ef07f87060",
+        "municipality": "Barranquilla",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "439ff0c7-54c9-4697-a903-507f15365a94",
+        "municipality": "Campo de la Cruz",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "2bdce0ea-ca90-47b1-b242-a5064f0bef9f",
+        "municipality": "Candelaria",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "47b34ad8-1560-48ff-b91c-2aada4f1465d",
+        "municipality": "Galapa",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "f1d9ae6a-5edb-4a86-9869-59882a30bca3",
+        "municipality": "Juan de Acosta",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b249026e-2a92-430d-84ba-7a81a43ccab4",
+        "municipality": "Luruaco",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "05555815-554b-4aa1-93f3-a2ae7f30f76c",
+        "municipality": "Malambo",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "018de0ee-26f8-492b-a8b5-f1c23376afb9",
+        "municipality": "Manatí",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "1b4b257c-3565-488d-8067-eedde96529d2",
+        "municipality": "Palmar de Varela",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e6b40189-27df-49f5-a0ff-3056d0b1d8c2",
+        "municipality": "Piojó",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "97e173b9-b391-4a58-9a65-76b88dd4b72f",
+        "municipality": "Polonuevo",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "f2f88afe-f174-443b-a1c9-33379396c30f",
+        "municipality": "Ponedera",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8d0a74ea-da09-4134-9b5e-ee687d81f38e",
+        "municipality": "Puerto Colombia",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "07e80431-e3ab-443e-a048-f5d7eb6c9223",
+        "municipality": "Repelón",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fde12fca-cef6-40d3-bd9d-98bbfd6a09eb",
+        "municipality": "Sabanagrande",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "85870eb9-0cf8-4a84-ba81-b78606792074",
+        "municipality": "Sabanalarga",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "75db9855-15f2-42ea-b17a-bb95c2cdda55",
+        "municipality": "Santa Lucía",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "024341de-660d-4312-921a-fe172fd572a2",
+        "municipality": "Santo Tomás",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "8f815fb9-a0cc-4208-88a9-0b4143d03eda",
+        "municipality": "Soledad",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "40efeb25-6098-448e-8b1e-b8235d78a497",
+        "municipality": "Suán",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "270e4afe-162b-4f70-9441-a2153a60c7da",
+        "municipality": "Tubará",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "1dcb7912-28fa-411d-af81-b25f9e64b83a",
+        "municipality": "Usiacurí",
+        "department": "Atlántico",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "bddb4bd0-4f40-4eef-a7e2-3803f97b8c4b",
+        "municipality": "Bogotá",
+        "department": "Bogotá D.C.",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "062ea58d-42bd-4aeb-ac5f-7a49e9127b9f",
+        "municipality": "Achí",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "a81fb1e0-e297-491a-9525-c824e741b7e9",
+        "municipality": "Altos del Rosario",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "922713b6-5e38-4a01-b865-51881e5e5f60",
+        "municipality": "Arenal",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "c130bd83-d667-48bf-905a-28f8c5e75615",
+        "municipality": "Arjona",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "49738b4b-c250-4b6d-b835-2a22c9cf4a7e",
+        "municipality": "Arroyohondo",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b022722c-c539-48ca-9bfb-22c01a376683",
+        "municipality": "Barranco de Loba",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "2691d309-58a5-42b3-bb0c-a47663c457ce",
+        "municipality": "Brazuelo de Papayal",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "508be479-83d7-47c7-9463-2c594d34a782",
+        "municipality": "Calamar",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "6f5dd885-a0d8-434d-9149-d697b5ef028d",
+        "municipality": "Cantagallo",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "04475bf1-c0a4-4ba2-9444-b44ab5024170",
+        "municipality": "Cartagena de Indias",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9b451e61-6fbd-40a7-a7a7-565f44d804a1",
+        "municipality": "Cicuco",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "7bf4fed2-cb68-461f-85b7-9d6968615f06",
+        "municipality": "Clemencia",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "40d96d3e-9cac-4600-bf7b-626f52e4e84f",
+        "municipality": "Córdoba",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "f78f4fd8-a371-42fe-a63b-575c7398dbc2",
+        "municipality": "El Carmen de Bolívar",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "e2d4e1fd-3beb-4e09-9847-b67b97c4c2ee",
+        "municipality": "El Guamo",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "88742851-5953-4c1b-bb8f-72ca176d03ef",
+        "municipality": "El Peñón",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "72e7a6cb-0b66-40db-ac32-6eb458309e58",
+        "municipality": "Hatillo de Loba",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ae38e5dc-e03e-440b-a215-5bc1843be1ba",
+        "municipality": "Magangué",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ee14c541-09d9-418a-9c5e-14aa39187c2b",
+        "municipality": "Mahates",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d47075c1-d147-4f13-b34d-afcd0f6fe8ce",
+        "municipality": "Margarita",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "6100333f-f264-4b53-bc34-b8fed9296840",
+        "municipality": "María la Baja",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "3365162d-c763-4097-b5ee-228cf5d9e1ab",
+        "municipality": "Mompós",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "d5ab1603-9b31-412d-9b24-5cd2c867286e",
+        "municipality": "Montecristo",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "46802aef-76ae-46d9-a8d8-6b9ac836aea1",
+        "municipality": "Morales",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "4b803ae9-a006-48bb-adf4-78d59c3a56fb",
+        "municipality": "Norosí",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "4be14a8b-3cc5-44d9-95ea-92679bc3dd20",
+        "municipality": "Pinillos",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "cc9e315b-ebe9-4543-971f-0ce729f69bdb",
+        "municipality": "Regidor",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b43cc494-ba6c-4c08-8b11-d48a25173fe6",
+        "municipality": "Río Viejo",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "96a4576d-6ba4-44cd-91a4-fb69556aad6b",
+        "municipality": "San Cristóbal",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "c058f9a9-8067-4945-a1e6-a35817fe578a",
+        "municipality": "San Estanislao",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "292019c7-2709-4600-94c8-c79483f88fd2",
+        "municipality": "San Fernando",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "7ead9aa2-ede3-475b-91f9-855a158c2ba9",
+        "municipality": "San Jacinto",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "3617c0b4-779f-41f9-8f0e-893e517bc85e",
+        "municipality": "San Jacinto del Cauca",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "ea5e4b71-d084-4ad2-add6-f2b788b7c020",
+        "municipality": "San Juan Nepomuceno",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "5db46770-3484-4899-8500-7985086151f2",
+        "municipality": "San Martín de Loba",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "b06254d3-60a7-404e-a9e1-e52254b81a52",
+        "municipality": "San Pablo",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "07f214fc-8ce6-4433-9aae-569a1e04fc07",
+        "municipality": "Santa Catalina",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "0d3b2de3-3bff-4b17-bee9-941074726c77",
+        "municipality": "Santa Rosa",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "fb682682-502a-4f11-99b6-05196f002440",
+        "municipality": "Santa Rosa del Sur",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9be15f3f-6a7d-4cfb-b2e2-3ccbc6114647",
+        "municipality": "Simití",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "04158bff-2590-4c5b-b94c-c25d24e82085",
+        "municipality": "Soplaviento",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      },
+      {
+        "id": "9ee6061f-7b09-4bc6-b163-3bd6fb2343a6",
+        "municipality": "Talaigua Nuevo",
+        "department": "Bolívar",
+        "country": "Colombia",
+        "isActive": true
+      }
+    ],
+    "meta": {
+      "page": 2,
+      "limit": 100,
+      "total": 1107,
+      "totalPages": 12
+    }
+  }
+}
