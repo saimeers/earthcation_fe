@@ -24,7 +24,21 @@ refactor: casos de uso de sesiones como funciones puras
 docs | test | chore | ci | perf: ...
 ```
 
+## Estructura del código
+
+El panel está organizado **por feature**, no por capa técnica: cada capacidad de negocio vive en
+`src/features/<nombre>/` con las subcarpetas `domain/` (funciones puras, con pruebas),
+`application/` (hooks de React Query + el puerto del feature), `infrastructure/` (la implementación
+HTTP del puerto) y `ui/` (páginas y componentes), y expone todo lo que usa el resto de la app por un
+único `index.ts`. La composición (router, providers, layout de sidebar) está en `src/app/`; lo
+compartido entre features en `src/shared/`. Un feature **nunca** importa los internos de otro —
+solo su `index.ts`; ESLint (`eslint-plugin-boundaries`) lo marca como error. Detalle completo en
+[`CLAUDE.md`](./CLAUDE.md).
+
+Al agregar un feature nuevo, sigue el mismo patrón que uno ya existente (p. ej. `features/health`
+o `features/locations` para uno simple) en vez de inventar una estructura distinta.
+
 ## Antes de abrir el PR
-- `npm ci` y que el CI local pase (lint, pruebas, build).
+- `npm ci` y que el CI local pase (lint, `tsc --noEmit`, pruebas, build, e2e).
 - Describir qué cambia, cómo se probó y si toca el contrato de la API o los datos.
 - Nada de secretos ni datos personales en el código, los commits o los PR (el CI corre gitleaks).
