@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- colores/constantes del mapa a propósito junto a sus componentes de overlay */
 import { motion, AnimatePresence } from 'motion/react'
 import { X, MapPin, Users, Maximize2 } from 'lucide-react'
 import { mitigationLevel, type MineMarker, type MitigationLevel } from '../../../domain/minesMap'

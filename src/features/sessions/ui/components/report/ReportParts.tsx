@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- constantes/formatos del informe a propósito junto a sus componentes */
 import type { CSSProperties, ReactNode } from 'react'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'

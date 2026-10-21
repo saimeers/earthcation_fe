@@ -9,12 +9,15 @@ import type { Participant } from '../../domain/sessions'
 import { bandMeta, categoryIcon } from '../meta'
 
 function RiskHeader({ risk }: { risk: SessionRiskDto }) {
+  // categoryIcon es una tabla fija: siempre devuelve una de las mismas referencias de ícono, no
+  // crea un componente nuevo. El lint no puede saber eso de una función.
   const Icon = categoryIcon(risk.category)
   return (
     <th className="px-1.5 py-3 border-b text-center min-w-20">
       <Tooltip>
         <TooltipTrigger asChild>
           <div className="inline-flex flex-col items-center gap-1 cursor-help">
+            {/* eslint-disable-next-line react-hooks/static-components */}
             <Icon className="h-4 w-4 text-muted-foreground" />
             <span className="text-xs font-semibold tabular-nums">{risk.risk_id}</span>
           </div>

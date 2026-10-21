@@ -27,9 +27,12 @@ function MitigationCell({ p, avgPct }: { p: Participant, avgPct: number | null }
 
 function WeakestRisk({ p }: { p: Participant }) {
   if (!p.weakest_risk) return <span className="text-xs text-muted-foreground">—</span>
+  // categoryIcon es una tabla fija: siempre devuelve una de las mismas referencias de ícono, no
+  // crea un componente nuevo. El lint no puede saber eso de una función.
   const WeakIcon = categoryIcon(p.weakest_risk.category)
   return (
     <span className="inline-flex items-center gap-1.5 rounded-md bg-muted px-2 py-1 text-xs min-w-0" title={p.weakest_risk.risk_name}>
+      {/* eslint-disable-next-line react-hooks/static-components */}
       <WeakIcon className="h-3.5 w-3.5 shrink-0" style={{ color: 'var(--status-critical)' }} />
       <span className="truncate">{p.weakest_risk.risk_name}</span>
     </span>
