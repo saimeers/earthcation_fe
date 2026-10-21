@@ -29,10 +29,11 @@ jobs:
 
       - run: npm ci
 
-      # Informativo hasta la fase 2 (hoy hay 22 problemas de lint conocidos)
       - name: Lint
         run: npm run lint
-        continue-on-error: true
+
+      - name: Pruebas unitarias y de componentes
+        run: npm test
 
       - name: Build
         run: npm run build
@@ -43,6 +44,24 @@ jobs:
       - name: Auditoría de dependencias
         run: npm audit --omit=dev --audit-level=high
         continue-on-error: true
+
+      # Humo de los 3 paneles con la API simulada (respuestas grabadas en e2e/fixtures)
+      - name: Navegador para Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Pruebas de humo (Playwright)
+        run: npx playwright test
+        env:
+          CI: true
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
 
   secretos:
     runs-on: ubuntu-latest

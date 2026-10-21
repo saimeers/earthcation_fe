@@ -1,0 +1,183 @@
+{
+  "status": 200,
+  "body": {
+    "status": "ok",
+    "version": "1.0.0",
+    "uptime_s": 74,
+    "memory_mb": 100,
+    "database": {
+      "ok": true,
+      "ms": 1,
+      "pool": {
+        "size": 2,
+        "available": 2,
+        "using": 0,
+        "waiting": 0,
+        "max": 20
+      }
+    },
+    "redis": {
+      "ok": null,
+      "mode": "memoria (sin REDIS_URL)"
+    },
+    "metrics": {
+      "window_minutes": 15,
+      "requests": 48,
+      "errors": 0,
+      "p50_ms": 13,
+      "p95_ms": 1581,
+      "per_minute": [
+        {
+          "minute": "2026-10-19T20:50:00.000Z",
+          "requests": 33,
+          "errors": 0
+        },
+        {
+          "minute": "2026-10-19T20:51:00.000Z",
+          "requests": 8,
+          "errors": 0
+        },
+        {
+          "minute": "2026-10-19T20:52:00.000Z",
+          "requests": 7,
+          "errors": 0
+        }
+      ],
+      "routes": [
+        {
+          "route": "GET /api/analytics/overview",
+          "requests": 2,
+          "errors": 0,
+          "p50_ms": 1831,
+          "p95_ms": 1831
+        },
+        {
+          "route": "GET /api/telemetry/overview",
+          "requests": 2,
+          "errors": 0,
+          "p50_ms": 1819,
+          "p95_ms": 1819
+        },
+        {
+          "route": "GET /api/locations/",
+          "requests": 2,
+          "errors": 0,
+          "p50_ms": 1581,
+          "p95_ms": 1581
+        },
+        {
+          "route": "GET /api/sessions/mine",
+          "requests": 2,
+          "errors": 0,
+          "p50_ms": 1454,
+          "p95_ms": 1454
+        },
+        {
+          "route": "GET /api/vark/all",
+          "requests": 2,
+          "errors": 0,
+          "p50_ms": 523,
+          "p95_ms": 523
+        },
+        {
+          "route": "POST /api/users/",
+          "requests": 4,
+          "errors": 0,
+          "p50_ms": 399,
+          "p95_ms": 418
+        },
+        {
+          "route": "GET /api/analytics/map",
+          "requests": 2,
+          "errors": 0,
+          "p50_ms": 50,
+          "p95_ms": 50
+        },
+        {
+          "route": "POST /api/telemetry/attempts",
+          "requests": 4,
+          "errors": 0,
+          "p50_ms": 21,
+          "p95_ms": 34
+        },
+        {
+          "route": "POST /api/telemetry/events",
+          "requests": 4,
+          "errors": 0,
+          "p50_ms": 9,
+          "p95_ms": 22
+        },
+        {
+          "route": "POST /api/progress/save",
+          "requests": 8,
+          "errors": 0,
+          "p50_ms": 11,
+          "p95_ms": 21
+        },
+        {
+          "route": "GET /api/locations/search",
+          "requests": 1,
+          "errors": 0,
+          "p50_ms": 16,
+          "p95_ms": 16
+        },
+        {
+          "route": "GET /api/health/details",
+          "requests": 1,
+          "errors": 0,
+          "p50_ms": 16,
+          "p95_ms": 16
+        },
+        {
+          "route": "POST /api/vark/submit",
+          "requests": 3,
+          "errors": 0,
+          "p50_ms": 9,
+          "p95_ms": 12
+        },
+        {
+          "route": "POST /api/organizations/",
+          "requests": 1,
+          "errors": 0,
+          "p50_ms": 11,
+          "p95_ms": 11
+        },
+        {
+          "route": "POST /api/sessions/",
+          "requests": 1,
+          "errors": 0,
+          "p50_ms": 11,
+          "p95_ms": 11
+        },
+        {
+          "route": "POST /api/sessions/join",
+          "requests": 2,
+          "errors": 0,
+          "p50_ms": 11,
+          "p95_ms": 11
+        },
+        {
+          "route": "PATCH /api/telemetry/attempts/:id",
+          "requests": 4,
+          "errors": 0,
+          "p50_ms": 7,
+          "p95_ms": 11
+        },
+        {
+          "route": "GET /api/organizations/",
+          "requests": 2,
+          "errors": 0,
+          "p50_ms": 11,
+          "p95_ms": 11
+        },
+        {
+          "route": "PATCH /api/sessions/:id/start",
+          "requests": 1,
+          "errors": 0,
+          "p50_ms": 8,
+          "p95_ms": 8
+        }
+      ]
+    }
+  }
+}

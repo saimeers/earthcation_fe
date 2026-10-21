@@ -1,0 +1,81 @@
+/* Portada pública. Paleta propia, ajena al tema claro/oscuro del panel: la página es un corte de la
+   mina y se oscurece sola a medida que se baja (caliza → arenisca → lutita → carbón → roca de fondo).
+   Se usa desde Tailwind con la sintaxis de variables: bg-(--l-coal), text-(--l-amber)… */
+.landing {
+  --l-limestone: #f1e7d3;
+  --l-sandstone: #e2cfa9;
+  --l-ochre: #b98a52;
+  --l-shale: #2a2420;
+  --l-coal: #181411;
+  --l-bedrock: #0e0c0a;
+  --l-ink: #1b1613;
+  --l-ink-soft: #5d5145;
+  --l-paper: #f1e7d3;
+  --l-paper-soft: #b8ab98;
+  --l-amber: #f4a51c;
+  --l-sign-yellow: #f6b40e;
+  --l-sign-blue: #1d5fae;
+  --l-sign-green: #1f7a4c;
+  --l-gas-green: #7ee2a0;
+
+  font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+  color: var(--l-ink);
+  background: var(--l-bedrock);
+}
+
+/* Titulares condensados, como los rótulos pintados en las galerías */
+.landing .l-display {
+  font-stretch: 68%;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.landing .l-mono {
+  font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+  font-feature-settings: 'zero' 1;
+}
+
+/* Foco de teclado visible sobre cualquier estrato, claro u oscuro */
+.landing .l-focus:focus-visible {
+  outline: 3px solid var(--l-amber);
+  outline-offset: 3px;
+}
+
+/* Cinta de peligro amarilla y negra */
+.landing .l-hazard {
+  background: repeating-linear-gradient(-45deg, var(--l-amber) 0 14px, var(--l-ink) 14px 28px);
+}
+
+/* Grano de roca muy sutil sobre los estratos oscuros */
+.landing .l-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E");
+}
+
+/* Jaula del pozo: sube y baja despacio */
+@keyframes l-cage {
+  0%, 12% { transform: translateY(0); }
+  45%, 60% { transform: translateY(240px); }
+  92%, 100% { transform: translateY(0); }
+}
+
+.landing .l-cage {
+  animation: l-cage 14s ease-in-out infinite;
+}
+
+/* Señal de peligro y LED del detector parpadeando */
+@keyframes l-blink {
+  50% { opacity: 0.25; }
+}
+
+.landing .l-blink {
+  animation: l-blink 1.6s steps(2, jump-none) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing .l-cage,
+  .landing .l-blink {
+    animation: none;
+  }
+}
