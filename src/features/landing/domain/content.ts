@@ -1,19 +1,22 @@
-// Contenido estático de la portada pública. Sin React: los íconos los asigna la UI por `id`.
+// Contenido estático de la portada pública, alineado con el anteproyecto ("Earthcation: Juego Serio para reforzar la
+// identificación de riesgos en la labor minera"). Sin React: los íconos los asigna la UI por `id`.
 
 export type StratumId = 'superficie' | 'como-funciona' | 'protocolos' | 'instructores'
 
-/** Cada sección de la portada es un estrato de la mina, con su profundidad en el medidor. */
+/** Cada sección de la portada es un tramo del recorrido por la mina, con su profundidad en el medidor. */
 export interface Stratum {
   id: StratumId
   depth: number
   name: string
+  /** Fondo de la sección: el medidor cambia de color para seguir siendo legible. */
+  tone: 'light' | 'dark'
 }
 
 export const STRATA: readonly Stratum[] = [
-  { id: 'superficie', depth: 0, name: 'Bocamina' },
-  { id: 'como-funciona', depth: 40, name: 'Galería' },
-  { id: 'protocolos', depth: 120, name: 'Frente' },
-  { id: 'instructores', depth: 200, name: 'Control' },
+  { id: 'superficie', depth: 0, name: 'Superficie', tone: 'light' },
+  { id: 'como-funciona', depth: 40, name: 'Inclinado', tone: 'light' },
+  { id: 'protocolos', depth: 120, name: 'Frente de explotación', tone: 'dark' },
+  { id: 'instructores', depth: 200, name: 'Control', tone: 'dark' },
 ]
 
 export function stratum(id: StratumId): Stratum {
@@ -26,6 +29,12 @@ export function stratum(id: StratumId): Stratum {
 export function currentStratum(depth: number): Stratum {
   return STRATA.reduce((current, s) => (s.depth <= depth ? s : current), stratum('superficie'))
 }
+
+export const PROJECT_TITLE = 'Juego Serio para reforzar la identificación de riesgos en la labor minera'
+
+/** Definición de Juego Serio que usa el anteproyecto (Abt, 1970). */
+export const SERIOUS_GAME_NOTE =
+  'Un Juego Serio es un juego diseñado con un propósito formativo, más allá del entretenimiento. Modela situaciones reales en un entorno controlado para que se pueda practicar sin correr riesgos (Abt, 1970).'
 
 export type StepId = 'vark' | 'epp' | 'riesgos' | 'seguimiento'
 
@@ -40,30 +49,30 @@ export const STEPS: readonly Step[] = [
   {
     id: 'vark',
     title: 'Diagnóstico VARK',
-    description: 'Al iniciar, el juego identifica tu estilo de aprendizaje predominante —visual, auditivo o lector— y adapta la instrucción para que la información te llegue de la forma más efectiva.',
+    description: 'Un cuestionario corto identifica si aprendes mejor viendo, escuchando o leyendo. Con ese resultado, el juego presenta las instrucciones en el formato que más te sirve.',
   },
   {
     id: 'epp',
-    title: 'Equipamiento de protección',
-    description: 'Antes de ingresar a la mina te equipas con cada elemento de protección personal. El juego valida cada prenda y te explica qué falta y por qué.',
+    title: 'Elementos de protección personal',
+    description: 'Antes de entrar a la mina eliges el equipo que exige la labor. Si falta un elemento, el juego te indica cuál es y para qué sirve.',
   },
   {
     id: 'riesgos',
     title: 'Identificación de riesgos',
-    description: 'Cada nivel replica riesgos reales del entorno minero —mecánicos, eléctricos, químicos y de altura— y te obliga a decidir bien bajo presión.',
+    description: 'Cada nivel plantea situaciones de una mina de carbón: gases, derrumbes, vibración, máquinas en movimiento y animales ponzoñosos. Reconoces el peligro y actúas antes de que se acabe el tiempo.',
   },
   {
     id: 'seguimiento',
-    title: 'Seguimiento en tiempo real',
-    description: 'Mientras juegas, el instructor ve tu avance, tu tiempo de reacción y el porcentaje de riesgos que lograste mitigar.',
+    title: 'Seguimiento del instructor',
+    description: 'Durante la sesión, el instructor ve el avance de cada jugador, cuánto tarda en reaccionar y qué riesgos logró mitigar. Así sabe qué reforzar al terminar.',
   },
 ]
 
-/** Tipo de señal de seguridad (NTC 1461 / ISO 7010) con la que se presenta cada protocolo. */
+/** Tipo de señal de seguridad (NTC 1461) con la que se presenta cada protocolo. */
 export type SignKind = 'advertencia' | 'obligacion' | 'condicion-segura'
 
 export interface Protocol {
-  code: string
+  number: string
   sign: SignKind
   signLabel: string
   title: string
@@ -72,25 +81,25 @@ export interface Protocol {
 
 export const PROTOCOLS: readonly Protocol[] = [
   {
-    code: 'Protocolo 01',
+    number: '01',
     sign: 'advertencia',
     signLabel: 'Advertencia',
     title: 'Reconocimiento de riesgos',
-    description: 'Identificar visualmente los peligros de un entorno minero y clasificarlos por tipo y nivel de criticidad.',
+    description: 'Identificar los peligros presentes en la labor y clasificarlos según su tipo y su nivel de criticidad.',
   },
   {
-    code: 'Protocolo 02',
+    number: '02',
     sign: 'obligacion',
     signLabel: 'Obligación',
     title: 'Aplicación de protocolos',
-    description: 'Ejecutar correctamente el procedimiento de seguridad que corresponde a cada riesgo identificado.',
+    description: 'Seguir, paso por paso, el procedimiento de seguridad que corresponde a cada riesgo identificado.',
   },
   {
-    code: 'Protocolo 03',
+    number: '03',
     sign: 'condicion-segura',
     signLabel: 'Condición segura',
     title: 'Toma de decisiones',
-    description: 'Desarrollar criterio para actuar de forma segura y a tiempo ante una emergencia en el pozo.',
+    description: 'Actuar con criterio y a tiempo cuando la situación se complica, con la salida segura del personal como prioridad.',
   },
 ]
 
@@ -107,12 +116,12 @@ export const CAPABILITIES: readonly Capability[] = [
   {
     id: 'salas',
     title: 'Salas con código',
-    description: 'Un código de 3 dígitos o un QR basta para que todo el grupo entre a la misma sesión.',
+    description: 'El grupo entra a la misma sesión con un código de tres dígitos o escaneando un QR.',
   },
   {
     id: 'en-vivo',
     title: 'Seguimiento en vivo',
-    description: 'Avance, tiempo de reacción y riesgos mitigados de cada jugador mientras la sesión está abierta.',
+    description: 'Avance, tiempo de reacción y riesgos mitigados de cada jugador mientras la sala está abierta.',
   },
   {
     id: 'excel',
@@ -122,6 +131,6 @@ export const CAPABILITIES: readonly Capability[] = [
   {
     id: 'mapa',
     title: 'Mapa de minas',
-    description: 'Analíticas por organización y localidad sobre el mapa de los departamentos del país.',
+    description: 'Resultados por organización y por municipio sobre el mapa de los departamentos de Colombia.',
   },
 ]

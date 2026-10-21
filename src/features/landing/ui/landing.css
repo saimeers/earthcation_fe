@@ -53,15 +53,26 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E");
 }
 
-/* Jaula del pozo: sube y baja despacio */
-@keyframes l-cage {
-  0%, 12% { transform: translateY(0); }
-  45%, 60% { transform: translateY(240px); }
-  92%, 100% { transform: translateY(0); }
+/* Coche del inclinado: baja hasta el frente y vuelve a subir tirado por el malacate */
+@keyframes l-cart {
+  0%, 12% { transform: translate(0, 0); }
+  45%, 60% { transform: translate(var(--l-cart-x), var(--l-cart-y)); }
+  92%, 100% { transform: translate(0, 0); }
 }
 
-.landing .l-cage {
-  animation: l-cage 14s ease-in-out infinite;
+.landing .l-cart {
+  animation: l-cart 14s ease-in-out infinite;
+}
+
+/* Ventilador de la segunda entrada */
+@keyframes l-fan {
+  to { transform: rotate(360deg); }
+}
+
+.landing .l-fan {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: l-fan 2.4s linear infinite;
 }
 
 /* Señal de peligro y LED del detector parpadeando */
@@ -74,7 +85,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .landing .l-cage,
+  .landing .l-cart,
+  .landing .l-fan,
   .landing .l-blink {
     animation: none;
   }

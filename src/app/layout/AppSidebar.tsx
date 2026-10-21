@@ -9,6 +9,7 @@ import {
   useSidebar,
 } from '@/shared/ui/sidebar'
 import { useAuthStore, type PanelBase } from '@/features/auth'
+import { LogoMark } from '@/shared/ui/brand/Logo'
 import { NavUser } from './NavUser'
 
 interface NavItem { title: string, url: string, icon: LucideIcon }
@@ -83,11 +84,11 @@ export function AppSidebar(props: ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link to={base}>
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground shrink-0">
-                  <img src="/logo_earthcation.svg" alt="Logo" width={32} height={32} />
+                <div className="flex aspect-square size-8 items-center justify-center rounded-md bg-[#1b1613] text-[#f1e7d3] ring-1 ring-sidebar-border shrink-0">
+                  <LogoMark className="h-5 w-auto" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight min-w-0">
-                  <span className="truncate font-semibold">Earthcation</span>
+                  <span className="truncate text-base font-extrabold uppercase [font-stretch:68%]">Earthcation</span>
                   <span className="truncate text-xs capitalize text-sidebar-foreground/60">
                     {user?.role ?? 'admin'}
                   </span>

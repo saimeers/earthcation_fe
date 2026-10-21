@@ -1,0 +1,93 @@
+/* Pantallas de acceso con la paleta de la portada (features/landing/ui/landing.css). El formulario usa los
+   componentes del kit (Card, Input, Button, Label): aquí se redefinen sus tokens solo dentro de `.auth-form`
+   para que tomen el carbón, el papel y el ámbar de la marca sin tocar su código. */
+.auth {
+  --a-limestone: #f1e7d3;
+  --a-ochre: #b98a52;
+  --a-shale: #2a2420;
+  --a-coal: #181411;
+  --a-ink: #1b1613;
+  --a-ink-soft: #5d5145;
+  --a-paper: #f1e7d3;
+  --a-paper-soft: #b8ab98;
+  --a-amber: #f4a51c;
+
+  font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+.auth .auth-display {
+  font-stretch: 68%;
+  font-weight: 800;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.auth .auth-mono {
+  font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+}
+
+.auth .auth-hazard {
+  background: repeating-linear-gradient(-45deg, var(--a-amber) 0 12px, var(--a-ink) 12px 24px);
+}
+
+.auth .auth-focus:focus-visible {
+  outline: 3px solid var(--a-amber);
+  outline-offset: 3px;
+}
+
+.auth-form {
+  --background: var(--a-coal);
+  --foreground: var(--a-paper);
+  --card: transparent;
+  --card-foreground: var(--a-paper);
+  --popover: var(--a-shale);
+  --popover-foreground: var(--a-paper);
+  --muted: var(--a-shale);
+  --muted-foreground: var(--a-paper-soft);
+  --border: rgb(241 231 211 / 0.16);
+  --input: rgb(241 231 211 / 0.38);
+  --primary: var(--a-amber);
+  --primary-foreground: var(--a-ink);
+  --ring: var(--a-amber);
+  --destructive: #ff8f80;
+  --radius: 0.125rem;
+}
+
+/* Título de la tarjeta condensado, como los titulares de la portada */
+.auth-form [data-slot='card'] {
+  border: 0;
+  box-shadow: none;
+  padding-inline: 0;
+}
+
+.auth-form [data-slot='card-header'],
+.auth-form [data-slot='card-content'] {
+  padding-inline: 0;
+}
+
+.auth-form [data-slot='card-title'] {
+  font-stretch: 68%;
+  font-weight: 800;
+  font-size: 2.6rem;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.auth-form [data-slot='input'] {
+  height: 2.75rem;
+  border-width: 2px;
+  background: rgb(241 231 211 / 0.04);
+  font-size: 1rem;
+}
+
+.auth-form [data-slot='button'][data-variant='default'] {
+  height: 3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 4px 4px 0 rgb(0 0 0 / 0.55);
+}
+
+.auth-form [data-slot='button'][data-variant='default']:active {
+  box-shadow: 1px 1px 0 rgb(0 0 0 / 0.55);
+  transform: translate(2px, 2px);
+}

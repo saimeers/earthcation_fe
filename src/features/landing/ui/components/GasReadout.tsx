@@ -11,7 +11,7 @@ export function GasReadout() {
   return (
     <div aria-hidden="true" className="l-mono w-56 border-2 border-(--l-ink) bg-(--l-bedrock) p-3 text-(--l-paper) shadow-[6px_6px_0_var(--l-ink)]">
       <div className="mb-2 flex items-center justify-between text-[10px] tracking-[0.18em] text-(--l-paper-soft) uppercase">
-        <span>Detector multigás</span>
+        <span>Detector</span>
         <span className="l-blink size-2 rounded-full bg-(--l-gas-green)" />
       </div>
       <dl className="grid grid-cols-2 gap-x-3 gap-y-1.5">
