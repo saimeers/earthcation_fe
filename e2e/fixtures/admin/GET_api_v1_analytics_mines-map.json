@@ -1,0 +1,43 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "331536cd-97b6-4b70-96b1-176e115980b1",
+        "name": "mina excel nueva",
+        "municipality": "Cúcuta",
+        "department": "Norte de Santander",
+        "lat": 7.905725,
+        "lng": -72.508178,
+        "locationExact": true,
+        "playerCount": 2,
+        "results": 0,
+        "percentage": 0
+      },
+      {
+        "id": "b1abc866-cec2-4a94-9871-e9b80b5c4814",
+        "name": "Mina La Prueba",
+        "municipality": "Cúcuta",
+        "department": "Norte de Santander",
+        "lat": 7.905725,
+        "lng": -72.508178,
+        "locationExact": true,
+        "playerCount": 5,
+        "results": 7,
+        "percentage": 86
+      },
+      {
+        "id": "dcf6d3d7-e25f-4872-9cdc-fb96bdeaf81b",
+        "name": "mina v1 nueva",
+        "municipality": "Cúcuta",
+        "department": "Norte de Santander",
+        "lat": 7.905725,
+        "lng": -72.508178,
+        "locationExact": true,
+        "playerCount": 1,
+        "results": 0,
+        "percentage": 0
+      }
+    ]
+  }
+}

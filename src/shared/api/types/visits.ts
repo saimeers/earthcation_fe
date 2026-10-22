@@ -4,7 +4,7 @@ export interface PlaceCountDto { country: string | null, region: string, count: 
 export interface CityCountDto extends PlaceCountDto { city: string, lat?: number | null, lng?: number | null }
 export interface KeyCountDto { key: string, count: number }
 
-/** GET /api/visits/stats?days= */
+/** GET /api/v1/visits/stats?days= */
 export interface VisitStatsDto {
   days: number
   since: IsoDate

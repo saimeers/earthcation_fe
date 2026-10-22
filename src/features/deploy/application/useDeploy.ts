@@ -37,8 +37,9 @@ export function useDeployActions() {
   })
   const retry = useMutation({ mutationFn: (id: Uuid) => gateway.complete(id), onSettled: refresh })
   const activate = useMutation({ mutationFn: (id: Uuid) => gateway.activate(id), onSettled: refresh })
+  const editNotes = useMutation({ mutationFn: ({ id, notes }: { id: Uuid, notes: string }) => gateway.editNotes(id, notes), onSettled: refresh })
   const remove = useMutation({ mutationFn: (id: Uuid) => gateway.remove(id), onSettled: refresh })
   const preview = useMutation({ mutationFn: (id: Uuid) => gateway.preview(id) })
 
-  return { upload, retry, activate, remove, preview }
+  return { upload, retry, activate, editNotes, remove, preview }
 }

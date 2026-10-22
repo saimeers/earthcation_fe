@@ -1,0 +1,147 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "levels": [
+        {
+          "levelKey": "level1",
+          "outcome": "abandoned",
+          "count": 1,
+          "avgDurationMs": 90000,
+          "players": 1
+        },
+        {
+          "levelKey": "level1",
+          "outcome": "completed",
+          "count": 3,
+          "avgDurationMs": 67500,
+          "players": 3
+        },
+        {
+          "levelKey": "level1",
+          "outcome": "failed",
+          "count": 1,
+          "avgDurationMs": 90000,
+          "players": 1
+        },
+        {
+          "levelKey": "level1",
+          "outcome": "in_progress",
+          "count": 2,
+          "avgDurationMs": null,
+          "players": 2
+        },
+        {
+          "levelKey": "level2",
+          "outcome": "completed",
+          "count": 1,
+          "avgDurationMs": 90000,
+          "players": 1
+        }
+      ],
+      "failReasons": [
+        {
+          "levelKey": "level1",
+          "failReason": "derrumbe",
+          "failRiskId": "CR-04",
+          "failStage": "Sostenimiento",
+          "count": 1
+        }
+      ],
+      "retries": [
+        {
+          "levelKey": "level2",
+          "avgAttemptNumber": 1,
+          "maxAttemptNumber": 1
+        },
+        {
+          "levelKey": "level1",
+          "avgAttemptNumber": 1.57,
+          "maxAttemptNumber": 3
+        }
+      ],
+      "gasBrands": [
+        {
+          "gasBrand": "ibrid",
+          "attempts": 4,
+          "calibrated": 4
+        }
+      ],
+      "risks": [
+        {
+          "riskId": "CR-07",
+          "riskName": "Ofidios",
+          "category": "Biológico",
+          "results": 1,
+          "mitigated": 0,
+          "failed": 1,
+          "failRate": 100,
+          "mistakesTotal": 2,
+          "avgReactionMs": 1500
+        },
+        {
+          "riskId": "CR-04",
+          "riskName": "Derrumbe",
+          "category": "Geotécnico",
+          "results": 2,
+          "mitigated": 1,
+          "failed": 1,
+          "failRate": 50,
+          "mistakesTotal": 2,
+          "avgReactionMs": 1500
+        },
+        {
+          "riskId": "CR-01",
+          "riskName": "Vibración",
+          "category": "Biomecánico",
+          "results": 6,
+          "mitigated": 5,
+          "failed": 1,
+          "failRate": 16.7,
+          "mistakesTotal": 3,
+          "avgReactionMs": 1240
+        },
+        {
+          "riskId": "CR-03",
+          "riskName": "Mecánicos",
+          "category": "Mecánico",
+          "results": 1,
+          "mitigated": 1,
+          "failed": 0,
+          "failRate": 0,
+          "mistakesTotal": 0,
+          "avgReactionMs": 1500
+        },
+        {
+          "riskId": "CR-06",
+          "riskName": "Atmósferas Tóxicas",
+          "category": "Químico",
+          "results": 1,
+          "mitigated": 1,
+          "failed": 0,
+          "failRate": 0,
+          "mistakesTotal": 0,
+          "avgReactionMs": 1500
+        }
+      ],
+      "eventCounts": [
+        {
+          "eventType": "level_started",
+          "count": 5
+        },
+        {
+          "eventType": "risk_panel_shown",
+          "count": 4
+        },
+        {
+          "eventType": "risk_seen",
+          "count": 1
+        },
+        {
+          "eventType": "alarm",
+          "count": 1
+        }
+      ]
+    }
+  }
+}

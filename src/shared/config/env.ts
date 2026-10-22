@@ -12,7 +12,7 @@ function url(name: string, value: string | undefined): string {
 }
 
 export const env = {
-  /** Origen de la API v1 (sin /api): las rutas de los adaptadores empiezan por /api/... */
+  /** Origen de la API (sin /api): los adaptadores piden /api/v1/... (cliente `shared/api/v1`) */
   apiUrl: url('VITE_API_URL', import.meta.env.VITE_API_URL),
   /** Dominio del juego: el QR de una sala apunta a `${playUrl}/?sala=<código>` */
   playUrl: url('VITE_PLAY_URL', import.meta.env.VITE_PLAY_URL || DEFAULT_PLAY_URL),

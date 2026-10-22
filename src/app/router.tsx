@@ -14,6 +14,7 @@ import {
 import { HealthPage } from '@/features/health'
 import { VersionsPage } from '@/features/deploy'
 import { VisitsPage } from '@/features/visits'
+import { AuditPage } from '@/features/audit'
 import { ProtectedRoute } from './layout/ProtectedRoute'
 import { AppShell } from './layout/AppShell'
 
@@ -44,6 +45,7 @@ export function AppRouter() {
           <Route path="sessions/:id/participants/:userId" element={<ParticipantAnalysisPage />} />
           <Route path="locations" element={<LocationsPage />} />
           <Route path="organizations" element={<OrganizationsPage />} />
+          <Route path="audit" element={<AuditPage />} />
         </Route>
 
         {/* Instructor: mismo layout y pantallas de sesiones que el admin, solo con sus salas */}
@@ -71,6 +73,7 @@ export function AppRouter() {
           <Route index element={<HealthPage />} />
           <Route path="versions" element={<VersionsPage />} />
           <Route path="visits" element={<VisitsPage />} />
+          <Route path="audit" element={<AuditPage />} />
           <Route path="analytics" element={<AnalyticsPage />} />
           <Route path="users" element={<UsersPage />} />
           <Route path="users/:id" element={<UserDetailPage />} />

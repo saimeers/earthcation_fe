@@ -1,0 +1,108 @@
+{
+  "status": 200,
+  "body": {
+    "data": {
+      "users": {
+        "total": 27,
+        "players": 22,
+        "instructors": 2
+      },
+      "sessions": {
+        "total": 8,
+        "active": 3
+      },
+      "progress": {
+        "totalAttempts": 8,
+        "totalMitigated": 7,
+        "globalPercentage": 88,
+        "historyResults": 11,
+        "levelAttempts": 7
+      },
+      "varkDistribution": [
+        {
+          "style": "Lector/Escritor",
+          "count": 1
+        },
+        {
+          "style": "Visual",
+          "count": 4
+        }
+      ],
+      "progressByLevel": [
+        {
+          "level": "Nivel 1 - Operación Segura",
+          "percentage": 100,
+          "mitigated": 6,
+          "total": 6,
+          "players": 4,
+          "players100": 4,
+          "avgAttempts": 1.5
+        },
+        {
+          "level": "Nivel 2 - Inspección Profunda",
+          "percentage": 50,
+          "mitigated": 1,
+          "total": 2,
+          "players": 1,
+          "players100": 0,
+          "avgAttempts": 1
+        }
+      ],
+      "riesgosMasFallados": [
+        {
+          "riskId": "CR-07",
+          "name": "Ofidios",
+          "category": "Biológico",
+          "totalAttempts": 1,
+          "failed": 1,
+          "failRate": 100,
+          "avgMistakes": 2
+        },
+        {
+          "riskId": "CR-04",
+          "name": "Derrumbe",
+          "category": "Geotécnico",
+          "totalAttempts": 2,
+          "failed": 1,
+          "failRate": 50,
+          "avgMistakes": 1
+        },
+        {
+          "riskId": "CR-01",
+          "name": "Vibración",
+          "category": "Biomecánico",
+          "totalAttempts": 6,
+          "failed": 1,
+          "failRate": 17,
+          "avgMistakes": 0.5
+        },
+        {
+          "riskId": "CR-03",
+          "name": "Mecánicos",
+          "category": "Mecánico",
+          "totalAttempts": 1,
+          "failed": 0,
+          "failRate": 0,
+          "avgMistakes": 0
+        },
+        {
+          "riskId": "CR-06",
+          "name": "Atmósferas Tóxicas",
+          "category": "Químico",
+          "totalAttempts": 1,
+          "failed": 0,
+          "failRate": 0,
+          "avgMistakes": 0
+        }
+      ],
+      "tendenciaTemporal": [
+        {
+          "week": "2026-10-19T00:00:00.000Z",
+          "total": 11,
+          "mitigated": 8,
+          "percentage": 73
+        }
+      ]
+    }
+  }
+}

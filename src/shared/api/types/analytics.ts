@@ -1,6 +1,6 @@
 import type { IsoDate, PersonDto, Uuid, VarkProfileDto } from './common'
 
-/** GET /api/analytics/overview */
+/** GET /api/v1/analytics/overview */
 export interface AnalyticsOverviewDto {
   users: { total: number, players: number, instructors: number }
   sessions: { total: number, active: number }
@@ -11,13 +11,13 @@ export interface AnalyticsOverviewDto {
   tendencia_temporal: { week: IsoDate, total: number, mitigated: number, percentage: number }[]
 }
 
-/** GET /api/vark/all */
+/** GET /api/v1/vark-results */
 export interface VarkEntryDto extends VarkProfileDto {
   user_id: Uuid
   user?: (PersonDto & { profile?: { organization?: { name: string } | null } | null }) | null
 }
 
-/** GET /api/analytics/map: una organización ubicada. */
+/** GET /api/v1/analytics/mines-map: una organización ubicada. */
 export interface MineDto {
   id: Uuid
   name: string
@@ -31,7 +31,7 @@ export interface MineDto {
   percentage: number
 }
 
-/** GET /api/analytics/organization/:id: desempeño de cada jugador de la organización. */
+/** GET /api/v1/analytics/organizations/:id: desempeño de cada jugador de la organización. */
 export interface OrganizationPlayerDto {
   user?: PersonDto | null
   dominant_style: string | null

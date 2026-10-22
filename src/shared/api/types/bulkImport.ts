@@ -1,6 +1,6 @@
 export type ImportRowStatus = 'ok' | 'duplicate_in_file' | 'duplicate_in_db' | 'missing_required'
 
-/** Fila del Excel ANM ya leída por la API (POST /api/users/bulk-import/parse). */
+/** Fila del Excel ANM ya leída por la API (POST /api/v1/user-imports/previews). */
 export interface ImportRowDto {
   cedula: string
   first_name: string
@@ -21,7 +21,7 @@ export interface ImportCreatedDto {
   location_no_match?: string | null
 }
 
-/** POST /api/users/bulk-import/confirm */
+/** POST /api/v1/user-imports */
 export interface ConfirmImportResponseDto {
   created: ImportCreatedDto[]
   skipped: unknown[]

@@ -1,7 +1,7 @@
 import { definePort } from '@/shared/lib/ports'
 import type { Health } from '../domain/health'
 
-/** GET /api/health/details. */
+/** GET /api/v1/health/details. */
 export interface HealthGateway {
   details(): Promise<Health>
 }

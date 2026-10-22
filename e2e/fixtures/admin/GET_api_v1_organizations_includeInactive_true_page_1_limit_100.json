@@ -1,0 +1,62 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "97a54550-5aba-49b4-bbd3-67e916dd89e3",
+        "name": "Mina Auditada Legacy",
+        "type": "Mina",
+        "isActive": true,
+        "createdAt": "2026-10-21T17:39:18.028Z"
+      },
+      {
+        "id": "b1abc866-cec2-4a94-9871-e9b80b5c4814",
+        "name": "Mina La Prueba",
+        "type": "Mina",
+        "isActive": true,
+        "createdAt": "2026-10-21T17:38:24.135Z"
+      },
+      {
+        "id": "1733b8d8-5c91-4304-86f8-ab13325cc0d2",
+        "name": "Mina de admin",
+        "type": "Mina",
+        "isActive": true,
+        "createdAt": "2026-10-21T17:39:00.177Z"
+      },
+      {
+        "id": "57ff2ce9-1532-424e-be59-31d5bbb83309",
+        "name": "Mina de instructor",
+        "type": "Mina",
+        "isActive": true,
+        "createdAt": "2026-10-21T17:39:00.164Z"
+      },
+      {
+        "id": "b8efd4cd-0269-4bc5-b3a2-992f2a4e2c30",
+        "name": "Mina renombrada",
+        "type": "Mina",
+        "isActive": true,
+        "createdAt": "2026-10-21T17:39:00.188Z"
+      },
+      {
+        "id": "331536cd-97b6-4b70-96b1-176e115980b1",
+        "name": "mina excel nueva",
+        "type": "institución",
+        "isActive": true,
+        "createdAt": "2026-10-21T17:38:59.380Z"
+      },
+      {
+        "id": "dcf6d3d7-e25f-4872-9cdc-fb96bdeaf81b",
+        "name": "mina v1 nueva",
+        "type": "institución",
+        "isActive": true,
+        "createdAt": "2026-10-21T17:39:55.352Z"
+      }
+    ],
+    "meta": {
+      "page": 1,
+      "limit": 100,
+      "total": 7,
+      "totalPages": 1
+    }
+  }
+}

@@ -5,7 +5,7 @@ import { useCanEdit, usePanelBase } from '@/features/auth'
 import { canEnd, canStart, type Session } from '../../../domain/sessions'
 import { useEndSession, useExportSessionXlsx, useStartSession } from '../../../application/useSessions'
 
-/** Iniciar / finalizar la sala y exportar (Excel del servidor o informe imprimible). */
+/** Iniciar / finalizar la sala y exportar (Excel del servidor o informe imprimible). El Excel lleva nombres y cédulas: soporte no lo descarga. */
 export function SessionActions({ id, session }: { id: string, session: Session | undefined }) {
   const base = usePanelBase()
   const canEdit = useCanEdit()
@@ -32,10 +32,10 @@ export function SessionActions({ id, session }: { id: string, session: Session |
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start" className="w-64 bg-popover border shadow-lg z-[200]">
-          <DropdownMenuItem className="gap-2.5 py-2 cursor-pointer" onClick={() => exportXlsx.mutate({ id, code: session?.code ?? 'juego-libre' })}>
+          {canEdit && <DropdownMenuItem className="gap-2.5 py-2 cursor-pointer" onClick={() => exportXlsx.mutate({ id, code: session?.code ?? 'juego-libre' })}>
             <FileSpreadsheet className="h-4 w-4 text-green-600" />
             <span><span className="block text-sm font-medium">Excel (.xlsx)</span><span className="block text-[11px] text-muted-foreground">Participantes, riesgos e intentos en hojas</span></span>
-          </DropdownMenuItem>
+          </DropdownMenuItem>}
           <DropdownMenuItem className="gap-2.5 py-2 cursor-pointer" onClick={() => window.open(`${base}/sessions/${id}/report`, '_blank', 'noopener')}>
             <FileText className="h-4 w-4 text-red-600" />
             <span><span className="block text-sm font-medium">Informe PDF</span><span className="block text-[11px] text-muted-foreground">Informe visual listo para imprimir</span></span>
