@@ -1,6 +1,6 @@
 import JSZip from 'jszip'
 import { describe, it, expect } from 'vitest'
-import { activeVersion, checkBuild, isPublishing, type GameVersion } from './deploy'
+import { activeVersion, checkBuild, isPublishing, uploaderName, type GameVersion } from './deploy'
 
 const zipOf = async (entries: Record<string, string>): Promise<Blob> => {
   const zip = new JSZip()
@@ -81,5 +81,20 @@ describe('versiones del juego', () => {
     expect(isPublishing(versions)).toBe(true)
     expect(isPublishing([v('a', 'ready')])).toBe(false)
     expect(isPublishing(undefined)).toBe(false)
+  })
+})
+
+describe('quién subió la versión', () => {
+  it('muestra el nombre de la persona', () => {
+    expect(uploaderName({ uploader: { id: 'u1', first_name: 'Ana', last_name: 'Pérez' } })).toBe('Ana Pérez')
+  })
+
+  it('sin autor la subió el CI', () => {
+    expect(uploaderName({ uploader: null })).toBe('subida por el CI')
+    expect(uploaderName({})).toBe('subida por el CI')
+  })
+
+  it('una persona sin nombre no queda en blanco', () => {
+    expect(uploaderName({ uploader: { id: 'u1', first_name: null, last_name: null } })).toBe('sin nombre')
   })
 })
