@@ -73,3 +73,9 @@ export async function checkBuild(file: Blob): Promise<BuildCheck> {
 export const activeVersion = (versions: GameVersion[] | undefined): GameVersion | undefined => versions?.find(v => v.is_active)
 
 export const isPublishing = (versions: GameVersion[] | undefined): boolean => versions?.some(v => v.status === 'processing') ?? false
+
+/** Quién subió la versión. Sin autor la subió el CI del juego (GitHub Actions) con el token de despliegue. */
+export const uploaderName = (v: Pick<GameVersion, 'uploader'>): string => {
+  if (!v.uploader) return 'subida por el CI'
+  return `${v.uploader.first_name ?? ''} ${v.uploader.last_name ?? ''}`.trim() || 'sin nombre'
+}

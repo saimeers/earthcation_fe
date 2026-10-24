@@ -17,7 +17,7 @@ import { apiErrorMessage } from '@/shared/api/client'
 import { formatBytes } from '@/shared/lib/format'
 import { useDeployActions, useDeployStatus, useVersions } from '../../application/useDeploy'
 import { NotesEditor } from '../components/NotesEditor'
-import { checkBuild, compressionLabel, COMPRESSION_LABEL, type BuildCheck, type GameVersion } from '../../domain/deploy'
+import { checkBuild, compressionLabel, COMPRESSION_LABEL, uploaderName, type BuildCheck, type GameVersion } from '../../domain/deploy'
 
 const fmtDate = (d: string | null) => (d ? new Date(d).toLocaleString('es-CO', { dateStyle: 'medium', timeStyle: 'short' }) : '—')
 const errorOf = (err: unknown) => apiErrorMessage(err, 'Error desconocido')
@@ -172,7 +172,6 @@ type Confirm = { type: 'activate' | 'remove', v: GameVersion }
 function VersionRow({ v, onConfirm }: { v: GameVersion, onConfirm: (c: Confirm) => void }) {
   const { retry, preview } = useDeployActions()
   const m = v.manifest
-  const uploader = v.uploader ? `${v.uploader.first_name ?? ''} ${v.uploader.last_name ?? ''}`.trim() : null
 
   const openPreview = () => {
     // La pestaña se abre antes de la petición: si se abre después, el navegador la bloquea
@@ -193,7 +192,7 @@ function VersionRow({ v, onConfirm }: { v: GameVersion, onConfirm: (c: Confirm) 
             : <StatusBadge status={v.status} />}
         </div>
         <p className="text-xs text-muted-foreground">
-          {fmtDate(v.created_at)}{uploader ? ` · ${uploader}` : ''} · ZIP {formatBytes(Number(v.size_bytes))}
+          {fmtDate(v.created_at)} · {uploaderName(v)} · ZIP {formatBytes(Number(v.size_bytes))}
           {m && ` · ${m.files?.length ?? 0} archivos, ${formatBytes(m.total_bytes)} · ${compressionLabel(m.compression)}`}
           {v.activated_at && !v.is_active && ` · estuvo en línea el ${fmtDate(v.activated_at)}`}
         </p>
